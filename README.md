@@ -1,1 +1,1 @@
-# industrial-project-team-1
+# Industrial Project Team 1
