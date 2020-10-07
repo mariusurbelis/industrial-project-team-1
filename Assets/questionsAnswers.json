@@ -1,0 +1,593 @@
+﻿{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "Entertainment: Board Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In a standard game of Monopoly, what colour are the two cheapest properties?",
+      "correct_answer": "Brown",
+      "incorrect_answers": [
+        "Green",
+        "Yellow",
+        "Blue"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What was the name of the hero in the 80s animated video game &#039;Dragon&#039;s Lair&#039;?",
+      "correct_answer": "Dirk the Daring",
+      "incorrect_answers": [
+        "Arthur",
+        "Sir Toby Belch",
+        "Guy of Gisbourne"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the largest organ of the human body?",
+      "correct_answer": "Skin",
+      "incorrect_answers": [
+        "Heart",
+        "large Intestine",
+        "Liver"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "boolean",
+      "difficulty": "easy",
+      "question": "Matt Damon played an astronaut stranded on an extraterrestrial planet in both of the movies Interstellar and The Martian.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "category": "Entertainment: Books",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the fourth book of the Old Testament?",
+      "correct_answer": "Numbers",
+      "incorrect_answers": [
+        "Genesis",
+        "Exodus",
+        "Leviticus"
+      ]
+    },
+    {
+      "category": "Entertainment: Television",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In the original Star Trek TV series, what was Captain James T. Kirk&#039;s middle name?",
+      "correct_answer": "Tiberius",
+      "incorrect_answers": [
+        "Trevor",
+        "Travis",
+        "Tyrone"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the name of one of the Neo-Aramaic languages spoken by the Jewish population from Northwestern Iraq?",
+      "correct_answer": "Lishana Deni",
+      "incorrect_answers": [
+        "Hulaul&aacute;",
+        "Lishan Didan",
+        "Chaldean Neo-Aramaic"
+      ]
+    },
+    {
+      "category": "Entertainment: Comics",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What was the name of the first Robin in the Batman comics?",
+      "correct_answer": "Dick Grayson",
+      "incorrect_answers": [
+        "Bruce Wayne",
+        "Jason Todd",
+        "Tim Drake"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In the 2002 video game &quot;Kingdom Hearts&quot;, how many playable worlds were there?",
+      "correct_answer": "14",
+      "incorrect_answers": [
+        "13",
+        "16",
+        "11"
+      ]
+    },
+    {
+      "category": "Entertainment: Japanese Anime & Manga",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the age of Ash Ketchum in Pokemon when he starts his journey?",
+      "correct_answer": "10",
+      "incorrect_answers": [
+        "11",
+        "12",
+        "9"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "boolean",
+      "difficulty": "hard",
+      "question": "&quot;Number 16 Bus Shelter&quot; was a child&#039;s name that was approved by the New Zealand government.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "category": "Entertainment: Cartoon & Animations",
+      "type": "boolean",
+      "difficulty": "easy",
+      "question": "Bill Cipher in the show &quot;Gravity Falls&quot; is the good guy.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "category": "Science & Nature",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "&quot;The Big Bang Theory&quot; was first theorized by a priest of what religious ideology?",
+      "correct_answer": "Catholic",
+      "incorrect_answers": [
+        "Christian",
+        "Jewish",
+        "Islamic"
+      ]
+    },
+    {
+      "category": "Politics",
+      "type": "boolean",
+      "difficulty": "easy",
+      "question": "Russia passed a law in 2013 which outlaws telling children that homosexuals exist.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "category": "Entertainment: Japanese Anime & Manga",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "The manga JoJo&#039;s Bizarre Adventure is split into how many parts?",
+      "correct_answer": "8",
+      "incorrect_answers": [
+        "6",
+        "4",
+        "3"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What ingredients are required to make a cake in Minecraft?",
+      "correct_answer": "Milk, Sugar, Egg, and Wheat",
+      "incorrect_answers": [
+        "Milk, Bread, Egg, and Wheat",
+        "Milk, Sugar Cane, Egg, and Wheat",
+        "Milk, Sugar, and Wheat"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "On Twitter, what is the character limit for a Tweet?",
+      "correct_answer": "140",
+      "incorrect_answers": [
+        "120",
+        "160",
+        "100"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Kanye West at 2009 VMA&#039;s interrupted which celebrity?",
+      "correct_answer": "Taylor Swift",
+      "incorrect_answers": [
+        "MF DOOM",
+        "Beyonce",
+        "Beck"
+      ]
+    },
+    {
+      "category": "Entertainment: Film",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In &quot;Jurassic World&quot;, what is the name of the dinosaur that is a genetic hybrid?",
+      "correct_answer": "Indominus Rex",
+      "incorrect_answers": [
+        "Mosasaurus",
+        "Pteranodon",
+        "Tyrannosaurus Rex "
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which 80s band is fronted by singer/guitarist Robert Smith?",
+      "correct_answer": "The Cure",
+      "incorrect_answers": [
+        "The Smiths",
+        "Echo &amp; the Bunnymen",
+        "New Order"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "How fast is USB 3.1 Gen 2 theoretically?",
+      "correct_answer": "10 Gb/s",
+      "incorrect_answers": [
+        "5 Gb/s",
+        "8 Gb/s",
+        "1 Gb/s"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "boolean",
+      "difficulty": "easy",
+      "question": "In Pok&eacute;mon Sun and Moon, a male Salandit can evolve to a Salazzle.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In Hitman: Blood Money, what is the name of the target in the mission &quot;Death of a Showman&quot;?",
+      "correct_answer": "Joseph Clarence",
+      "incorrect_answers": [
+        "The Swing King",
+        "Maynard John",
+        "Manuel Delgado"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "During development of &quot;Super Mario World&quot;, Yoshi&#039;s hard saddle was originally which of these?",
+      "correct_answer": "A shell",
+      "incorrect_answers": [
+        "A slide of Gelatin",
+        "A poffin",
+        "A spike"
+      ]
+    },
+    {
+      "category": "Entertainment: Japanese Anime & Manga",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In Digimon, what is the Japanese name for the final evolutionary stage?",
+      "correct_answer": "Ultimate",
+      "incorrect_answers": [
+        "Mega",
+        "Adult",
+        "Champion"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "How many members are in the Japanese rock band SCANDAL?",
+      "correct_answer": "4",
+      "incorrect_answers": [
+        "5",
+        "2",
+        "18"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What year was Super Mario Bros. released?",
+      "correct_answer": "1985",
+      "incorrect_answers": [
+        "1983",
+        "1987",
+        "1986"
+      ]
+    },
+    {
+      "category": "Entertainment: Books",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the name of the gang that Ponyboy is a part of in the book, The Outsiders?",
+      "correct_answer": "The Greasers",
+      "incorrect_answers": [
+        "The Outsiders",
+        "The Mafia",
+        "The Socs"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What video game engine does the videogame Quake 2 run in?",
+      "correct_answer": "iD Tech 2",
+      "incorrect_answers": [
+        "iD Tech 3",
+        "iD Tech 1",
+        "Unreal Engine"
+      ]
+    },
+    {
+      "category": "Geography",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What city  has the busiest airport in the world?",
+      "correct_answer": "Atlanta, Georgia USA",
+      "incorrect_answers": [
+        "London, England",
+        "Chicago,Illinois ISA",
+        "Tokyo,Japan"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the name of the first level in &quot;Call of Duty: World at War&quot;?",
+      "correct_answer": "Semper Fi",
+      "incorrect_answers": [
+        "Ring of Steel",
+        "Vendetta",
+        "Eviction"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which former boy-band star released hit solo single &quot;Angels&quot; in 1997?",
+      "correct_answer": "Robbie Williams",
+      "incorrect_answers": [
+        "Justin Timberlake",
+        "Harry Styles",
+        "Gary Barlow"
+      ]
+    },
+    {
+      "category": "Science: Computers",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Dutch computer scientist Mark Overmars is known for creating which game development engine?",
+      "correct_answer": "Game Maker",
+      "incorrect_answers": [
+        "Stencyl",
+        "Construct",
+        "Torque 2D"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "What is the stage name of New Zealand singer Phillipa &quot;Pip&quot; Brown?",
+      "correct_answer": "Ladyhawke",
+      "incorrect_answers": [
+        "Lorde",
+        "Kesha",
+        "Anika Moa"
+      ]
+    },
+    {
+      "category": "Entertainment: Japanese Anime & Manga",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What animation studio produced &quot;Gurren Lagann&quot;?",
+      "correct_answer": "Gainax",
+      "incorrect_answers": [
+        "Kyoto Animation",
+        "Pierrot",
+        "A-1 Pictures"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What are the names of the Ice Climbers in the video game Ice Climber?",
+      "correct_answer": "Popo and Nana",
+      "incorrect_answers": [
+        "Popo and Nina",
+        "Papi and Nana",
+        "Papi and Nina"
+      ]
+    },
+    {
+      "category": "General Knowledge",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In which fast food chain can you order a Jamocha Shake?",
+      "correct_answer": "Arby&#039;s",
+      "incorrect_answers": [
+        "McDonald&#039;s",
+        "Burger King",
+        "Wendy&#039;s"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which of these Generation 1 Pokemon did NOT have an evolution in Generation 4?",
+      "correct_answer": "Jynx",
+      "incorrect_answers": [
+        "Electabuzz",
+        "Magmar",
+        "Rhydon"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "In Need for Speed: Underground, what car does Eddie drive?",
+      "correct_answer": "Nissan Skyline GT-R (R34)",
+      "incorrect_answers": [
+        "Mazda RX-7 FD3S",
+        "Acura Integra Type R",
+        "Subaru Impreza 2.5 RS"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "In &quot;Need for Speed III: Hot Pursuit&quot;, what is the name of the fictional car?",
+      "correct_answer": "El Ni&ntilde;o",
+      "incorrect_answers": [
+        "R&aacute;pido",
+        "&Aacute;gil",
+        "La Ni&ntilde;a"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "hard",
+      "question": "Which countries participated in the Lobster War?",
+      "correct_answer": "France and Brazil",
+      "incorrect_answers": [
+        "Canada and Norway",
+        "Australia and New Zealand",
+        "United States and England"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "boolean",
+      "difficulty": "easy",
+      "question": "In Until Dawn, both characters Sam and Mike cannot be killed under any means until the final chapter of the game.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "category": "Entertainment: Television",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In the show &quot;Dragonball Z&quot;, what is the name of Cell&#039;s most powerful attack?",
+      "correct_answer": "Solar Kamehameha",
+      "incorrect_answers": [
+        "Super Kamehameha",
+        "Cell Kamehameha",
+        "Android Kamehameha"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What CoD &quot;Deathstreak&quot; is only featured in Call of Duty : Modern Warfare 2?",
+      "correct_answer": "Copycat",
+      "incorrect_answers": [
+        " Martrydom",
+        "Final Stand",
+        "Revenge"
+      ]
+    },
+    {
+      "category": "History",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What was the name of the chemical that was dropped on Vietnam during the Vietnam war?",
+      "correct_answer": "Agent Orange",
+      "incorrect_answers": [
+        "Phosgene",
+        "Mustard Gas",
+        "Hydrogen Cyanide"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which of the following is a character in the video game Destiny?",
+      "correct_answer": "Cayde-6",
+      "incorrect_answers": [
+        "Ostrava of Boletaria",
+        "Mordecai the Hunter",
+        "Leon S. Kennedy"
+      ]
+    },
+    {
+      "category": "Sports",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which basketball team has attended the most NBA grand finals?",
+      "correct_answer": "Los Angeles Lakers",
+      "incorrect_answers": [
+        "Boston Celtics",
+        "Philadelphia 76ers",
+        "Golden State Warriors"
+      ]
+    },
+    {
+      "category": "Entertainment: Music",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "Which of these is not a song on the album Graduation by Kanye West?",
+      "correct_answer": "Waves",
+      "incorrect_answers": [
+        "I Wonder",
+        "Big Brother",
+        "The Glory"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is the mod &quot;Cry of Fear&quot; based off of?",
+      "correct_answer": "Half-Life",
+      "incorrect_answers": [
+        "Counter Strike: Source",
+        "Half-Life 2",
+        "It&#039;s a stand alone game, not a mod"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "medium",
+      "question": "What is a Tetris piece called?",
+      "correct_answer": "Tetromino",
+      "incorrect_answers": [
+        "Tetratile",
+        "Tetris",
+        "Tetripiece"
+      ]
+    }
+  ]
+}
