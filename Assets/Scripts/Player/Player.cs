@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static string username = "";
+
     public PhotonView photonView;
     public Rigidbody2D myBody;
 
@@ -16,5 +18,7 @@ public class Player : MonoBehaviour
 
     public bool IsMe => photonView.IsMine;
 
-    public string PlayerName => photonView.ViewID.ToString();
+    public string PlayerID => photonView.ViewID.ToString();
+
+    public string PlayerName => ((username.Length < 2) ? PlayerID : username);
 }
