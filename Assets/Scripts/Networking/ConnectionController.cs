@@ -2,6 +2,7 @@
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ConnectionController : MonoBehaviourPunCallbacks
@@ -16,12 +17,16 @@ public class ConnectionController : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log($"Connected to {PhotonNetwork.CloudRegion} server");
-        FindObjectOfType<LobbyController>().Connect();
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
         Debug.Log($"Disconnected. {cause.ToString()}");
+    }
+
+    public void ConnectToLobby()
+    {
+        FindObjectOfType<LobbyController>().Connect();
     }
 
     // Update is called once per frame
