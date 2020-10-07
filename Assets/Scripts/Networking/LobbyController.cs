@@ -21,6 +21,9 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public void Connect()
     {
         connectButton.SetActive(false);
+
+        Player.username = GameObject.Find("Username").GetComponent<TextMeshProUGUI>().text;
+
         PhotonNetwork.JoinOrCreateRoom("MainRoom", new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)RoomSize }, TypedLobby.Default);
         //if (!PhotonNetwork.InRoom) PhotonNetwork.JoinRoom("MainRoom");
     }
