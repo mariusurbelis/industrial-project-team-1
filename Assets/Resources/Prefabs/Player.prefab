@@ -162,9 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46963b16d469751409b1b5fc00969379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  username: 
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
   photonView: {fileID: 0}
   myBody: {fileID: 0}
-  playerColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1083335995569099073
 MonoBehaviour:
   m_ObjectHideFlags: 0

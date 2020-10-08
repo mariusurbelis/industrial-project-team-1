@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
 {
@@ -22,7 +23,13 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
     {
         connectButton.SetActive(false);
 
-        Player.username = GameObject.Find("Username InputField").GetComponent<TextMeshProUGUI>().text;
+        PlayerDataManager.ClearData();
+
+        PlayerDataManager.SaveData(PlayerDataManager.PlayerUsername, GameObject.Find("Username InputField").GetComponent<TextMeshProUGUI>().text);
+        //PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(playerColor)}");
+        PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(new Color(Random.value, Random.value, Random.value))}");
+
+        Debug.Log($"Player Color: {PlayerDataManager.LoadData(PlayerDataManager.PlayerColor)}");
 
         string chosenRoomName = GameObject.Find("Room Name InputField").GetComponent<TextMeshProUGUI>().text;
 

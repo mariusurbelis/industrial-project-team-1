@@ -16,10 +16,18 @@ public class Player : MonoBehaviour
     {
         photonView = GetComponent<PhotonView>();
         myBody = GetComponent<Rigidbody2D>();
-        
-        if (playerColor == null)
+
+        if (PlayerDataManager.ValueExists(PlayerDataManager.PlayerColor))
         {
-            playerColor = new Color(Random.value, Random.value, Random.value);
+            if (ColorUtility.TryParseHtmlString(PlayerDataManager.LoadData(PlayerDataManager.PlayerColor), out playerColor))
+            {
+                Debug.Log("Player color successfully set");
+            }
+        }
+
+        if (PlayerDataManager.ValueExists(PlayerDataManager.PlayerUsername))
+        {
+            username = PlayerDataManager.LoadData(PlayerDataManager.PlayerUsername);
         }
 
         gameObject.AddComponent<PlayerAvatar>();
