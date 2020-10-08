@@ -46,10 +46,10 @@ public class QuestionManager : MonoBehaviour
 				Bquestions.Add(newQuestion);
 				Bamount++;
 			}
-			for(int j = 0; j < MCamount; j++)
+		/*	for(int j = 0; j < MCamount; j++)
 			{
 				Debug.Log(MCquestions[j].incorrectAnswers[2]);
-			}
+			}*/
 		}
 
 	}
