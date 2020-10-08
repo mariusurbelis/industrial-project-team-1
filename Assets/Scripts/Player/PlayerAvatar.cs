@@ -18,7 +18,7 @@ public class PlayerAvatar : MonoBehaviour
     {
         if (player.IsMe)
         {
-            spriteRenderer.color = Player.playerColor;
+            spriteRenderer.color = player.playerColor;
             player.photonView.RPC("RPC_SetColor", RpcTarget.AllBuffered, spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b);
         }
     }
