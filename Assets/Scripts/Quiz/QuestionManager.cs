@@ -56,7 +56,7 @@ public class QuestionManager : MonoBehaviour
 
 	public static Question GetQuestion()
 	{
-		return Bquestions[Random.Range(0, Bamount)];
+		return MCquestions[Random.Range(0, MCamount)];
 	}
 
 }

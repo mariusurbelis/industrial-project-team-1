@@ -8,7 +8,7 @@ public class RoomJoinArea : MonoBehaviour
 {
     [SerializeField] private GameObject gameStartButton;
 
-    private int maxPlayers = 2;
+    private int maxPlayers = 1;
 
     private int playersInsideTheArea = 0;
 
