@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 using System;
+using Random = UnityEngine.Random;
 
 public class QuizManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class QuizManager : MonoBehaviour
     private void Awake()
     {
         photonView = GetComponent<PhotonView>();
-        
+
         answerOptions = new TextMeshProUGUI[options.Length];
 
         for (int i = 0; i < options.Length; i++)
@@ -24,21 +25,25 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    int[] ids = { 0, 1, 2, 3 };
+
     private void Start()
     {
-        //LoadQuestion();
-
-        int[] ids = { 0, 1, 2, 3 };
-
         photonView.RPC("RPC_LoadQuestion", RpcTarget.AllBuffered, 0, ids);
+    }
+
+    private void Update()
+    {
+        if (PhotonNetwork.IsMasterClient && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)))
+        {
+            photonView.RPC("RPC_LoadQuestion", RpcTarget.AllBuffered, Random.Range(0, 25), ids);
+        }
     }
 
     [PunRPC]
     void RPC_LoadQuestion(int ID, int[] order)
     {
-        Debug.Log("Loaded q");
-
-        Question question = QuestionManager.GetQuestion(1);
+        Question question = QuestionManager.GetQuestion(ID);
 
         string[] answers = { question.correctAnswer, question.incorrectAnswer1, question.incorrectAnswer2, question.incorrectAnswer3 };
 
