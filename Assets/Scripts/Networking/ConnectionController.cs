@@ -15,11 +15,11 @@ public class ConnectionController : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log($"Connected to {PhotonNetwork.CloudRegion} server");
+        //Debug.Log($"Connected to {PhotonNetwork.CloudRegion} server");
     }
 
     public override void OnDisconnected(DisconnectCause cause)
     {
-        Debug.Log($"Disconnected. {cause.ToString()}");
+        //Debug.Log($"Disconnected. {cause.ToString()}");
     }
 }
