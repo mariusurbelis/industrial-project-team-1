@@ -25,7 +25,7 @@ public class RoomController : MonoBehaviourPunCallbacks
 		
     }
 
-    private void LoadSceneByID(int ID)
+    public static void LoadSceneByID(int ID)
     {
         if (PhotonNetwork.IsMasterClient)
         {
