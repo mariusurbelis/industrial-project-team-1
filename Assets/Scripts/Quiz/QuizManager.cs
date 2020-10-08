@@ -37,7 +37,7 @@ public class QuizManager : MonoBehaviour
 
         int[] ids = { 0, 1, 2, 3 };
 
-        photonView.RPC("RPC_LoadQuestion", RpcTarget.AllBuffered, 0, (object)ids);
+        photonView.RPC("RPC_LoadQuestion", RpcTarget.AllBuffered, 0, ids);
     }
 
     [PunRPC]
