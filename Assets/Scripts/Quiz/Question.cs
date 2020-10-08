@@ -3,12 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[Serializable]
-public class ListItem
-{
-	public List <Question> questions = new List<Question>();
-}
 [Serializable]
 public class Question
 {

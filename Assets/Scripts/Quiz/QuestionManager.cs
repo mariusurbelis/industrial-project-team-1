@@ -7,10 +7,10 @@ using SimpleJSON;
 public class QuestionManager : MonoBehaviour
 {
 	private string jsonString;
-	public List<Question> MCquestions;
-	public List<Question> Bquestions;
-	public int MCamount = 0;
-	public int Bamount = 0;
+	private static List<Question> MCquestions;
+	private static List<Question> Bquestions;
+	private static int MCamount = 0;
+	private static int Bamount = 0;
 
 	// Start is called before the first frame update
 	void Start()
@@ -52,6 +52,11 @@ public class QuestionManager : MonoBehaviour
 			}*/
 		}
 
+	}
+
+	public static Question GetQuestion()
+	{
+		return Bquestions[Random.Range(0, Bamount)];
 	}
 
 }
