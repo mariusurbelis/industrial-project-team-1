@@ -40,7 +40,8 @@ public class QuestionManager : MonoBehaviour
             {
                 if (webData.isDone)
                 {
-                    JSONNode jsonData = JSON.Parse(System.Text.Encoding.UTF8.GetString(webData.downloadHandler.data));
+                    //JSONNode jsonData = JSON.Parse(System.Text.Encoding.UTF8.GetString(webData.downloadHandler.data));
+                    JSONNode jsonData = JSON.Parse(webData.downloadHandler.text);
 
                     if (jsonData == null)
                     {
@@ -95,6 +96,11 @@ public class QuestionManager : MonoBehaviour
     public static Question GetQuestion()
     {
         return MCquestions[Random.Range(0, MCamount)];
+    }
+
+    public static Question GetQuestion(int ID)
+    {
+        return MCquestions[ID];
     }
 
 }

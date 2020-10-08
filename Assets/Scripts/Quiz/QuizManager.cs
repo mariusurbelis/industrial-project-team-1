@@ -24,13 +24,6 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-    void LoadQuestion()
-    {
-        Question question = QuestionManager.GetQuestion();
-        answerOptions[0].text = question.correctAnswer;
-        answerOptions[1].text = question.falseAnswer;
-    }
-
     private void Start()
     {
         //LoadQuestion();
@@ -45,7 +38,7 @@ public class QuizManager : MonoBehaviour
     {
         Debug.Log("Loaded q");
 
-        Question question = QuestionManager.GetQuestion();
+        Question question = QuestionManager.GetQuestion(1);
 
         string[] answers = { question.correctAnswer, question.incorrectAnswer1, question.incorrectAnswer2, question.incorrectAnswer3 };
 
