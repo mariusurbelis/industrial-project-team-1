@@ -5,15 +5,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private Player player;
     private VariableJoystick joystick;
-
-    private PhotonView photonView;
-    private Rigidbody myBody;
 
     private void Awake()
     {
-        photonView = GetComponent<PhotonView>();
-        myBody = GetComponent<Rigidbody>();
+        player = GetComponent<Player>();
         joystick = FindObjectOfType<VariableJoystick>();
 
 #if UNITY_ANDROID
@@ -25,22 +22,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (photonView.IsMine)
+        if (player.IsMe)
         {
-            myBody.AddForce(new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime * 5000, Input.GetAxis("Vertical") * Time.deltaTime * 5000, 0), ForceMode.Force);
+            player.myBody.AddForce(new Vector2(Input.GetAxis("Horizontal") * Time.deltaTime * 5000, Input.GetAxis("Vertical") * Time.deltaTime * 5000), ForceMode2D.Force);
 
             if (Input.GetKey(KeyCode.Q))
             {
-                myBody.AddTorque(Vector3.forward);
+                player.myBody.AddTorque(Time.deltaTime * 500, ForceMode2D.Force);
             }
             else if (Input.GetKey(KeyCode.E))
             {
-                myBody.AddTorque(-Vector3.forward);
+                player.myBody.AddTorque(-Time.deltaTime * 500, ForceMode2D.Force);
             }
 
             if (joystick)
             {
-                myBody.AddForce(new Vector3(joystick.Horizontal * Time.deltaTime * 5000, joystick.Vertical * Time.deltaTime * 5000, 0), ForceMode.Force);
+                player.myBody.AddForce(new Vector2(joystick.Horizontal * Time.deltaTime * 5000, joystick.Vertical * Time.deltaTime * 5000), ForceMode2D.Force);
             }
         }
     }
