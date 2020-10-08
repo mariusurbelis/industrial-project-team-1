@@ -26,9 +26,9 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
         string chosenRoomName = GameObject.Find("Room Name InputField").GetComponent<TextMeshProUGUI>().text;
 
-        CreateRoom(chosenRoomName);
+        //CreateRoom(chosenRoomName);
 
-        //PhotonNetwork.JoinOrCreateRoom("MainRoom", new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)RoomSize }, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom( chosenRoomName , new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)RoomSize }, TypedLobby.Default);
         //if (!PhotonNetwork.InRoom) PhotonNetwork.JoinRoom("MainRoom");
     }
 
