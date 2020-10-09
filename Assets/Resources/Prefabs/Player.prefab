@@ -16,8 +16,6 @@ GameObject:
   - component: {fileID: 1083335995569099073}
   - component: {fileID: 1083335995569099074}
   - component: {fileID: 1083335995569099079}
-  - component: {fileID: 1083335995569099072}
-  - component: {fileID: -912093666725985697}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -164,6 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46963b16d469751409b1b5fc00969379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  username: 
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
   photonView: {fileID: 0}
   myBody: {fileID: 0}
 --- !u!114 &1083335995569099073
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
+  m_SynchronizeScale: 1
 --- !u!114 &1083335995569099079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,30 +214,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51bbecf4166b8b54790e44103eac10da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1083335995569099072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083335995569099103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a216cc4c1778e0141b3708783c6bf616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-912093666725985697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083335995569099103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4bbaea7e25540042a81b47e9632bd04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1568203671338876501

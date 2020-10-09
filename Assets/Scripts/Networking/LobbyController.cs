@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
 {
@@ -22,9 +23,19 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
     {
         connectButton.SetActive(false);
 
-        Player.username = GameObject.Find("Username").GetComponent<TextMeshProUGUI>().text;
+        PlayerDataManager.ClearData();
 
-        PhotonNetwork.JoinOrCreateRoom("MainRoom", new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)RoomSize }, TypedLobby.Default);
+        PlayerDataManager.SaveData(PlayerDataManager.PlayerUsername, GameObject.Find("Username InputField").GetComponent<TextMeshProUGUI>().text);
+        //PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(playerColor)}");
+        PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(new Color(Random.value, Random.value, Random.value))}");
+
+        Debug.Log($"Player Color: {PlayerDataManager.LoadData(PlayerDataManager.PlayerColor)}");
+
+        string chosenRoomName = GameObject.Find("Room Name InputField").GetComponent<TextMeshProUGUI>().text;
+
+        //CreateRoom(chosenRoomName);
+
+        PhotonNetwork.JoinOrCreateRoom( chosenRoomName , new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)RoomSize }, TypedLobby.Default);
         //if (!PhotonNetwork.InRoom) PhotonNetwork.JoinRoom("MainRoom");
     }
 
@@ -53,20 +64,25 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("Failed to join a room");
-        CreateRoom();
+        //CreateRoom();
     }
 
-    private void CreateRoom()
+    private void CreateRoom(string roomName)
     {
-        Debug.Log("Creating a room");
+        Debug.Log($"Creating a room: {roomName}");
         //int randomRoomNumber = UnityEngine.Random.Range(10000, 99999);
         RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)RoomSize };
         //PhotonNetwork.CreateRoom("Room-" + randomRoomNumber, roomOptions);
-        PhotonNetwork.CreateRoom("MainRoom", roomOptions);
+        PhotonNetwork.CreateRoom(roomName, roomOptions);
+    }
+
+    private void JoinRoom(string roomName)
+    {
+        PhotonNetwork.JoinRoom(roomName);
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
-        CreateRoom();
+        //CreateRoom();
     }
 }

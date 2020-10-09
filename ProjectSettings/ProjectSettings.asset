@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: UoD Team 1
   productName: Quiz Game
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}

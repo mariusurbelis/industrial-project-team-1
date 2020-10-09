@@ -21,15 +21,16 @@ public class RoomController : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Joined a room");
-        StartGame();
+		LoadSceneByID(1);
+		
     }
 
-    private void StartGame()
+    public static void LoadSceneByID(int ID)
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("Starting game");
-            PhotonNetwork.LoadLevel(sceneID);
+            Debug.Log($"Loading Scene {ID}");
+            PhotonNetwork.LoadLevel(ID);
         }
     }
 
