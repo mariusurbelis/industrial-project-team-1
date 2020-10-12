@@ -33,9 +33,4 @@ public class RoomController : MonoBehaviourPunCallbacks
             PhotonNetwork.LoadLevel(ID);
         }
     }
-
-    void Update()
-    {
-
-    }
 }

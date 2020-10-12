@@ -47,7 +47,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
         foreach (RoomInfo room in roomList)
         {
-            roomListText.text += $"{room.Name}: {room.PlayerCount}/{room.MaxPlayers}";
+            roomListText.text += $"{room.Name}: {room.PlayerCount}/{room.MaxPlayers}\n";
         }
 
         if (roomList.Count == 0)

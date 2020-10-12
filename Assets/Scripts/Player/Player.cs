@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,9 +40,27 @@ public class Player : MonoBehaviour
 
     public void RegisterRoundDone()
     {
-        Debug.Log($"Player {username} selected {selectedOption} option");
-        if (selectedOption != 0)
+        //if(!IsMe) return;
+
+        //Debug.Log($"Player {username} selected {selectedOption} option");
+
+        // Selected option to check against the correct answer
+        if (selectedOption != QuizManager.currentCorrectAnswerID)
+        {
             health--;
+
+            if (health <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    private void Die()
+    {
+        // Temporary
+        Destroy(gameObject.GetComponent<PlayerMovement>());
+        transform.position = new Vector2(0, -1.55f);
     }
 
     public bool IsMe => photonView.IsMine;

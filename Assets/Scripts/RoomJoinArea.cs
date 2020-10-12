@@ -18,7 +18,7 @@ public class RoomJoinArea : MonoBehaviour
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            gameStartButton.SetActive(playersInsideTheArea == maxPlayers);
+            gameStartButton.SetActive(playersInsideTheArea >= maxPlayers);
         }
     }
 

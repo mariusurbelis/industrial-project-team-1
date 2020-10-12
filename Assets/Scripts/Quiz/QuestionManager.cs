@@ -26,7 +26,7 @@ public class QuestionManager : MonoBehaviour
 
     IEnumerator RequestWebService()
     {
-        string getDataUrl = "https://opentdb.com/api.php?amount=50";
+        string getDataUrl = "https://api.urbelis.dev/project?key=questions";
 
         using (UnityWebRequest webData = UnityWebRequest.Get(getDataUrl))
         {
