@@ -26,7 +26,7 @@ public class QuestionManager : MonoBehaviour
 
     IEnumerator RequestWebService()
     {
-        string getDataUrl = "https://api.urbelis.dev/project?key=questions";
+        string getDataUrl = "https://opentdb.com/api.php?amount=50";
 
         using (UnityWebRequest webData = UnityWebRequest.Get(getDataUrl))
         {
@@ -49,8 +49,10 @@ public class QuestionManager : MonoBehaviour
                     }
                     else
                     {
-                        jsonString = jsonData.ToString();
+                        Debug.Log(jsonData.ToString());
+                        jsonString = jsonData.ToString().Replace("&#039;", "'").Replace("&quot;", "\"");
                         ProcessJSON();
+                        Debug.Log(jsonString);
                     }
                 }
             }
