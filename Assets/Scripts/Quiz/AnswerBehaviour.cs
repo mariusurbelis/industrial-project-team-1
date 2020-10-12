@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class AnswerBehaviour : MonoBehaviour
 {
-	void OnTriggerEnter2D(Collider2D col)
+	[SerializeField] private int optionID;
+
+	void OnTriggerEnter2D(Collider2D collider)
 	{
-		if (col.gameObject.tag == "Player")
+		if (collider.gameObject.CompareTag("Player"))
 		{
-			Debug.Log("hit" + this.gameObject.name);
+			collider.gameObject.GetComponent<Player>().selectedOption = optionID;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D collider)
+	{
+		if (collider.gameObject.CompareTag("Player"))
+		{
+			collider.gameObject.GetComponent<Player>().selectedOption = -1;
 		}
 	}
 }

@@ -20,22 +20,22 @@ public class RoomController : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Joined a room");
-		LoadSceneByID(1);
-		
+        //Debug.Log("Joined a room");
+        LoadSceneByID(1);
+
     }
 
     public static void LoadSceneByID(int ID)
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            Debug.Log($"Loading Scene {ID}");
+            //Debug.Log($"Loading Scene {ID}");
             PhotonNetwork.LoadLevel(ID);
         }
     }
 
     void Update()
     {
-        
+
     }
 }
