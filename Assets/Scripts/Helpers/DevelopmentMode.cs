@@ -11,5 +11,6 @@ public class DevelopmentMode : MonoBehaviour
         yAxisOffset = 100;
 
         GUI.Label(new Rect(new Vector2(10, yAxisOffset += 15), new Vector2(200, 20)), $"Health: {Player.Me.health}");
+        GUI.Label(new Rect(new Vector2(10, yAxisOffset += 15), new Vector2(200, 20)), $"Selection: {Player.Me.selectedOption}");
     }
 }
