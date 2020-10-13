@@ -15,11 +15,14 @@ public class QuizManager : MonoBehaviour
     [SerializeField] private GameObject[] options;
     private TextMeshProUGUI[] answerOptions;
 
+    private UIManager uiManager;
     private PhotonView photonView;
 
     private void Awake()
     {
         instance = this;
+
+        uiManager = FindObjectOfType<UIManager>();
         photonView = GetComponent<PhotonView>();
 
         answerOptions = new TextMeshProUGUI[options.Length];
@@ -37,7 +40,8 @@ public class QuizManager : MonoBehaviour
 
         string[] answers = { question.correctAnswer, question.incorrectAnswer1, question.incorrectAnswer2, question.incorrectAnswer3 };
 
-        GameObject.Find("Question Text").GetComponent<TextMeshProUGUI>().text = question.question;
+        //GameObject.Find("Question Text").GetComponent<TextMeshProUGUI>().text = question.question;
+        uiManager.SetQuestionText(question.question);
 
         currentCorrectAnswerID = order[0];
 
@@ -60,6 +64,7 @@ public class QuizManager : MonoBehaviour
         {
             RoundManager.roundTimer = timer;
         }
+        uiManager.SetTimerText(Mathf.RoundToInt(RoundManager.roundTimer));
     }
 
     public static void SyncTimer()
@@ -76,6 +81,11 @@ public class QuizManager : MonoBehaviour
         {
             instance.photonView.RPC("RPC_LoadLobby", RpcTarget.AllBuffered);
         }
+    }
+
+    public static void SetLives()
+    {
+        instance.uiManager.SetCurrentHearts((Player.Me) ? Player.Me.health : 0);
     }
 
     public static void LoadNewQuestion()
