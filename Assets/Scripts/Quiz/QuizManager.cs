@@ -42,6 +42,7 @@ public class QuizManager : MonoBehaviour
 
         //GameObject.Find("Question Text").GetComponent<TextMeshProUGUI>().text = question.question;
         uiManager.SetQuestionText(question.question);
+        //Debug.Log("Setting question " + question.question);
 
         currentCorrectAnswerID = order[0];
 
