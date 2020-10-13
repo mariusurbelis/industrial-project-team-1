@@ -29,7 +29,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         //PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(playerColor)}");
         PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(new Color(Random.value, Random.value, Random.value))}");
 
-        Debug.Log($"Player Color: {PlayerDataManager.LoadData(PlayerDataManager.PlayerColor)}");
+        //Debug.Log($"Player Color: {PlayerDataManager.LoadData(PlayerDataManager.PlayerColor)}");
 
         string chosenRoomName = GameObject.Find("Room Name InputField").GetComponent<TextMeshProUGUI>().text;
 
@@ -47,7 +47,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
         foreach (RoomInfo room in roomList)
         {
-            roomListText.text += $"{room.Name}: {room.PlayerCount}/{room.MaxPlayers}";
+            roomListText.text += $"{room.Name}: {room.PlayerCount}/{room.MaxPlayers}\n";
         }
 
         if (roomList.Count == 0)

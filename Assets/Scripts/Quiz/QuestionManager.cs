@@ -49,8 +49,10 @@ public class QuestionManager : MonoBehaviour
                     }
                     else
                     {
-                        jsonString = jsonData.ToString();
+                        Debug.Log(jsonData.ToString());
+                        jsonString = jsonData.ToString().Replace("&#039;", "'").Replace("&quot;", "\"");
                         ProcessJSON();
+                        Debug.Log(jsonString);
                     }
                 }
             }

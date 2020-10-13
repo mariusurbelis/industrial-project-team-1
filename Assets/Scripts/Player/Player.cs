@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class Player : MonoBehaviour
     public PhotonView photonView;
     public Rigidbody2D myBody;
 
+    public int health = 3;
+
+    public int selectedOption = -1;
 
     private void Awake()
     {
@@ -21,7 +25,7 @@ public class Player : MonoBehaviour
         {
             if (ColorUtility.TryParseHtmlString(PlayerDataManager.LoadData(PlayerDataManager.PlayerColor), out playerColor))
             {
-                Debug.Log("Player color successfully set");
+                //Debug.Log("Player color successfully set");
             }
         }
 
@@ -34,9 +38,50 @@ public class Player : MonoBehaviour
         gameObject.AddComponent<PlayerID>();
     }
 
+    public void RegisterRoundDone()
+    {
+        //if(!IsMe) return;
+
+        //Debug.Log($"Player {username} selected {selectedOption} option");
+
+        // Selected option to check against the correct answer
+        if (selectedOption != QuizManager.currentCorrectAnswerID)
+        {
+            health--;
+
+            if (health <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    private void Die()
+    {
+        // Temporary
+        Destroy(gameObject.GetComponent<PlayerMovement>());
+        transform.position = new Vector2(0, -1.55f);
+    }
+
     public bool IsMe => photonView.IsMine;
 
     public string PlayerID => photonView.ViewID.ToString();
 
     public string PlayerName => ((username.Length < 2) ? PlayerID : username);
+
+    public static Player Me
+    {
+        get
+        {
+            foreach (Player player in FindObjectsOfType<Player>())
+            {
+                if (player.IsMe)
+                {
+                    return player;
+                }
+            }
+
+            return null;
+        }
+    }
 }
