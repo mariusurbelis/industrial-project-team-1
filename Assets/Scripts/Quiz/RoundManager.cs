@@ -38,7 +38,7 @@ public class RoundManager : MonoBehaviour
 
     void Update()
     {
-        timerText.text = "" + Mathf.Round(roundTimer * 10) / 10;
+        //timerText.text = "" + Mathf.Round(roundTimer * 10) / 10;
 
         if (roundTimer > 0)
         {
@@ -71,6 +71,8 @@ public class RoundManager : MonoBehaviour
                     player.RegisterRoundDone();
                 }
                 roundEndInformed = true;
+
+                QuizManager.SetLives();
 
                 StartCoroutine(StartNewRound());
             }
