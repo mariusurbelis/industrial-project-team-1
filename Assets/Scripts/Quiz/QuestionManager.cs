@@ -100,9 +100,26 @@ public class QuestionManager : MonoBehaviour
         return MCquestions[Random.Range(0, MCamount)];
     }
 
-    public static Question GetQuestion(int ID)
+    public static Question GetQuestion(int ID, bool multiple)
     {
-        return MCquestions[ID];
+        return multiple ? MCquestions[ID] : Bquestions[ID];
     }
+
+
+	public static int QuantityMultiple
+	{
+		get
+		{
+			return MCamount;
+		}
+	}
+
+	public static int QuantityBoolean
+	{
+		get
+		{
+			return Bamount;
+		}
+	}
 
 }

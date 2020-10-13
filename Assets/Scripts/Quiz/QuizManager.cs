@@ -18,6 +18,8 @@ public class QuizManager : MonoBehaviour
     private UIManager uiManager;
     private PhotonView photonView;
 
+	private static List<int> usedIDs = new List<int>();
+
     private void Awake()
     {
         instance = this;
@@ -34,19 +36,30 @@ public class QuizManager : MonoBehaviour
     }
 
     [PunRPC]
-    void RPC_LoadQuestion(int ID, int[] order)
+    void RPC_LoadQuestion(int ID, int[] order, bool multiple)
     {
-        Question question = QuestionManager.GetQuestion(ID);
 
-        string[] answers = { question.correctAnswer, question.incorrectAnswer1, question.incorrectAnswer2, question.incorrectAnswer3 };
+		Question question = QuestionManager.GetQuestion(ID, multiple);
 
-        //GameObject.Find("Question Text").GetComponent<TextMeshProUGUI>().text = question.question;
+		List<string> answers = new List<string>();
+
+		if (multiple)
+		{
+			answers.Add(question.correctAnswer);
+			answers.Add(question.incorrectAnswer1);
+			answers.Add(question.incorrectAnswer2);
+			answers.Add(question.incorrectAnswer3);
+		}
+		else
+		{
+			answers.Add(question.correctAnswer);
+			answers.Add(question.falseAnswer);
+		}
+		answers.ToArray();
         uiManager.SetQuestionText(question.question);
-        //Debug.Log("Setting question " + question.question);
-
         currentCorrectAnswerID = order[0];
-
-        for (int i = 0; i < order.Length; i++)
+		//--------------------------------------------------------------- we send answers array to whatever function displays the options
+		for (int i = 0; i < order.Length; i++)
         {
             answerOptions[order[i]].text = answers[i];
         }
@@ -84,7 +97,7 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-    public static void SetLives()
+	public static void SetLives()
     {
         instance.uiManager.SetCurrentHearts((Player.Me) ? Player.Me.health : 0);
     }
@@ -94,24 +107,61 @@ public class QuizManager : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             // Randomize the ids array
-            int[] ids = RandomizeOrder();
-            //Debug.Log($"{ids[0]}, {ids[1]}, {ids[2]}, {ids[3]}");
-            int questionID = Random.Range(0, 30);
-            instance.photonView.RPC("RPC_LoadQuestion", RpcTarget.AllBuffered, questionID, ids);
+			//Debug.Log($"{ids[0]}, {ids[1]}, {ids[2]}, {ids[3]}");
+
+			int questionID;
+			bool multiple = Mathf.RoundToInt(Random.value) == 0;
+            int[] ids = RandomizeOrder(multiple);
+
+			if (multiple)
+			{
+				questionID = Random.Range(0, QuestionManager.QuantityMultiple);
+				while (usedIDs.Contains(questionID))
+				{
+					questionID = Random.Range(0, QuestionManager.QuantityMultiple);
+				}
+				usedIDs.Add(questionID);
+			}
+			else
+			{
+				questionID = Random.Range(0, QuestionManager.QuantityBoolean);
+				while (usedIDs.Contains(questionID))
+				{
+					questionID = Random.Range(0, QuestionManager.QuantityBoolean);
+				}
+				usedIDs.Add(questionID);
+			}
+
+            instance.photonView.RPC("RPC_LoadQuestion", RpcTarget.AllBuffered, questionID, ids, multiple);
             //instance.RPC_LoadQuestion(questionID, ids);
         }
     }
 
-    private static int[] RandomizeOrder()
+
+    private static int[] RandomizeOrder(bool multiple)
     {
-        int[] order = new int[4];
-        List<int> choices = new List<int>() { 0, 1, 2, 3 };
-        for (int i = 0; i < 4; i++)
-        {
-            order[i] = choices[Random.Range(0, choices.Count)];
-            choices.Remove(order[i]);
-        }
-        return order;
+		if (multiple)
+		{
+			int[] order = new int[4];
+			List<int> choices = new List<int>() { 0, 1, 2, 3 };
+			for (int i = 0; i < 4; i++)
+			{
+				order[i] = choices[Random.Range(0, choices.Count)];
+				choices.Remove(order[i]);
+			}
+			return order;
+		}
+		else
+		{
+			int[] order = new int[2];
+			List<int> choices = new List<int>() { 0, 1 };
+			for (int i = 0; i < 2; i++)
+			{
+				order[i] = choices[Random.Range(0, choices.Count)];
+				choices.Remove(order[i]);
+			}
+			return order;
+		}
     }
 
 }
