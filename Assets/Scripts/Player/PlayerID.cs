@@ -24,10 +24,6 @@ public class PlayerID : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Sets the player username.
-    /// </summary>
-    /// <param name="name">Username to set</param>
     [PunRPC]
     void RPC_SetName(string name)
     {

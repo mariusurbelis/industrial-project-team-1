@@ -10,11 +10,8 @@ using Random = UnityEngine.Random;
 public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
 {
     [SerializeField] private int RoomSize = 20;
-    [SerializeField] private GameObject connectButton = null;
+    [SerializeField] private GameObject connectButton;
 
-    /// <summary>
-    /// Once connection is established enables auto scene sync and connects to a lobby.
-    /// </summary>
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -22,9 +19,6 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         connectButton.SetActive(true);
     }
 
-    /// <summary>
-    /// Creates a room or joins one if already exists and sets the chosen user's username, stores it in PlayerPrefs.
-    /// </summary>
     public void Connect()
     {
         connectButton.SetActive(false);
@@ -35,7 +29,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         //PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(playerColor)}");
         PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(new Color(Random.value, Random.value, Random.value))}");
 
-        //Debug.Log($"Player Color: {PlayerDataManager.LoadData(PlayerDataManager.PlayerColor)}");
+        Debug.Log($"Player Color: {PlayerDataManager.LoadData(PlayerDataManager.PlayerColor)}");
 
         string chosenRoomName = GameObject.Find("Room Name InputField").GetComponent<TextMeshProUGUI>().text;
 
@@ -45,10 +39,6 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         //if (!PhotonNetwork.InRoom) PhotonNetwork.JoinRoom("MainRoom");
     }
 
-    /// <summary>
-    /// Callback once something changes in the room list.
-    /// </summary>
-    /// <param name="roomList">List of rooms</param>
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         TextMeshProUGUI roomListText = GameObject.Find("INFO").GetComponent<TextMeshProUGUI>();
@@ -57,7 +47,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
         foreach (RoomInfo room in roomList)
         {
-            roomListText.text += $"{room.Name}: {room.PlayerCount}/{room.MaxPlayers}\n";
+            roomListText.text += $"{room.Name}: {room.PlayerCount}/{room.MaxPlayers}";
         }
 
         if (roomList.Count == 0)
@@ -66,9 +56,6 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         }
     }
 
-    /// <summary>
-    /// Disconnects from the room.
-    /// </summary>
     public void Disconnect()
     {
         if (PhotonNetwork.InRoom) PhotonNetwork.LeaveRoom();
@@ -78,6 +65,20 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
     {
         Debug.Log("Failed to join a room");
         //CreateRoom();
+    }
+
+    private void CreateRoom(string roomName)
+    {
+        Debug.Log($"Creating a room: {roomName}");
+        //int randomRoomNumber = UnityEngine.Random.Range(10000, 99999);
+        RoomOptions roomOptions = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)RoomSize };
+        //PhotonNetwork.CreateRoom("Room-" + randomRoomNumber, roomOptions);
+        PhotonNetwork.CreateRoom(roomName, roomOptions);
+    }
+
+    private void JoinRoom(string roomName)
+    {
+        PhotonNetwork.JoinRoom(roomName);
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)

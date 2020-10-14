@@ -23,12 +23,6 @@ public class PlayerAvatar : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Syncs color across with other players.
-    /// </summary>
-    /// <param name="r">Red</param>
-    /// <param name="g">Green</param>
-    /// <param name="b">Blue</param>
     [PunRPC]
     void RPC_SetColor(float r, float g, float b)
     {
