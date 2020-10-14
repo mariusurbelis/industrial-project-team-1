@@ -19,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
 #endif
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (player.IsMe)

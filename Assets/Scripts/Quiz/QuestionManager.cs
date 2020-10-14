@@ -18,12 +18,17 @@ public class QuestionManager : MonoBehaviour
     {
         GetJsonData();
     }
-
+    /// <summary>
+    /// Starts a Coroutine to get JSON data from API
+    /// </summary>
     public void GetJsonData()
     {
         StartCoroutine(RequestWebService());
     }
-
+    /// <summary>
+    /// Requests a web request to the API and parses the data from the API to a JSON file.
+    /// </summary>
+    /// <returns>Returns a finish signal whenever the web request has been sent</returns>
     IEnumerator RequestWebService()
     {
         string getDataUrl = "https://api.urbelis.dev/project?key=questions";
@@ -58,7 +63,11 @@ public class QuestionManager : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Processes the data from the JSON file retrieved from the API.
+    /// Stores each question in the JSON file, into a question object.
+    /// Depending on the type of question (multiple choice/boolean) it will call different constructors for the questions.
+    /// </summary>
     private void ProcessJSON()
     {
         var D = JSON.Parse(jsonString);
@@ -94,18 +103,20 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
-
-    public static Question GetQuestion()
-    {
-        return MCquestions[Random.Range(0, MCamount)];
-    }
-
+    /// <summary>
+    /// Gets a question from the questions arrays.
+    /// </summary>
+    /// <param name="ID">Question ID in the array</param>
+    /// <param name="multiple">Whether the question is true/false or multiple choice</param>
+    /// <returns>Returns the question selected from the array of questions</returns>
     public static Question GetQuestion(int ID, bool multiple)
     {
         return multiple ? MCquestions[ID] : Bquestions[ID];
     }
 
-
+    /// <summary>
+    /// Used to get the quantity of multiple choice questions in the JSON file.
+    /// </summary>
 	public static int QuantityMultiple
 	{
 		get
@@ -113,7 +124,9 @@ public class QuestionManager : MonoBehaviour
 			return MCamount;
 		}
 	}
-
+    /// <summary>
+    /// Used to get the quantity of boolean questions in the JSON file.
+    /// </summary>
 	public static int QuantityBoolean
 	{
 		get
