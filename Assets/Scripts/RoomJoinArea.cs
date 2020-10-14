@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class RoomJoinArea : MonoBehaviour
 {
-    [SerializeField] private GameObject gameStartButton;
+    [SerializeField] private GameObject gameStartButton = null;
 
     private int maxPlayers = 1;
 
@@ -22,11 +22,18 @@ public class RoomJoinArea : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Loads the main game scene.
+    /// </summary>
     private void LoadTheGame()
     {
         RoomController.LoadSceneByID(2);
     }
 
+    /// <summary>
+    /// Increases the players inside the area counter.
+    /// </summary>
+    /// <param name="collision">Collider that enters the trigger</param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -35,6 +42,10 @@ public class RoomJoinArea : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Decreases the players inside the area counter.
+    /// </summary>
+    /// <param name="collision">Collider that exits the trigger</param>
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))

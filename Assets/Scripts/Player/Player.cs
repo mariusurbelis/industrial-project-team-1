@@ -38,6 +38,9 @@ public class Player : MonoBehaviour
         gameObject.AddComponent<PlayerID>();
     }
 
+    /// <summary>
+    /// Informs the player that a round is done. Checks if player answered correctly and changes its health accordingly. If health reaches 0 player loses.
+    /// </summary>
     public void RegisterRoundDone()
     {
         //if(!IsMe) return;
@@ -56,6 +59,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Player's movement is disabled and the player is taken back to the center of the game screen.
+    /// </summary>
     private void Die()
     {
         // Temporary
@@ -63,12 +69,24 @@ public class Player : MonoBehaviour
         transform.position = new Vector2(0, -1.55f);
     }
 
+    /// <summary>
+    /// Checks if the player object belongs to the player currently controling the game.
+    /// </summary>
     public bool IsMe => photonView.IsMine;
 
+    /// <summary>
+    /// Returns the unique identifier of the player.
+    /// </summary>
     public string PlayerID => photonView.ViewID.ToString();
 
+    /// <summary>
+    /// Returns the player username or the unique ID if the username field is empty.
+    /// </summary>
     public string PlayerName => ((username.Length < 2) ? PlayerID : username);
 
+    /// <summary>
+    /// Returns the player object that belongs to the actual player.
+    /// </summary>
     public static Player Me
     {
         get
