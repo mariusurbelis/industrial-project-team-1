@@ -18,7 +18,7 @@ public class QuizManager : MonoBehaviour
     private UIManager uiManager;
     private PhotonView photonView;
 
-	private static List<int> usedIDs = new List<int>();
+    private static List<int> usedIDs = new List<int>();
 
     private void Awake()
     {
@@ -45,30 +45,35 @@ public class QuizManager : MonoBehaviour
     void RPC_LoadQuestion(int ID, int[] order, bool multiple)
     {
 
-		Question question = QuestionManager.GetQuestion(ID, multiple);
+        Question question = QuestionManager.GetQuestion(ID, multiple);
 
-		List<string> answers = new List<string>();
+        List<string> answers = new List<string>();
 
-		if (multiple)
-		{
-			answers.Add(question.correctAnswer);
-			answers.Add(question.incorrectAnswer1);
-			answers.Add(question.incorrectAnswer2);
-			answers.Add(question.incorrectAnswer3);
-		}
-		else
-		{
-			answers.Add(question.correctAnswer);
-			answers.Add(question.falseAnswer);
-		}
-		answers.ToArray();
-        uiManager.SetQuestionText(question.question);
-        currentCorrectAnswerID = order[0];
-		//--------------------------------------------------------------- we send answers array to whatever function displays the options
-		for (int i = 0; i < order.Length; i++)
+        if (multiple)
         {
-            answerOptions[order[i]].text = answers[i];
+            answers.Add(question.correctAnswer);
+            answers.Add(question.incorrectAnswer1);
+            answers.Add(question.incorrectAnswer2);
+            answers.Add(question.incorrectAnswer3);
         }
+        else
+        {
+            answers.Add(question.correctAnswer);
+            answers.Add(question.falseAnswer);
+        }
+
+        currentCorrectAnswerID = order[0];
+        uiManager.SetQuestionText(question.question);
+
+        string[] finalAnswers = new string[answers.Count];
+
+        for (int i = 0; i < order.Length; i++)
+        {
+            finalAnswers[order[i]] = answers[i];
+            //answerOptions[order[i]].text = answers[i];
+        }
+
+        FindObjectOfType<AnswersManager>().SetAnswers(finalAnswers, order);
     }
 
     /// <summary>
@@ -132,30 +137,41 @@ public class QuizManager : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             // Randomize the ids array
-			//Debug.Log($"{ids[0]}, {ids[1]}, {ids[2]}, {ids[3]}");
+            //Debug.Log($"{ids[0]}, {ids[1]}, {ids[2]}, {ids[3]}");
 
-			int questionID;
-			bool multiple = Mathf.RoundToInt(Random.value) == 0;
+            int questionID;
+            bool multiple = Mathf.RoundToInt(Random.value) == 0;
             int[] ids = RandomizeOrder(multiple);
 
-			if (multiple)
-			{
-				questionID = Random.Range(0, QuestionManager.QuantityMultiple);
-				while (usedIDs.Contains(questionID))
-				{
-					questionID = Random.Range(0, QuestionManager.QuantityMultiple);
-				}
-				usedIDs.Add(questionID);
-			}
-			else
-			{
-				questionID = Random.Range(0, QuestionManager.QuantityBoolean);
-				while (usedIDs.Contains(questionID))
-				{
-					questionID = Random.Range(0, QuestionManager.QuantityBoolean);
-				}
-				usedIDs.Add(questionID);
-			}
+            if (multiple)
+            {
+                questionID = Random.Range(0, QuestionManager.QuantityMultiple);
+                while (usedIDs.Contains(questionID))
+                {
+                    questionID = Random.Range(0, QuestionManager.QuantityMultiple);
+                }
+                usedIDs.Add(questionID);
+            }
+            else
+            {
+                questionID = Random.Range(0, QuestionManager.QuantityBoolean);
+                while (usedIDs.Contains(questionID))
+                {
+                    questionID = Random.Range(0, QuestionManager.QuantityBoolean);
+                }
+                usedIDs.Add(questionID);
+            }
+
+            if (instance == null)
+            {
+                Debug.LogError("No instance!");
+
+                if (instance.photonView == null)
+                {
+                    Debug.LogError("No PhotonView!");
+                }
+            }
+
 
             instance.photonView.RPC("RPC_LoadQuestion", RpcTarget.AllBuffered, questionID, ids, multiple);
             //instance.RPC_LoadQuestion(questionID, ids);
@@ -169,28 +185,28 @@ public class QuizManager : MonoBehaviour
     /// <returns></returns>
     private static int[] RandomizeOrder(bool multiple)
     {
-		if (multiple)
-		{
-			int[] order = new int[4];
-			List<int> choices = new List<int>() { 0, 1, 2, 3 };
-			for (int i = 0; i < 4; i++)
-			{
-				order[i] = choices[Random.Range(0, choices.Count)];
-				choices.Remove(order[i]);
-			}
-			return order;
-		}
-		else
-		{
-			int[] order = new int[2];
-			List<int> choices = new List<int>() { 0, 1 };
-			for (int i = 0; i < 2; i++)
-			{
-				order[i] = choices[Random.Range(0, choices.Count)];
-				choices.Remove(order[i]);
-			}
-			return order;
-		}
+        if (multiple)
+        {
+            int[] order = new int[4];
+            List<int> choices = new List<int>() { 0, 1, 2, 3 };
+            for (int i = 0; i < 4; i++)
+            {
+                order[i] = choices[Random.Range(0, choices.Count)];
+                choices.Remove(order[i]);
+            }
+            return order;
+        }
+        else
+        {
+            int[] order = new int[2];
+            List<int> choices = new List<int>() { 0, 1 };
+            for (int i = 0; i < 2; i++)
+            {
+                order[i] = choices[Random.Range(0, choices.Count)];
+                choices.Remove(order[i]);
+            }
+            return order;
+        }
     }
 
 }
