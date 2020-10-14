@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnswerBehaviour : MonoBehaviour
 {
-	[SerializeField] private int optionID;
+	[SerializeField] private int optionID = -1;
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{

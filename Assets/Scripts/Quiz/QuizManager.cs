@@ -12,7 +12,7 @@ public class QuizManager : MonoBehaviour
 
     private static QuizManager instance;
 
-    [SerializeField] private GameObject[] options;
+    [SerializeField] private GameObject[] options = null;
     private TextMeshProUGUI[] answerOptions;
 
     private UIManager uiManager;

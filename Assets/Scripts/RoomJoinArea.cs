@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class RoomJoinArea : MonoBehaviour
 {
-    [SerializeField] private GameObject gameStartButton;
+    [SerializeField] private GameObject gameStartButton = null;
 
     private int maxPlayers = 1;
 
