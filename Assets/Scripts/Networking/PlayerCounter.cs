@@ -18,10 +18,14 @@ public class PlayerCounter : MonoBehaviour
     {
         if (PhotonNetwork.InRoom && TimerDone())
         {
-            text.text = $"Players: {PhotonNetwork.CurrentRoom.PlayerCount} ({PhotonNetwork.CurrentRoom.Name})";
+            //text.text = $"Players: {PhotonNetwork.CurrentRoom.PlayerCount} ({PhotonNetwork.CurrentRoom.Name})";
         }
     }
 
+    /// <summary>
+    /// Advances the timer and returns true every half a second if called every frame.
+    /// </summary>
+    /// <returns>True if the timer is done</returns>
     private bool TimerDone()
     {
         timer += Time.deltaTime;
