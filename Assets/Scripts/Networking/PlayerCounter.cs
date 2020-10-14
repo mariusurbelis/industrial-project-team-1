@@ -22,6 +22,10 @@ public class PlayerCounter : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Advances the timer and returns true every half a second if called every frame.
+    /// </summary>
+    /// <returns>True if the timer is done</returns>
     private bool TimerDone()
     {
         timer += Time.deltaTime;
