@@ -94,12 +94,12 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
-
-    public static Question GetQuestion()
-    {
-        return MCquestions[Random.Range(0, MCamount)];
-    }
-
+    /// <summary>
+    /// Gets a question from the questions arrays.
+    /// </summary>
+    /// <param name="ID">Question ID in the array</param>
+    /// <param name="multiple">Whether the question is true/false or multiple choice</param>
+    /// <returns></returns>
     public static Question GetQuestion(int ID, bool multiple)
     {
         return multiple ? MCquestions[ID] : Bquestions[ID];
