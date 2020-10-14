@@ -35,6 +35,12 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Loads a question for every existing player.
+    /// </summary>
+    /// <param name="ID">ID used to pick a question from a list of questions.</param>
+    /// <param name="order">Array used to set the order of questions.</param>
+    /// <param name="multiple">Based on the bool value, the questions can be either multiple (true) or boolean (false).</param>
     [PunRPC]
     void RPC_LoadQuestion(int ID, int[] order, bool multiple)
     {
@@ -64,13 +70,18 @@ public class QuizManager : MonoBehaviour
             answerOptions[order[i]].text = answers[i];
         }
     }
-
+    /// <summary>
+    /// Loads a lobby for every existing player.
+    /// </summary>
     [PunRPC]
     void RPC_LoadLobby()
     {
         RoomController.LoadSceneByID(1);
     }
-
+    /// <summary>
+    /// Synchronises the timer for every existing player.
+    /// </summary>
+    /// <param name="timer"></param>
     [PunRPC]
     void RPC_SyncTimer(float timer)
     {
@@ -80,7 +91,9 @@ public class QuizManager : MonoBehaviour
         }
         uiManager.SetTimerText(Mathf.RoundToInt(RoundManager.roundTimer));
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
     public static void SyncTimer()
     {
         if (PhotonNetwork.IsMasterClient)
