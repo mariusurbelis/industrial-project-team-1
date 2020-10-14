@@ -58,6 +58,19 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        //Adds players username to a list in the order they were eliminated
+        QuizManager.eliminationList.Add(username);
+
+        //Not to be used in this method. example to be used in leaderboard scene
+        int listLength = QuizManager.eliminationList.Count;
+        for (int i = 0; i < listLength; i++)
+        {
+            //temporary addition for debug use
+            Debug.Log(QuizManager.eliminationList[i].ToString());
+
+            //actual code to go in this would be for adding the names of people to the end leaderboard in the order they were eliminated
+            //does not have winner in the list currently
+        }
         // Temporary
         Destroy(gameObject.GetComponent<PlayerMovement>());
         transform.position = new Vector2(0, -1.55f);

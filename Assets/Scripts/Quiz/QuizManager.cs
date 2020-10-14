@@ -9,11 +9,14 @@ using Random = UnityEngine.Random;
 public class QuizManager : MonoBehaviour
 {
     public static int currentCorrectAnswerID = -1;
+    
 
     private static QuizManager instance;
 
     [SerializeField] private GameObject[] options;
     private TextMeshProUGUI[] answerOptions;
+    //list of usernames of dead players in the order they were eliminated
+    public static List<string> eliminationList = new List<string>();
 
     private UIManager uiManager;
     private PhotonView photonView;
