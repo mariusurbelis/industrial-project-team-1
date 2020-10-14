@@ -38,9 +38,9 @@ public class QuizManager : MonoBehaviour
     /// <summary>
     /// Loads a question for every existing player.
     /// </summary>
-    /// <param name="ID">ID used to pick a question from a list of questions.</param>
-    /// <param name="order">Array used to set the order of questions.</param>
-    /// <param name="multiple">Based on the bool value, the questions can be either multiple (true) or boolean (false).</param>
+    /// <param name="ID">ID used to pick a question from a list of questions</param>
+    /// <param name="order">Array used to set the order of questions</param>
+    /// <param name="multiple">Based on the bool value, the questions can be either multiple (true) or boolean (false)</param>
     [PunRPC]
     void RPC_LoadQuestion(int ID, int[] order, bool multiple)
     {
@@ -70,6 +70,7 @@ public class QuizManager : MonoBehaviour
             answerOptions[order[i]].text = answers[i];
         }
     }
+
     /// <summary>
     /// Loads a lobby for every existing player.
     /// </summary>
@@ -78,10 +79,11 @@ public class QuizManager : MonoBehaviour
     {
         RoomController.LoadSceneByID(1);
     }
+
     /// <summary>
     /// Synchronises the timer for every existing player.
     /// </summary>
-    /// <param name="timer"></param>
+    /// <param name="timer">Time to which the timer variable is set</param>
     [PunRPC]
     void RPC_SyncTimer(float timer)
     {
@@ -91,8 +93,9 @@ public class QuizManager : MonoBehaviour
         }
         uiManager.SetTimerText(Mathf.RoundToInt(RoundManager.roundTimer));
     }
+
     /// <summary>
-    /// 
+    /// Syncs everyone's the timer that is running on the host machine.
     /// </summary>
     public static void SyncTimer()
     {
@@ -102,6 +105,9 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Loads the lobby scene for every player.
+    /// </summary>
     public static void LoadLobby()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -110,11 +116,17 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Tells the UI to set the health display to the current player's health.
+    /// </summary>
 	public static void SetLives()
     {
         instance.uiManager.SetCurrentHearts((Player.Me) ? Player.Me.health : 0);
     }
 
+    /// <summary>
+    /// Loads a new random question that has not been shown before.
+    /// </summary>
     public static void LoadNewQuestion()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -150,7 +162,11 @@ public class QuizManager : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Randomizes the order of the IDs in an array to make the answer order random.
+    /// </summary>
+    /// <param name="multiple">If it is multiple choice or true/false question</param>
+    /// <returns></returns>
     private static int[] RandomizeOrder(bool multiple)
     {
 		if (multiple)
