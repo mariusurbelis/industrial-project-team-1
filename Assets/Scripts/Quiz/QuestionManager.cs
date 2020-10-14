@@ -28,7 +28,7 @@ public class QuestionManager : MonoBehaviour
     /// <summary>
     /// Requests a web request to the API and parses the data from the API to a JSON file.
     /// </summary>
-    /// <returns>Returns a finish signal whenever the web request has been sent.</returns>
+    /// <returns>Returns a finish signal whenever the web request has been sent</returns>
     IEnumerator RequestWebService()
     {
         string getDataUrl = "https://api.urbelis.dev/project?key=questions";
@@ -108,7 +108,7 @@ public class QuestionManager : MonoBehaviour
     /// </summary>
     /// <param name="ID">Question ID in the array</param>
     /// <param name="multiple">Whether the question is true/false or multiple choice</param>
-    /// <returns></returns>
+    /// <returns>Returns the question selected from the array of questions</returns>
     public static Question GetQuestion(int ID, bool multiple)
     {
         return multiple ? MCquestions[ID] : Bquestions[ID];
