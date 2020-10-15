@@ -25,10 +25,11 @@ public class RoomController : MonoBehaviourPunCallbacks
     {
         LoadSceneByID(1);
         Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount + " " + maxPlayers);
-        if (PhotonNetwork.CurrentRoom.PlayerCount >= maxPlayers)
+        
+        /*if (PhotonNetwork.CurrentRoom.PlayerCount >= maxPlayers)
         {
             PhotonNetwork.CurrentRoom.IsOpen = false;
-        }
+        }*/
     }
 
     /// <summary>

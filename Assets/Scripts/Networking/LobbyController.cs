@@ -66,7 +66,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
         //CreateRoom(chosenRoomName);
 
-        PhotonNetwork.JoinOrCreateRoom(chosenRoomName, new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)RoomSize }, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(chosenRoomName, new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)(int)playerCountSlider.value }, TypedLobby.Default);
         //if (!PhotonNetwork.InRoom) PhotonNetwork.JoinRoom("MainRoom");
     }
 
