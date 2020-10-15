@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 3291524311128466533}
   - component: {fileID: 2810552751650882043}
   m_Layer: 5
-  m_Name: TimerTemp
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -681,7 +681,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -8801819111103863087, guid: eae96e82d113b9b4b811f7a5b83e38d5,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1036,6 +1037,44 @@ MonoBehaviour:
     type: 3}
   m_openTrapdoorSprite: {fileID: -2283398578530428210, guid: 4bf4524468858a34bada24bbbdb015f3,
     type: 3}
+  m_timerImage: {fileID: 2810552751650882043}
+  m_timerSprites:
+  - {fileID: -8801819111103863087, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -8820052084179482687, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -7102256706045061542, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 2082709357606404985, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -7708887667909610036, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -2114105385175863417, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -7925798704284757377, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 2340517232825692284, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 8114061301604975458, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 5108040108971404231, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 2356700891745761746, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 2801234221354016872, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -4737109429411139581, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -7561500265244845680, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 9131167566237959575, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -5631446156002994497, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 1388457816202220654, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -8624989813219498642, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 3451159435496455263, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 2050051628597035042, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -6293183066193472209, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 5209318251795546750, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 3096164189261779345, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 8538836922387191612, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 3750054010182502784, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -2789340167691721826, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -7859023128849718462, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -1611865375923692447, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 987866257300334481, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -6849917732121472445, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 9203042338076844876, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: -6344692618745092734, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 1687506400978538400, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 3355797663024645995, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 3638589755607858661, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
+  - {fileID: 5061128018727013965, guid: eae96e82d113b9b4b811f7a5b83e38d5, type: 3}
   m_heartContainer: {fileID: 6085135142192393994}
   m_hearts:
   - {fileID: 692149564}
