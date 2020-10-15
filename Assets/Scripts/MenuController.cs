@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
+    public static State state = State.None;
+    public enum State { None, Host, Join };
+
     [SerializeField] private Button joinButton = null;
     [SerializeField] private Button hostButton = null;
     [SerializeField] private Button settingsButton = null;
@@ -20,9 +24,9 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
-        joinButton.onClick.AddListener(() => { ShowScreen(userPanel); });
-        hostButton.onClick.AddListener(() => { ShowHostScreen(); });
-        backButton.onClick.AddListener(() => { ShowScreen(navigationPanel); });
+        joinButton.onClick.AddListener(() => { ShowScreen(userPanel); state = State.Join; });
+        hostButton.onClick.AddListener(() => { ShowHostScreen(); state = State.Host; });
+        backButton.onClick.AddListener(() => { ShowScreen(navigationPanel); state = State.None; });
         instructionsButton.onClick.AddListener(() => { ShowInstructions(); });
         closeInstructionsButton.onClick.AddListener(() => { ShowScreen(navigationPanel); });
     }
@@ -45,14 +49,12 @@ public class MenuController : MonoBehaviour
         userPanel.SetActive(false);
         hostPanel.SetActive(false);
         instructionsPopUP.SetActive(false);
-   
     }
 
     private void ShowInstructions()
     {
         HideUI();
         instructionsPopUP.SetActive(true);
-      
     }
 }
 
