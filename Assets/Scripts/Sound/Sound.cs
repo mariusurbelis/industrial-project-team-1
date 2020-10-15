@@ -1,30 +1,28 @@
 ﻿using UnityEngine;
 
-namespace SquirrelForest
+
+public class Sound : MonoBehaviour
 {
-    public class Sound : MonoBehaviour
+    public static AudioClip screamSound;
+
+    public AudioClip screamSoundStub;
+
+    public static AudioSource audioSource;
+
+    private void Awake()
     {
-        public static AudioClip dieSound;
+        audioSource = GetComponent<AudioSource>();
 
-        public AudioClip dieSoundStub;
+        screamSound = screamSoundStub;
 
-        public static AudioSource audioSource;
-
-        private void Awake()
+        if (!FindObjectOfType<AudioListener>())
         {
-            audioSource = GetComponent<AudioSource>();
-
-            dieSound = dieSoundStub;
-
-            if (!FindObjectOfType<AudioListener>())
-            {
-                gameObject.AddComponent<AudioListener>();
-            }
+            gameObject.AddComponent<AudioListener>();
         }
+    }
 
-        public static void PlaySound(AudioClip clip)
-        {
-            audioSource.PlayOneShot(clip);
-        }
+    public static void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 }
