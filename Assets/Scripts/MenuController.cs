@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,19 +33,12 @@ public class MenuController : MonoBehaviour
         hostPanel.SetActive(true);
     }
 
-    /**
-   * Method to hide display panels based.
-   */
     private void ShowScreen(GameObject activeObject)
     {
         HideUI();
         activeObject.SetActive(true);
     }
 
-
-    /**
-     * Method to hide no relevant UI panels 
-     */
     private void HideUI()
     {
         navigationPanel.SetActive(false);
@@ -56,9 +48,6 @@ public class MenuController : MonoBehaviour
    
     }
 
-    /**
-     * Method to display the instructions panel while hiding the other non relevant panels
-     */
     private void ShowInstructions()
     {
         HideUI();
