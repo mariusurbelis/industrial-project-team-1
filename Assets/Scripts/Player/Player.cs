@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
 		if (selectedOption != QuizManager.currentCorrectAnswerID)
 		{
 			health--;
+			Sound.PlaySound(Sound.screamSound);
 			ToggleMovement(false);
 			animator.SetTrigger((selectedOption != -1) ? "Die" : "Melt");
 			StartCoroutine(BackToMiddle());
