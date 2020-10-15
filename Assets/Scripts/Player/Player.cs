@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
 		if (selectedOption != QuizManager.currentCorrectAnswerID)
 		{
 			health--;
-			
+			ToggleMovement(false);
 			animator.SetTrigger((selectedOption != -1) ? "Die" : "Melt");
 			StartCoroutine(BackToMiddle());
 			
@@ -71,8 +71,21 @@ public class Player : MonoBehaviour
 	{
 		yield return new WaitForSeconds(1.5f);
 		gameObject.transform.position = Vector2.zero;
+		StartCoroutine(EnableMovementAfterTime());
 		yield return null;
 	}
+
+	private void ToggleMovement(bool active)
+    {
+		GetComponent<PlayerMovement>().enabled = active;
+    }
+
+	private IEnumerator EnableMovementAfterTime()
+    {
+		yield return new WaitForSeconds(1.5f);
+		ToggleMovement(true);
+		yield return null;
+    }
 
 	/// <summary>
 	/// Player's movement is disabled and the player is taken back to the center of the game screen.
