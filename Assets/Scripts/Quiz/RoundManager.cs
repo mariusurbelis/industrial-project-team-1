@@ -98,7 +98,9 @@ public class RoundManager : MonoBehaviour
     /// <returns>Returns time between new rounds</returns>
     private IEnumerator StartNewRound()
     {
-        yield return new WaitForSeconds(0.75f);
+        FindObjectOfType<UIManager>().OpenTrapdoors(QuizManager.currentCorrectAnswerID);
+        yield return new WaitForSeconds(1.5f);
+        FindObjectOfType<UIManager>().CloseTrapdoors();
         NextRound();
         yield return null;
     }
