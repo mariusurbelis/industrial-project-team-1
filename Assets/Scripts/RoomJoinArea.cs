@@ -27,6 +27,7 @@ public class RoomJoinArea : MonoBehaviour
     /// </summary>
     private void LoadTheGame()
     {
+        PhotonNetwork.CurrentRoom.IsOpen = false;
         RoomController.LoadSceneByID(2);
     }
 
