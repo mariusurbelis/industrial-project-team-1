@@ -13,10 +13,13 @@ public class UIManager : MonoBehaviour
     public Sprite m_aliveHeartSprite;
     public Sprite m_deadHeartSprite;
     public Sprite m_openTrapdoorSprite;
+    public Image m_timerImage;
+    public Sprite[] m_timerSprites;
     public Component m_heartContainer;  // Container of the heart objects
     public Image[] m_hearts;            // Array of the heart objects
 
     private int m_maxHearts = 3;
+    private int m_maxTime = 30;
 
     /// <summary>
     /// Sets the question text
@@ -44,6 +47,29 @@ public class UIManager : MonoBehaviour
     public void SetTimerText(int timerText)
     {
         m_timerTextComponent.text = timerText.ToString();
+        UpdateTimerAnimation(timerText);
+    }
+
+    /// <summary>
+    /// Sets the initial time on the timer
+    /// </summary>
+    /// <param name="initialTime">The time the timer will start counting from</param>
+    public void SetInitialTime(int initialTime)
+    {
+        m_maxTime = initialTime;
+        SetTimerText(initialTime);
+    }
+
+    /// <summary>
+    /// Updates the timer based on how much time is remaining
+    /// </summary>
+    /// <param name="currentTime">The time left in the timer</param>
+    private void UpdateTimerAnimation(int currentTime)
+    {
+        float timeRatio = (1 - ((float)currentTime / (float)m_maxTime)) * 36;
+        int spriteNo = (int)timeRatio;
+        spriteNo = Mathf.Clamp(spriteNo, 0, 35);
+        m_timerImage.sprite = m_timerSprites[spriteNo];
     }
 
     /// <summary>
