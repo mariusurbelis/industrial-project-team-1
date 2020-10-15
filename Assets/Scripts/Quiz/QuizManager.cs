@@ -9,16 +9,19 @@ using Random = UnityEngine.Random;
 public class QuizManager : MonoBehaviour
 {
     public static int currentCorrectAnswerID = -1;
+    
 
     private static QuizManager instance;
 
-    [SerializeField] private GameObject[] options;
+    [SerializeField] private GameObject[] options = null;
     private TextMeshProUGUI[] answerOptions;
+    //list of usernames of dead players in the order they were eliminated
+    public static List<string> eliminationList = new List<string>();
 
     private UIManager uiManager;
     private PhotonView photonView;
 
-	private static List<int> usedIDs = new List<int>();
+    private static List<int> usedIDs = new List<int>();
 
     private void Awake()
     {
@@ -35,42 +38,60 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Loads a question for every existing player.
+    /// </summary>
+    /// <param name="ID">ID used to pick a question from a list of questions</param>
+    /// <param name="order">Array used to set the order of questions</param>
+    /// <param name="multiple">Based on the bool value, the questions can be either multiple (true) or boolean (false)</param>
     [PunRPC]
     void RPC_LoadQuestion(int ID, int[] order, bool multiple)
     {
 
-		Question question = QuestionManager.GetQuestion(ID, multiple);
+        Question question = QuestionManager.GetQuestion(ID, multiple);
 
-		List<string> answers = new List<string>();
+        List<string> answers = new List<string>();
 
-		if (multiple)
-		{
-			answers.Add(question.correctAnswer);
-			answers.Add(question.incorrectAnswer1);
-			answers.Add(question.incorrectAnswer2);
-			answers.Add(question.incorrectAnswer3);
-		}
-		else
-		{
-			answers.Add(question.correctAnswer);
-			answers.Add(question.falseAnswer);
-		}
-		answers.ToArray();
-        uiManager.SetQuestionText(question.question);
-        currentCorrectAnswerID = order[0];
-		//--------------------------------------------------------------- we send answers array to whatever function displays the options
-		for (int i = 0; i < order.Length; i++)
+        if (multiple)
         {
-            answerOptions[order[i]].text = answers[i];
+            answers.Add(question.correctAnswer);
+            answers.Add(question.incorrectAnswer1);
+            answers.Add(question.incorrectAnswer2);
+            answers.Add(question.incorrectAnswer3);
         }
+        else
+        {
+            answers.Add(question.correctAnswer);
+            answers.Add(question.falseAnswer);
+        }
+
+        currentCorrectAnswerID = order[0];
+        uiManager.SetQuestionText(question.question);
+
+        string[] finalAnswers = new string[answers.Count];
+
+        for (int i = 0; i < order.Length; i++)
+        {
+            finalAnswers[order[i]] = answers[i];
+            //answerOptions[order[i]].text = answers[i];
+        }
+
+        FindObjectOfType<AnswersManager>().SetAnswers(finalAnswers, order);
     }
 
+    /// <summary>
+    /// Loads a lobby for every existing player.
+    /// </summary>
     [PunRPC]
     void RPC_LoadLobby()
     {
         RoomController.LoadSceneByID(1);
     }
 
+    /// <summary>
+    /// Synchronises the timer for every existing player.
+    /// </summary>
+    /// <param name="timer">Time to which the timer variable is set</param>
     [PunRPC]
     void RPC_SyncTimer(float timer)
     {
@@ -81,6 +102,9 @@ public class QuizManager : MonoBehaviour
         uiManager.SetTimerText(Mathf.RoundToInt(RoundManager.roundTimer));
     }
 
+    /// <summary>
+    /// Syncs everyone's the timer that is running on the host machine.
+    /// </summary>
     public static void SyncTimer()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -89,6 +113,9 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Loads the lobby scene for every player.
+    /// </summary>
     public static void LoadLobby()
     {
         if (PhotonNetwork.IsMasterClient)
@@ -97,71 +124,92 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Tells the UI to set the health display to the current player's health.
+    /// </summary>
 	public static void SetLives()
     {
         instance.uiManager.SetCurrentHearts((Player.Me) ? Player.Me.health : 0);
     }
 
+    /// <summary>
+    /// Loads a new random question that has not been shown before.
+    /// </summary>
     public static void LoadNewQuestion()
     {
         if (PhotonNetwork.IsMasterClient)
         {
             // Randomize the ids array
-			//Debug.Log($"{ids[0]}, {ids[1]}, {ids[2]}, {ids[3]}");
+            //Debug.Log($"{ids[0]}, {ids[1]}, {ids[2]}, {ids[3]}");
 
-			int questionID;
-			bool multiple = Mathf.RoundToInt(Random.value) == 0;
+            int questionID;
+            bool multiple = Mathf.RoundToInt(Random.value) == 0;
             int[] ids = RandomizeOrder(multiple);
 
-			if (multiple)
-			{
-				questionID = Random.Range(0, QuestionManager.QuantityMultiple);
-				while (usedIDs.Contains(questionID))
-				{
-					questionID = Random.Range(0, QuestionManager.QuantityMultiple);
-				}
-				usedIDs.Add(questionID);
-			}
-			else
-			{
-				questionID = Random.Range(0, QuestionManager.QuantityBoolean);
-				while (usedIDs.Contains(questionID))
-				{
-					questionID = Random.Range(0, QuestionManager.QuantityBoolean);
-				}
-				usedIDs.Add(questionID);
-			}
+            if (multiple)
+            {
+                questionID = Random.Range(0, QuestionManager.QuantityMultiple);
+                while (usedIDs.Contains(questionID))
+                {
+                    questionID = Random.Range(0, QuestionManager.QuantityMultiple);
+                }
+                usedIDs.Add(questionID);
+            }
+            else
+            {
+                questionID = Random.Range(0, QuestionManager.QuantityBoolean);
+                while (usedIDs.Contains(questionID))
+                {
+                    questionID = Random.Range(0, QuestionManager.QuantityBoolean);
+                }
+                usedIDs.Add(questionID);
+            }
+
+            if (instance == null)
+            {
+                Debug.LogError("No instance!");
+
+                if (instance.photonView == null)
+                {
+                    Debug.LogError("No PhotonView!");
+                }
+            }
+
 
             instance.photonView.RPC("RPC_LoadQuestion", RpcTarget.AllBuffered, questionID, ids, multiple);
             //instance.RPC_LoadQuestion(questionID, ids);
         }
     }
 
-
+    /// <summary>
+    /// Randomizes the order of the IDs in an array to make the answer order random.
+    /// </summary>
+    /// <param name="multiple">If it is multiple choice or true/false question</param>
+    /// <returns></returns>
     private static int[] RandomizeOrder(bool multiple)
     {
-		if (multiple)
-		{
-			int[] order = new int[4];
-			List<int> choices = new List<int>() { 0, 1, 2, 3 };
-			for (int i = 0; i < 4; i++)
-			{
-				order[i] = choices[Random.Range(0, choices.Count)];
-				choices.Remove(order[i]);
-			}
-			return order;
-		}
-		else
-		{
-			int[] order = new int[2];
-			List<int> choices = new List<int>() { 0, 1 };
-			for (int i = 0; i < 2; i++)
-			{
-				order[i] = choices[Random.Range(0, choices.Count)];
-				choices.Remove(order[i]);
-			}
-			return order;
-		}
+        if (multiple)
+        {
+            int[] order = new int[4];
+            List<int> choices = new List<int>() { 0, 1, 2, 3 };
+            for (int i = 0; i < 4; i++)
+            {
+                order[i] = choices[Random.Range(0, choices.Count)];
+                choices.Remove(order[i]);
+            }
+            return order;
+        }
+        else
+        {
+            int[] order = new int[2];
+            List<int> choices = new List<int>() { 0, 1 };
+            for (int i = 0; i < 2; i++)
+            {
+                order[i] = choices[Random.Range(0, choices.Count)];
+                choices.Remove(order[i]);
+            }
+            return order;
+        }
     }
 
 }

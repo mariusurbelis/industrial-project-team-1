@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviourPunCallbacks
 {
-    [SerializeField] int sceneID = 1;
+    public static int maxPlayers = 0;
 
     public override void OnEnable()
     {
@@ -18,13 +18,24 @@ public class RoomController : MonoBehaviourPunCallbacks
         PhotonNetwork.RemoveCallbackTarget(this);
     }
 
+    /// <summary>
+    /// Callback when a room is joined.
+    /// </summary>
     public override void OnJoinedRoom()
     {
-        //Debug.Log("Joined a room");
         LoadSceneByID(1);
-
+        Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount + " " + maxPlayers);
+        
+        /*if (PhotonNetwork.CurrentRoom.PlayerCount >= maxPlayers)
+        {
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+        }*/
     }
 
+    /// <summary>
+    /// Loads a scene for everyone connected to a room.
+    /// </summary>
+    /// <param name="ID">Build ID of a scene to be loaded</param>
     public static void LoadSceneByID(int ID)
     {
         if (PhotonNetwork.IsMasterClient)

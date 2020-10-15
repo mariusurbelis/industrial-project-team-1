@@ -1,0 +1,1958 @@
+fileFormatVersion: 2
+guid: abb08ffbd207bf340899682cba75f170
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8801819111103863087
+    second: Timer_0
+  - first:
+      213: -8820052084179482687
+    second: Timer_1
+  - first:
+      213: -7102256706045061542
+    second: Timer_2
+  - first:
+      213: 2082709357606404985
+    second: Timer_3
+  - first:
+      213: -7708887667909610036
+    second: Timer_4
+  - first:
+      213: -2114105385175863417
+    second: Timer_5
+  - first:
+      213: -7925798704284757377
+    second: Timer_6
+  - first:
+      213: 2340517232825692284
+    second: Timer_7
+  - first:
+      213: 8114061301604975458
+    second: Timer_8
+  - first:
+      213: 5108040108971404231
+    second: Timer_9
+  - first:
+      213: 2356700891745761746
+    second: Timer_10
+  - first:
+      213: 2801234221354016872
+    second: Timer_11
+  - first:
+      213: -4737109429411139581
+    second: Timer_12
+  - first:
+      213: -7561500265244845680
+    second: Timer_13
+  - first:
+      213: 9131167566237959575
+    second: Timer_14
+  - first:
+      213: -5631446156002994497
+    second: Timer_15
+  - first:
+      213: 1388457816202220654
+    second: Timer_16
+  - first:
+      213: -8624989813219498642
+    second: Timer_17
+  - first:
+      213: 3451159435496455263
+    second: Timer_18
+  - first:
+      213: 2050051628597035042
+    second: Timer_19
+  - first:
+      213: -6293183066193472209
+    second: Timer_20
+  - first:
+      213: 5209318251795546750
+    second: Timer_21
+  - first:
+      213: 3096164189261779345
+    second: Timer_22
+  - first:
+      213: 8538836922387191612
+    second: Timer_23
+  - first:
+      213: 3750054010182502784
+    second: Timer_24
+  - first:
+      213: -2789340167691721826
+    second: Timer_25
+  - first:
+      213: -7859023128849718462
+    second: Timer_26
+  - first:
+      213: -1611865375923692447
+    second: Timer_27
+  - first:
+      213: 987866257300334481
+    second: Timer_28
+  - first:
+      213: -6849917732121472445
+    second: Timer_29
+  - first:
+      213: 9203042338076844876
+    second: Timer_30
+  - first:
+      213: -6344692618745092734
+    second: Timer_31
+  - first:
+      213: 1687506400978538400
+    second: Timer_32
+  - first:
+      213: 3355797663024645995
+    second: Timer_33
+  - first:
+      213: 3638589755607858661
+    second: Timer_34
+  - first:
+      213: 5061128018727013965
+    second: Timer_35
+  - first:
+      213: -5357048493967568979
+    second: Timer_36
+  - first:
+      213: -1323229425667528787
+    second: Timer_37
+  - first:
+      213: -7809989127263963033
+    second: Timer_38
+  - first:
+      213: 3144931738850973023
+    second: Timer_39
+  - first:
+      213: 490379921468294326
+    second: Timer_40
+  - first:
+      213: 7711880230916819585
+    second: Timer_41
+  - first:
+      213: -1765702567508413688
+    second: Timer_42
+  - first:
+      213: -7105669530856565059
+    second: Timer_43
+  - first:
+      213: -1534651407998298710
+    second: Timer_44
+  - first:
+      213: -3316778300680414774
+    second: Timer_45
+  - first:
+      213: 1333273117602995073
+    second: Timer_46
+  - first:
+      213: -8172572588790175247
+    second: Timer_47
+  - first:
+      213: 4016815056571597259
+    second: Timer_48
+  - first:
+      213: 5563822639905690956
+    second: Timer_49
+  - first:
+      213: -7733725941435132986
+    second: Timer_50
+  - first:
+      213: 3354798081442142922
+    second: Timer_51
+  - first:
+      213: -9048112076625568707
+    second: Timer_52
+  - first:
+      213: 3364872649022377120
+    second: Timer_53
+  - first:
+      213: -7919191713327961807
+    second: Timer_54
+  - first:
+      213: 7761870038670371220
+    second: Timer_55
+  - first:
+      213: 1092589412434532931
+    second: Timer_56
+  - first:
+      213: -6792278828592871276
+    second: Timer_57
+  - first:
+      213: -2357628262973493607
+    second: Timer_58
+  - first:
+      213: 6673566588549957097
+    second: Timer_59
+  - first:
+      213: 9150362512651834959
+    second: Timer_60
+  - first:
+      213: 634565865632916330
+    second: Timer_61
+  - first:
+      213: 4404431247970046071
+    second: Timer_62
+  - first:
+      213: 1839515383693561240
+    second: Timer_63
+  - first:
+      213: 8454520496551120476
+    second: Timer_64
+  - first:
+      213: 6878596231529272868
+    second: Timer_65
+  - first:
+      213: -3209706394746207741
+    second: Timer_66
+  - first:
+      213: 5198485334883722254
+    second: Timer_67
+  - first:
+      213: -5749175692335764691
+    second: Timer_68
+  - first:
+      213: -6376268195325238667
+    second: Timer_69
+  - first:
+      213: 9083122037242667708
+    second: Timer_70
+  - first:
+      213: -5410173621746093640
+    second: Timer_71
+  - first:
+      213: 6643937816170379874
+    second: Timer_72
+  - first:
+      213: -6329166671872665946
+    second: Timer_73
+  - first:
+      213: -2900044720645957516
+    second: Timer_74
+  - first:
+      213: -8923836091604905119
+    second: Timer_75
+  - first:
+      213: 1172514879770836036
+    second: Timer_76
+  - first:
+      213: 9141769687694775981
+    second: Timer_77
+  - first:
+      213: -1865929219477240548
+    second: Timer_78
+  - first:
+      213: 8816182453807510707
+    second: Timer_79
+  - first:
+      213: 8219435948389078041
+    second: Timer_80
+  - first:
+      213: -2172975250503033848
+    second: Timer_81
+  - first:
+      213: 8032116123385489494
+    second: Timer_82
+  - first:
+      213: 14769871769172579
+    second: Timer_83
+  - first:
+      213: 2937642796724554050
+    second: Timer_84
+  - first:
+      213: -9176870882817499520
+    second: Timer_85
+  - first:
+      213: -7785336849723140490
+    second: Timer_86
+  - first:
+      213: 7034138543156060069
+    second: Timer_87
+  - first:
+      213: 2792389752863388027
+    second: Timer_88
+  - first:
+      213: 3741261421353937242
+    second: Timer_89
+  - first:
+      213: 417144724341710615
+    second: Timer_90
+  - first:
+      213: -7717715197704386456
+    second: Timer_91
+  - first:
+      213: -1209505910503998995
+    second: Timer_92
+  - first:
+      213: -2148036215930218337
+    second: Timer_93
+  - first:
+      213: 3762054268032180301
+    second: Timer_94
+  - first:
+      213: 7006296133772749741
+    second: Timer_95
+  - first:
+      213: -3413842055806500912
+    second: Timer_96
+  - first:
+      213: 4037277569627639392
+    second: Timer_97
+  - first:
+      213: -7198687625613356651
+    second: Timer_98
+  - first:
+      213: 6346056554027428729
+    second: Timer_99
+  - first:
+      213: 5575798795521606661
+    second: Timer_100
+  - first:
+      213: 7744849180432071748
+    second: Timer_101
+  - first:
+      213: 8806807106404703232
+    second: Timer_102
+  - first:
+      213: -4878374133809747050
+    second: Timer_103
+  - first:
+      213: 4771215413713100697
+    second: Timer_104
+  - first:
+      213: -7021232451108447317
+    second: Timer_105
+  - first:
+      213: -5870269252214020211
+    second: Timer_106
+  - first:
+      213: -51806151141224980
+    second: Timer_107
+  - first:
+      213: -4058100682218387060
+    second: Timer_108
+  - first:
+      213: -402087470560870253
+    second: Timer_109
+  - first:
+      213: 5348784148611451447
+    second: Timer_110
+  - first:
+      213: -6575439716392319218
+    second: Timer_111
+  - first:
+      213: 3799262447100854901
+    second: Timer_112
+  - first:
+      213: -440041910184111861
+    second: Timer_113
+  - first:
+      213: 209898126067816811
+    second: Timer_114
+  - first:
+      213: -3073035534853717436
+    second: Timer_115
+  - first:
+      213: -6339699355625889935
+    second: Timer_116
+  - first:
+      213: 5917760013158679231
+    second: Timer_117
+  - first:
+      213: 2142714811030499491
+    second: Timer_118
+  - first:
+      213: -2704930351166442960
+    second: Timer_119
+  - first:
+      213: -8230614068858038391
+    second: Timer_120
+  - first:
+      213: -5907375673533706992
+    second: Timer_121
+  - first:
+      213: 3110936998515820934
+    second: Timer_122
+  - first:
+      213: 5687841081496707939
+    second: Timer_123
+  - first:
+      213: -450596680986477047
+    second: Timer_124
+  - first:
+      213: -3892395122915833809
+    second: Timer_125
+  - first:
+      213: 7542437008323649031
+    second: Timer_126
+  - first:
+      213: -5844860140158229085
+    second: Timer_127
+  - first:
+      213: 1746363051483567987
+    second: Timer_128
+  - first:
+      213: -2932463665749190650
+    second: Timer_129
+  - first:
+      213: 4259784218199547009
+    second: Timer_130
+  - first:
+      213: 5288664840617006826
+    second: Timer_131
+  - first:
+      213: -7566928355296005196
+    second: Timer_132
+  - first:
+      213: 6370306123599342091
+    second: Timer_133
+  - first:
+      213: 3038161132786121380
+    second: Timer_134
+  - first:
+      213: 1715731660513478818
+    second: Timer_135
+  - first:
+      213: -8812288476790957146
+    second: Timer_136
+  - first:
+      213: -6341651001658059861
+    second: Timer_137
+  - first:
+      213: 2225144143886158571
+    second: Timer_138
+  - first:
+      213: 6133732678806460905
+    second: Timer_139
+  - first:
+      213: -4285175882853051459
+    second: Timer_140
+  - first:
+      213: 2084080744481498467
+    second: Timer_141
+  - first:
+      213: -1833515898012909450
+    second: Timer_142
+  - first:
+      213: 6944857064041928848
+    second: Timer_143
+  - first:
+      213: 3594734792485356135
+    second: Timer_144
+  - first:
+      213: -2461794577485517013
+    second: Timer_145
+  - first:
+      213: 7764881828696512582
+    second: Timer_146
+  - first:
+      213: -4009287619409036548
+    second: Timer_147
+  - first:
+      213: -5997209945660788813
+    second: Timer_148
+  - first:
+      213: 4642835636617171612
+    second: Timer_149
+  - first:
+      213: -2927121876103820562
+    second: Timer_150
+  - first:
+      213: -8047921564058206991
+    second: Timer_151
+  - first:
+      213: -6579365620122842579
+    second: Timer_152
+  - first:
+      213: -5101946219517453735
+    second: Timer_153
+  - first:
+      213: -7228182771360222319
+    second: Timer_154
+  - first:
+      213: -2174337290221251453
+    second: Timer_155
+  - first:
+      213: -2896671286967066316
+    second: Timer_156
+  - first:
+      213: -610537723669058644
+    second: Timer_157
+  - first:
+      213: -6864331348485769997
+    second: Timer_158
+  - first:
+      213: 2659165356783820581
+    second: Timer_159
+  - first:
+      213: -3691422716860334833
+    second: Timer_160
+  - first:
+      213: 7392340507382583410
+    second: Timer_161
+  - first:
+      213: 6457327531095258575
+    second: Timer_162
+  - first:
+      213: -5113984717248229142
+    second: Timer_163
+  - first:
+      213: 7890577739830547701
+    second: Timer_164
+  - first:
+      213: -7413645333537611636
+    second: Timer_165
+  - first:
+      213: 7649896162318233699
+    second: Timer_166
+  - first:
+      213: -1420178804833147645
+    second: Timer_167
+  - first:
+      213: -8453290002413993584
+    second: Timer_168
+  - first:
+      213: -4805918432882161435
+    second: Timer_169
+  - first:
+      213: -5876129770348566536
+    second: Timer_170
+  - first:
+      213: -2419319818106964770
+    second: Timer_171
+  - first:
+      213: 8237764110734776447
+    second: Timer_172
+  - first:
+      213: -1859243931132018409
+    second: Timer_173
+  - first:
+      213: 7339953609923446042
+    second: Timer_174
+  - first:
+      213: -7548265077581312496
+    second: Timer_175
+  - first:
+      213: 9140313769861034531
+    second: Timer_176
+  - first:
+      213: 7546271514603030643
+    second: Timer_177
+  - first:
+      213: 8840503887052591095
+    second: Timer_178
+  - first:
+      213: 1381627612497439073
+    second: Timer_179
+  - first:
+      213: -3501649121164720599
+    second: Timer_180
+  - first:
+      213: 8241417058401742204
+    second: Timer_181
+  - first:
+      213: -5486226425423318888
+    second: Timer_182
+  - first:
+      213: 178302092977155785
+    second: Timer_183
+  - first:
+      213: -2746593932734993694
+    second: Timer_184
+  - first:
+      213: -1793271541365333844
+    second: Timer_185
+  - first:
+      213: 422493107003728083
+    second: Timer_186
+  - first:
+      213: -7161638817287108720
+    second: Timer_187
+  - first:
+      213: -4079680350521203202
+    second: Timer_188
+  - first:
+      213: 8186066687645264887
+    second: Timer_189
+  - first:
+      213: 5197144514260221486
+    second: Timer_190
+  - first:
+      213: 6562627014187735270
+    second: Timer_191
+  - first:
+      213: 3806388600022371288
+    second: Timer_192
+  - first:
+      213: -2772323436787339958
+    second: Timer_193
+  - first:
+      213: -5878065192282554088
+    second: Timer_194
+  - first:
+      213: -6256465960173513401
+    second: Timer_195
+  - first:
+      213: 1041196613683901055
+    second: Timer_196
+  - first:
+      213: 1654609759430299140
+    second: Timer_197
+  - first:
+      213: -4811992809490867273
+    second: Timer_198
+  - first:
+      213: 232625046448288480
+    second: Timer_199
+  - first:
+      213: 5188024825445971907
+    second: Timer_200
+  - first:
+      213: -1196472238535690393
+    second: Timer_201
+  - first:
+      213: -1306694433423823863
+    second: Timer_202
+  - first:
+      213: 2965378880531123710
+    second: Timer_203
+  - first:
+      213: -3484906769478980156
+    second: Timer_204
+  - first:
+      213: -319994617061397525
+    second: Timer_205
+  - first:
+      213: -4064417087528911424
+    second: Timer_206
+  - first:
+      213: 7480692710372021959
+    second: Timer_207
+  - first:
+      213: -1769866809765969053
+    second: Timer_208
+  - first:
+      213: 4601899163704248465
+    second: Timer_209
+  - first:
+      213: -1503386172180046507
+    second: Timer_210
+  - first:
+      213: -4071331883358657461
+    second: Timer_211
+  - first:
+      213: -2298682112412340224
+    second: Timer_212
+  - first:
+      213: -2679355076532046689
+    second: Timer_213
+  - first:
+      213: 6177163343827961435
+    second: Timer_214
+  - first:
+      213: -4949435567818566460
+    second: Timer_215
+  - first:
+      213: -6469319707133110482
+    second: Timer_216
+  - first:
+      213: -2914481740274662787
+    second: Timer_217
+  - first:
+      213: 7941271105238358870
+    second: Timer_218
+  - first:
+      213: 1747107230092737395
+    second: Timer_219
+  - first:
+      213: 1510630362653929925
+    second: Timer_220
+  - first:
+      213: -4635884714712139326
+    second: Timer_221
+  - first:
+      213: 2257865771393409356
+    second: Timer_222
+  - first:
+      213: 8878959008682446847
+    second: Timer_223
+  - first:
+      213: -1895744535788340628
+    second: Timer_224
+  - first:
+      213: 4233741722948047107
+    second: Timer_225
+  - first:
+      213: 7186341883643854794
+    second: Timer_226
+  - first:
+      213: -3786525496996589696
+    second: Timer_227
+  - first:
+      213: -5155102806556277727
+    second: Timer_228
+  - first:
+      213: -4510667886866106509
+    second: Timer_229
+  - first:
+      213: 8097428421758899723
+    second: Timer_230
+  - first:
+      213: 6283605837876698802
+    second: Timer_231
+  - first:
+      213: -6457600382936880699
+    second: Timer_232
+  - first:
+      213: 2780240228988703659
+    second: Timer_233
+  - first:
+      213: -342122689547278323
+    second: Timer_234
+  - first:
+      213: -5815119435455865711
+    second: Timer_235
+  - first:
+      213: -1349245063180002180
+    second: Timer_236
+  - first:
+      213: 929571926147067059
+    second: Timer_237
+  - first:
+      213: 2890265696168691080
+    second: Timer_238
+  - first:
+      213: -583617117975547784
+    second: Timer_239
+  - first:
+      213: 5889181682558420910
+    second: Timer_240
+  - first:
+      213: -8557801653020452134
+    second: Timer_241
+  - first:
+      213: 5923385803037341065
+    second: Timer_242
+  - first:
+      213: -1473953745250502433
+    second: Timer_243
+  - first:
+      213: -1351960345411233182
+    second: Timer_244
+  - first:
+      213: 2616934522158459861
+    second: Timer_245
+  - first:
+      213: 5514112853439714721
+    second: Timer_246
+  - first:
+      213: 1005733438195215063
+    second: Timer_247
+  - first:
+      213: -7117234256427667851
+    second: Timer_248
+  - first:
+      213: 7266445103497410874
+    second: Timer_249
+  - first:
+      213: -228525224628309009
+    second: Timer_250
+  - first:
+      213: -4290495594301648069
+    second: Timer_251
+  - first:
+      213: -6309485949026427706
+    second: Timer_252
+  - first:
+      213: -1365925528335864588
+    second: Timer_253
+  - first:
+      213: 8228701631181339658
+    second: Timer_254
+  - first:
+      213: 500907136024389371
+    second: Timer_255
+  - first:
+      213: -6197510122760776364
+    second: Timer_256
+  - first:
+      213: -5152453915962995352
+    second: Timer_257
+  - first:
+      213: -6398820233678295169
+    second: Timer_258
+  - first:
+      213: 1989305208047154256
+    second: Timer_259
+  - first:
+      213: 6993994205973689784
+    second: Timer_260
+  - first:
+      213: -598553929140670050
+    second: Timer_261
+  - first:
+      213: -4428551235454618334
+    second: Timer_262
+  - first:
+      213: 6362167889746607471
+    second: Timer_263
+  - first:
+      213: 3754659923921026809
+    second: Timer_264
+  - first:
+      213: 6987165191324353708
+    second: Timer_265
+  - first:
+      213: 8261110141935541019
+    second: Timer_266
+  - first:
+      213: 7341738776123601631
+    second: Timer_267
+  - first:
+      213: -3154907977695018726
+    second: Timer_268
+  - first:
+      213: 6445411571983252124
+    second: Timer_269
+  - first:
+      213: -5720213368886839028
+    second: Timer_270
+  - first:
+      213: 491897196535172754
+    second: Timer_271
+  - first:
+      213: -2327993909104936799
+    second: Timer_272
+  - first:
+      213: 3332063800118035812
+    second: Timer_273
+  - first:
+      213: 9033871539570296997
+    second: Timer_274
+  - first:
+      213: 1046348404536672250
+    second: Timer_275
+  - first:
+      213: -8019223635746898605
+    second: Timer_276
+  - first:
+      213: 6013479888680370050
+    second: Timer_277
+  - first:
+      213: -4726893108405542112
+    second: Timer_278
+  - first:
+      213: -6328228186264478689
+    second: Timer_279
+  - first:
+      213: 419551357030216783
+    second: Timer_280
+  - first:
+      213: -5589524817394829334
+    second: Timer_281
+  - first:
+      213: -7237330414092416993
+    second: Timer_282
+  - first:
+      213: -7493369858107536160
+    second: Timer_283
+  - first:
+      213: 5209706903907640316
+    second: Timer_284
+  - first:
+      213: 3406107418913097231
+    second: Timer_285
+  - first:
+      213: 8458620124981488926
+    second: Timer_286
+  - first:
+      213: -8649885070039389726
+    second: Timer_287
+  - first:
+      213: 5867424622495785987
+    second: Timer_288
+  - first:
+      213: 7678551998362509434
+    second: Timer_289
+  - first:
+      213: 2405189852617422078
+    second: Timer_290
+  - first:
+      213: 961359156897432183
+    second: Timer_291
+  - first:
+      213: 4141232214826640945
+    second: Timer_292
+  - first:
+      213: -2668437466632252739
+    second: Timer_293
+  - first:
+      213: -2138695847181674681
+    second: Timer_294
+  - first:
+      213: -2530261442776203590
+    second: Timer_295
+  - first:
+      213: -597913826090915170
+    second: Timer_296
+  - first:
+      213: -1485574395912252778
+    second: Timer_297
+  - first:
+      213: 2683763504240419507
+    second: Timer_298
+  - first:
+      213: 2396437117326628317
+    second: Timer_299
+  - first:
+      213: -2567324595322098688
+    second: Timer_300
+  - first:
+      213: 1359168495490199130
+    second: Timer_301
+  - first:
+      213: 8884563494927784959
+    second: Timer_302
+  - first:
+      213: 7930394248484746667
+    second: Timer_303
+  - first:
+      213: -2260854830946593579
+    second: Timer_304
+  - first:
+      213: -8932445865751643266
+    second: Timer_305
+  - first:
+      213: 2666665588524768557
+    second: Timer_306
+  - first:
+      213: -7100243921423367413
+    second: Timer_307
+  - first:
+      213: -6227412845803050763
+    second: Timer_308
+  - first:
+      213: -4462347317500901502
+    second: Timer_309
+  - first:
+      213: 1188899177666603409
+    second: Timer_310
+  - first:
+      213: 3035056977514445375
+    second: Timer_311
+  - first:
+      213: -5218988974628815284
+    second: Timer_312
+  - first:
+      213: 5994452826468197718
+    second: Timer_313
+  - first:
+      213: -7195284315096265883
+    second: Timer_314
+  - first:
+      213: 4756189930053512370
+    second: Timer_315
+  - first:
+      213: 2530092831797006195
+    second: Timer_316
+  - first:
+      213: -2501831267508970670
+    second: Timer_317
+  - first:
+      213: -2712468644822612724
+    second: Timer_318
+  - first:
+      213: 3680436619109202200
+    second: Timer_319
+  - first:
+      213: 4466200453256199958
+    second: Timer_320
+  - first:
+      213: 8790586384839072257
+    second: Timer_321
+  - first:
+      213: -4399598236387225512
+    second: Timer_322
+  - first:
+      213: 527657482196116412
+    second: Timer_323
+  - first:
+      213: -8598212930752040976
+    second: Timer_0
+  - first:
+      213: 6830332612248739520
+    second: Timer_1
+  - first:
+      213: 5491217401376518866
+    second: Timer_2
+  - first:
+      213: 2092363326615699568
+    second: Timer_3
+  - first:
+      213: -1210733671862933253
+    second: Timer_4
+  - first:
+      213: -1935519060984002356
+    second: Timer_5
+  - first:
+      213: 2650955620983053818
+    second: Timer_6
+  - first:
+      213: 3849681991719038480
+    second: Timer_7
+  - first:
+      213: -8258339041518308966
+    second: Timer_8
+  - first:
+      213: 6775239557838183882
+    second: Timer_9
+  - first:
+      213: 5276362887310371395
+    second: Timer_10
+  - first:
+      213: 2054042244330895633
+    second: Timer_11
+  - first:
+      213: 8369787800706278785
+    second: Timer_12
+  - first:
+      213: 9168648013260138264
+    second: Timer_13
+  - first:
+      213: 1553289680340983076
+    second: Timer_14
+  - first:
+      213: 1318407009869077002
+    second: Timer_15
+  - first:
+      213: 7872325648686647171
+    second: Timer_16
+  - first:
+      213: -5740675668931852850
+    second: Timer_17
+  - first:
+      213: -2509597973417683926
+    second: Timer_18
+  - first:
+      213: 3596367708408868870
+    second: Timer_19
+  - first:
+      213: -768843854102901169
+    second: Timer_20
+  - first:
+      213: 2066401738571454546
+    second: Timer_21
+  - first:
+      213: 2525808996088148338
+    second: Timer_22
+  - first:
+      213: -4922386355440900139
+    second: Timer_23
+  - first:
+      213: -5480043090618270836
+    second: Timer_24
+  - first:
+      213: -9051721704233149158
+    second: Timer_25
+  - first:
+      213: -5346346707157918042
+    second: Timer_26
+  - first:
+      213: 2870043139960023909
+    second: Timer_27
+  - first:
+      213: -8847358649563875096
+    second: Timer_28
+  - first:
+      213: -6035416909736445125
+    second: Timer_29
+  - first:
+      213: 8593875853025253056
+    second: Timer_30
+  - first:
+      213: -8849417794216707758
+    second: Timer_31
+  - first:
+      213: -2604399566380368584
+    second: Timer_32
+  - first:
+      213: -2270975275636877074
+    second: Timer_33
+  - first:
+      213: -8519841238055410146
+    second: Timer_34
+  - first:
+      213: -4884526793953406069
+    second: Timer_35
+  - first:
+      213: -159174912321817004
+    second: Timer_36
+  - first:
+      213: -7428514241571067984
+    second: Timer_37
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Timer_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ffaa5f05e20da880800000000000000
+      internalID: -8598212930752040976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce1ada72573ace50800000000000000
+      internalID: 6830332612248739520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2bd710229b43c40800000000000000
+      internalID: 5491217401376518866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 070cbf71c51990d10800000000000000
+      internalID: 2092363326615699568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf86103e32c923fe0800000000000000
+      internalID: -1210733671862933253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc80d0a3ba7a325e0800000000000000
+      internalID: -1935519060984002356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd150887161ac420800000000000000
+      internalID: 2650955620983053818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01ea1aeff51dc6530800000000000000
+      internalID: 3849681991719038480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a91bf83756c746d80800000000000000
+      internalID: -8258339041518308966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acd9e192b7c760e50800000000000000
+      internalID: 6775239557838183882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a60343718693940800000000000000
+      internalID: 5276362887310371395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1193df6d98c618c10800000000000000
+      internalID: 2054042244330895633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185ee72e8a5772470800000000000000
+      internalID: 8369787800706278785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81726fc5ac49d3f70800000000000000
+      internalID: 9168648013260138264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_14
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42d110e0cb46e8510800000000000000
+      internalID: 1553289680340983076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_15
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0a91a4b03ceb4210800000000000000
+      internalID: 1318407009869077002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3870a26d77e104d60800000000000000
+      internalID: 7872325648686647171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_17
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5c69ef4e50550b0800000000000000
+      internalID: -5740675668931852850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_18
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a24166980fd1c2dd0800000000000000
+      internalID: -2509597973417683926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_19
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 600756d506dd8e130800000000000000
+      internalID: 3596367708408868870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_20
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4e447496948455f0800000000000000
+      internalID: -768843854102901169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_21
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2581dc6de655dac10800000000000000
+      internalID: 2066401738571454546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_22
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 271f15e46e97d0320800000000000000
+      internalID: 2525808996088148338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_23
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d727bc80bb20bbb0800000000000000
+      internalID: -4922386355440900139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_24
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b3dd5f7d9f2f3b0800000000000000
+      internalID: -5480043090618270836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_25
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1d5d7d6113d16280800000000000000
+      internalID: -9051721704233149158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_26
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aed5c9fef5fdc5b0800000000000000
+      internalID: -5346346707157918042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_27
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b2d57970174d720800000000000000
+      internalID: 2870043139960023909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_28
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e8f34cfe2ed73580800000000000000
+      internalID: -8847358649563875096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_29
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3bf5cf2c44ed3ca0800000000000000
+      internalID: -6035416909736445125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_30
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c690675e84934770800000000000000
+      internalID: 8593875853025253056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_31
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25931b2076d803580800000000000000
+      internalID: -8849417794216707758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_32
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83d77b0a4605bdbd0800000000000000
+      internalID: -2604399566380368584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_33
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee818f9d400eb70e0800000000000000
+      internalID: -2270975275636877074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_34
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16abf6b88173c980800000000000000
+      internalID: -8519841238055410146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Timer_35
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b83978e92cca63cb0800000000000000
+      internalID: -4884526793953406069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

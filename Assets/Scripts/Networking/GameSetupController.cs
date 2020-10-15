@@ -13,6 +13,9 @@ public class GameSetupController : MonoBehaviour
         CreatePlayer();
     }
 
+    /// <summary>
+    /// Instantiates a player in the scene.
+    /// </summary>
     private void CreatePlayer()
     {
         //Debug.Log("Creating player");

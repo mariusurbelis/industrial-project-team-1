@@ -19,7 +19,9 @@ public class RoundManager : MonoBehaviour
     {
         NextRound();
     }
-
+    /// <summary>
+    /// Creates a new round by resetting the timer and loading a new question.
+    /// </summary>
     private void NextRound()
     {
         //Debug.Log("Next round starting");
@@ -27,7 +29,9 @@ public class RoundManager : MonoBehaviour
         roundEndInformed = false;
         QuizManager.LoadNewQuestion();
     }
-
+    /// <summary>
+    /// Resets the timer.
+    /// </summary>
     private void ResetTimer()
     {
         roundTimer = roundTime;
@@ -88,10 +92,15 @@ public class RoundManager : MonoBehaviour
             gameDone = true;
         }
     }
-
+    /// <summary>
+    /// Starts the first round.
+    /// </summary>
+    /// <returns>Returns time between new rounds</returns>
     private IEnumerator StartNewRound()
     {
-        yield return new WaitForSeconds(0.75f);
+        FindObjectOfType<UIManager>().OpenTrapdoors(QuizManager.currentCorrectAnswerID);
+        yield return new WaitForSeconds(1.5f);
+        FindObjectOfType<UIManager>().CloseTrapdoors();
         NextRound();
         yield return null;
     }
