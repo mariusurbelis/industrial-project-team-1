@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
 	private Animator animator;
 	private bool isDead = false;
 
+	public Powerup.PowerupType powerup = Powerup.PowerupType.None;
+
 	public int health = 3;
 
 	public int selectedOption = -1;
@@ -117,6 +119,11 @@ public class Player : MonoBehaviour
 		transform.position = new Vector2(0, -4f);
 		isDead = true;
 	}
+
+	public void PickUpPowerup(Powerup.PowerupType powerupType)
+    {
+		powerup = powerupType;
+    }
 
 	/// <summary>
 	/// Checks if the player object belongs to the player currently controling the game.
