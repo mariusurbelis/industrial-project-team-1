@@ -6,7 +6,7 @@ public class PowerupSpawner : MonoBehaviour
 {
 
     [System.Serializable]
-    public class powerUp
+    public class Powerup
     {
         public string name;
         public GameObject prefab;
@@ -15,10 +15,11 @@ public class PowerupSpawner : MonoBehaviour
     }
 
     public Transform[] points;
-    public powerUp[] powerUps;
+    public Powerup[] powerups;
     public int SpawnTimer;
 
-    powerUp chosenPowerUp;
+    Powerup chosenPowerUp;
+
     float random;
     float cumulative;
 
@@ -42,16 +43,17 @@ public class PowerupSpawner : MonoBehaviour
         random = Random.value;
         cumulative = 0f;
 
-        for (int i = 0; i < powerUps.Length; i++)
+        for (int i = 0; i < powerups.Length; i++)
         {
-            cumulative +=powerUps[i].chance;
-            if (random < cumulative && Time.time >= powerUps[i].delayTime)
+            cumulative += powerups[i].chance;
+            if (random < cumulative && Time.time >= powerups[i].delayTime)
             {
-                 chosenPowerUp=powerUps[i];
+                chosenPowerUp = powerups[i];
                 break;
             }
         }
 
         Instantiate(chosenPowerUp.prefab, points[Random.Range(0, points.Length)].position, points[Random.Range(0, points.Length)].rotation);
+        
     }
 }
