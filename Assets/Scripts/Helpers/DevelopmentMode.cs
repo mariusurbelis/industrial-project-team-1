@@ -2,6 +2,7 @@
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class DevelopmentMode : MonoBehaviourPunCallbacks, ILobbyCallbacks
@@ -22,6 +23,11 @@ public class DevelopmentMode : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public override void OnJoinedLobby()
     {
         PhotonNetwork.JoinOrCreateRoom("Dev Test Room", new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)(int)2 }, TypedLobby.Default);
+    }
+
+    public override void OnJoinedRoom()
+    {
+        PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player"), new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0), Quaternion.identity);
     }
 
     private int yAxisOffset = 10;
