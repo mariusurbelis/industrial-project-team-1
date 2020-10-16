@@ -81,7 +81,10 @@ public class Player : MonoBehaviour
 
 	private void ToggleMovement(bool active)
     {
-		GetComponent<PlayerMovement>().enabled = active;
+		if (TryGetComponent(out PlayerMovement playerMovement))
+		{
+			playerMovement.enabled = active;
+		}
     }
 
 	private IEnumerator EnableMovementAfterTime()
