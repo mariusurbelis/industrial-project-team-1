@@ -116,7 +116,7 @@ public class UIManager : MonoBehaviour
     { 
         for (int i = 0; i < answersManager.answerArray.Length; i++)
         {
-            Sprite trapdoorSprite = answersManager.answerArray[i].GetComponentInChildren<Image>().sprite;
+            Sprite trapdoorSprite = answersManager.trapdoorImages[i].sprite;
             // Check if trapdoor is open
             if (trapdoorSprite == m_openTrapdoorSprite)
             {

@@ -1028,7 +1028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb02f268fad54c6478fd3a2437777bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  answersManager: {fileID: 0}
+  answersManager: {fileID: 4885885003678034393, guid: 6f5fd98e703c00d4cb9da834bd7bdc53,
+    type: 3}
   m_questionTextComponent: {fileID: 356444552745726383}
   m_timerTextComponent: {fileID: 1171099611129385801}
   m_aliveHeartSprite: {fileID: 6579227091846251853, guid: 6e015692a2393574388138fd92094a12,
