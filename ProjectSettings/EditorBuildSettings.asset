@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 8370b2bbf08b4b84cbe105b85d2632a1
+  - enabled: 1
+    path: Assets/Scenes/PowerupsDevelopment.unity
+    guid: d46dc3902575ddc46b36cf79ff820861
+  - enabled: 1
+    path: Assets/Scenes/PowerupsObjectsDevelopment.unity
+    guid: 816c33ed265419d4aa84f1c66c69f0ea
   m_configObjects: {}
