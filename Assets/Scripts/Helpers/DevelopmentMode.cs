@@ -28,7 +28,7 @@ public class DevelopmentMode : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player"), new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0), Quaternion.identity);
-        PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Powerup"), new Vector3(-5, 0), Quaternion.identity);
+        PhotonNetwork.Instantiate(Path.Combine("Powerups", "Bomb"), new Vector3(-5, 0), Quaternion.identity);
     }
 
     private int yAxisOffset = 10;
