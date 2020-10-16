@@ -19,7 +19,7 @@ public class LeaderboardTable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numberOfPlayers = 14;
+        numberOfPlayers = 20;
         positionClone = new GameObject[numberOfPlayers+1];
         nicknames = new Text[numberOfPlayers];
         
