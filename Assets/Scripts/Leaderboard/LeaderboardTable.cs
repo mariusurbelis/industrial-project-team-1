@@ -9,67 +9,28 @@ public class LeaderboardTable : MonoBehaviour
     public GameObject templatePosition;
     GameObject[] positionClone;
     public Text[] nicknames;
-    public GameObject[] Results;
-    
-    
+    public GameObject canvas;
+    List<GameObject> clonesArray = new List<GameObject>();
 
 
-    // Start is called before the first frame update. This method instantiates the array of nicknames so the table can be set
+
+
+
+    // Start is called before the first frame update
     void Start()
     {
-        numberOfPlayers = 11;
+        numberOfPlayers = 14;
         positionClone = new GameObject[numberOfPlayers+1];
         nicknames = new Text[numberOfPlayers];
-        Results = new GameObject[numberOfPlayers];
-        //Instantiate array of nicknames
-        //nicknames[0] = GameObject.Find("LeaderboardCanvas/First/nickname").GetComponent<Text>();
-        //nicknames[1] = GameObject.Find("LeaderboardCanvas/Second/nickname").GetComponent<Text>();
-        //nicknames[2] = GameObject.Find("LeaderboardCanvas/Third/nickname").GetComponent<Text>();
-        //nicknames[3] = GameObject.Find("LeaderboardCanvas/Fourth/nickname").GetComponent<Text>();
-        //nicknames[4] = GameObject.Find("LeaderboardCanvas/Fifth/nickname").GetComponent<Text>();
-        //nicknames[5] = GameObject.Find("LeaderboardCanvas/Sixth/nickname").GetComponent<Text>();
-
-
-        //Store = current.gameObject; // set store equal to parent of box
-        //createClonesss();
-        //positionClones();
+        
         createClones();
     }
 
-    void positionClones()
-    {
-        templatePosition.transform.Translate(0, -600, 0);
-        if (numberOfPlayers < 10)
-        {
-            Debug.Log("Players less than 10");
-            for (int i = 1; i < numberOfPlayers; i++)
-            {
-                Debug.Log(i);
-                //GameObject.Find("Position").GetComponent<Text>().text = "HELP";//(i).ToString() + "th";
-                
-
-                positionClone[i].transform.Translate(512, 0 - (i * 40), 0);
-                GameObject.Find("Position").GetComponent<Text>().text = "Score : ";
-
-            }
-        }
-    }
-
-
-    void createClonesss()
-    {
-        for (int i = 1; i < numberOfPlayers; i++)
-        {
-            positionClone[i] = Instantiate(templatePosition) as GameObject; // clone box
-            positionClone[i].transform.SetParent(templatePosition.transform.parent);
-            
-        }
-    }
-
+   
+    //This function instantiates the clones and formats them depending on the amount of players
     void createClones()
     {
-
-        if (numberOfPlayers < 10)
+        if (numberOfPlayers < 10) //if true, keep the positions in one colomn
         {
             Debug.Log("Players less than 10");
             for (int i = numberOfPlayers-1; i >=0; i--)
@@ -80,50 +41,52 @@ public class LeaderboardTable : MonoBehaviour
                 positionClone[i].transform.Translate(512, 383 - (i * 40), 0);
             }
         }
-        else
+        else //if true, then format the positions so that it is in two colomns instead of one
         {
-            Debug.Log("Players more than 10");
-            templatePosition.transform.Translate(-280, 0, 0);
-            //templatePosition.transform.localScale += new Vector3(-0.25f, -0.25f, -0.25f);
+            templatePosition.transform.Translate(-250, 0, 0);
             for (int i = numberOfPlayers-1 ; i >=0; i--)
             {
 
                 GameObject.Find("Position").GetComponent<Text>().text = (i+1).ToString()+"th";
                 
-
-                Debug.Log("DDDD");
-                positionClone[i] = Instantiate(templatePosition) as GameObject; // clone box
+                positionClone[i] = Instantiate(templatePosition) as GameObject; //clone position
                 positionClone[i].transform.SetParent(templatePosition.transform.parent);
-                if (i < 10)
+                if (i < 10) //colomn one
                 {
-                    Debug.Log(i);
-                    Debug.Log(433 - (i * 50));
                     positionClone[i].transform.Translate(512, 383 - (i * 50), 0);
                 }
-                else
+                else //colomn two
                 {
-                    Debug.Log(i);
-                    Debug.Log(433 - ((i-9) * 50));
-                    positionClone[i].transform.Translate(1000,383 - ((i-10) * 50), 0);
+                    positionClone[i].transform.Translate(1020,383 - ((i-10) * 50), 0);
                 }
                 
             }
-            positionClone[numberOfPlayers-1].transform.Translate(-280, 0, 0);
+            positionClone[numberOfPlayers - 1].transform.Translate(-250, 0, 0);
         }
-        
+        addClonesToArray(); 
     }
 
     //Sets the nickname at the given position
     void setNickname(int position, string name)
     {
-        nicknames[position].text = name;
+        clonesArray[position].transform.Find("nickname").GetComponent<Text>().text = name;
+        if (position == 0) //Also change the nick if the position is 0, as that is the template
+        {
+            templatePosition.transform.Find("nickname").GetComponent<Text>().text = name;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    //This function adds all the created clones to an array, it is called in the createClones function
+    void addClonesToArray()
     {
-        
+        for (int j = canvas.transform.childCount - 1; j >= 0; j--)
+        {
+            clonesArray.Add(canvas.transform.GetChild(j).gameObject);
+        }
     }
+
+    
 
     
 }
