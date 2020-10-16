@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
-    public enum PowerupType
+    // Start is called before the first frame update
+    void Start()
     {
-        None,
-        Bomb
-    };
+        
+    }
 
-    [SerializeField] private PowerupType myType;
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    // Update is called once per frame
+    void Update()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            collision.gameObject.GetComponent<Player>().PickUpPowerup(myType);
-            Destroy(gameObject);
-        }    
+        
     }
 }
+
