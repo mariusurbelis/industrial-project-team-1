@@ -18,5 +18,10 @@ public class Inventory : MonoBehaviour
         {
             powerupText.text = "Player has: " + Player.Me.powerup.ToString();
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Player.Me.UsePowerup();
+        }
     }
 }

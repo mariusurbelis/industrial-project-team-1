@@ -73,6 +73,17 @@ public class Player : MonoBehaviour
 		}
 	}
 
+	[PunRPC]
+	void RPC_BeAffectedByPowerup(Powerup.PowerupType powerupType, Vector2 powerupPosition)
+    {
+		switch (powerupType)
+		{
+			case Powerup.PowerupType.Bomb:
+				myBody.AddForce(powerupPosition - (Vector2)transform.position, ForceMode2D.Impulse);
+				break;
+		}
+	}
+
 	private IEnumerator BackToMiddle()
 	{
 		yield return new WaitForSeconds(1.5f);
@@ -94,6 +105,12 @@ public class Player : MonoBehaviour
 		yield return new WaitForSeconds(1.5f);
 		ToggleMovement(true);
 		yield return null;
+    }
+
+	public void UsePowerup()
+    {
+		photonView.RPC("RPC_BeAffectedByPowerup", RpcTarget.AllBuffered, powerup, (Vector2)transform.position);
+		powerup = Powerup.PowerupType.None;
     }
 
 	/// <summary>
