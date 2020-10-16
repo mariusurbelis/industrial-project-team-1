@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 	public PhotonView photonView;
 	public Rigidbody2D myBody;
 	private Animator animator;
+	private bool isDead = false;
 
 	public int health = 3;
 
@@ -49,6 +50,8 @@ public class Player : MonoBehaviour
 	/// </summary>
 	public void RegisterRoundDone()
 	{
+		// return if dead ---------------
+		if (isDead) return;
 		//if(!IsMe) return;
 		//Debug.Log($"Player {username} selected {selectedOption} option");
 
@@ -108,7 +111,8 @@ public class Player : MonoBehaviour
 		}
 		// Temporary
 		Destroy(gameObject.GetComponent<PlayerMovement>());
-		transform.position = new Vector2(0, -1.55f);
+		transform.position = new Vector2(0, -4f);
+		isDead = true;
 	}
 
 	/// <summary>
