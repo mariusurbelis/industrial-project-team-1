@@ -14,20 +14,31 @@ public class LeaderboardTable : MonoBehaviour
 
 
 
-
-
-    // Start is called before the first frame update
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
-        numberOfPlayers = 20;
+        numberOfPlayers = QuizManager.eliminationList.Count;
         positionClone = new GameObject[numberOfPlayers+1];
         nicknames = new Text[numberOfPlayers];
         
         createClones();
+        fillLeaderboard();
+
     }
 
-   
-    //This function instantiates the clones and formats them depending on the amount of players
+    void fillLeaderboard()
+    {
+        for(int i = 0; i < numberOfPlayers; i++)
+        {
+            setNickname(i, QuizManager.eliminationList[i]);
+        }
+    }
+
+    /// <summary>
+    ///This function instantiates the clones and formats them depending on the amount of players
+    ///</summary>
     void createClones()
     {
         if (numberOfPlayers < 10) //if true, keep the positions in one colomn
@@ -41,7 +52,7 @@ public class LeaderboardTable : MonoBehaviour
                 positionClone[i].transform.Translate(512, 383 - (i * 40), 0);
             }
         }
-        else //if true, then format the positions so that it is in two colomns instead of one
+        else //if true, then format the positions so that it is in two columns instead of one
         {
             templatePosition.transform.Translate(-250, 0, 0);
             for (int i = numberOfPlayers-1 ; i >=0; i--)
@@ -51,11 +62,11 @@ public class LeaderboardTable : MonoBehaviour
                 
                 positionClone[i] = Instantiate(templatePosition) as GameObject; //clone position
                 positionClone[i].transform.SetParent(templatePosition.transform.parent);
-                if (i < 10) //colomn one
+                if (i < 10) //column one
                 {
                     positionClone[i].transform.Translate(512, 383 - (i * 50), 0);
                 }
-                else //colomn two
+                else //column two
                 {
                     positionClone[i].transform.Translate(1020,383 - ((i-10) * 50), 0);
                 }
@@ -66,7 +77,9 @@ public class LeaderboardTable : MonoBehaviour
         addClonesToArray(); 
     }
 
-    //Sets the nickname at the given position
+    /// <summary>
+    ///Sets the nickname at the given position
+    ///</summary>
     void setNickname(int position, string name)
     {
         clonesArray[position].transform.Find("nickname").GetComponent<Text>().text = name;
@@ -76,8 +89,9 @@ public class LeaderboardTable : MonoBehaviour
         }
     }
 
-
-    //This function adds all the created clones to an array, it is called in the createClones function
+    /// <summary>
+    ///This function adds all the created clones to an array, it is called in the createClones function
+    ///</summary>
     void addClonesToArray()
     {
         for (int j = canvas.transform.childCount - 1; j >= 0; j--)

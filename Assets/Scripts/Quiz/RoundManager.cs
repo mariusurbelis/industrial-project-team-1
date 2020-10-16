@@ -87,8 +87,8 @@ public class RoundManager : MonoBehaviour
 
         if (FindObjectsOfType<PlayerMovement>().Length == 0 && !gameDone && PhotonNetwork.IsMasterClient)
         {
-            QuizManager.LoadLobby();
-            Debug.Log("Loading lobby");
+            QuizManager.LoadLeaderboard();
+            Debug.Log("Loading leaderboard");
             gameDone = true;
         }
     }
