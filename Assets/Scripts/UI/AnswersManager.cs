@@ -74,17 +74,4 @@ public class AnswersManager : MonoBehaviour
         }
     }
 
-    //public void EnableHighlight(int answer)
-    //{
-    //    trapdoorHighlights[answer].SetActive(true);
-    //}
-
-    //public void DisableHighlights()
-    //{
-    //    for(int i=0; i < trapdoorHighlights.Length; i++)
-    //    {
-    //        trapdoorHighlights[i].SetActive(false);
-    //    }
-    //}
-
 }
