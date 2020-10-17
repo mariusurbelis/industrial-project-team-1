@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
-    public enum PowerupType
-    {
-        None,
-        Bomb
-    };
+    public enum PowerupType { None, Bomb, Half, Fan, Hint, Eyes, LightsOut, Star, Wildcard };
 
     [SerializeField] private PowerupType myType;
 
