@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 1483531937}
   - component: {fileID: 1483531936}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Static Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -665,15 +665,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d022d28f85dcc47864449630e0cb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 1483531937}
-  powerups:
-  - name: Bomb
-    prefab: {fileID: 8464165610965690764, guid: 7e65289e841d2ed4c822712b9030e96a,
+  spawners:
+  - spawnName: Bombs
+    prefab: {fileID: 5468122197406047574, guid: 8229284c3016c27458601bc100608861,
       type: 3}
-    chance: 100
-    delayTime: 30
-  SpawnTimer: 100
+    spawnAmount: 2
+    spawnRate: 2
+  - spawnName: Fans
+    prefab: {fileID: 7432950498497180221, guid: 18321f49fa8ddab4986647607ee65a16,
+      type: 3}
+    spawnAmount: 3
+    spawnRate: 10
+  - spawnName: Ices
+    prefab: {fileID: 4244757314607507597, guid: 6bccf7de4360be3428f427ca962f71db,
+      type: 3}
+    spawnAmount: 4
+    spawnRate: 5
+  timeBetweenSpawn: 5
+  spawnCountDown: 0
+  state: 2
 --- !u!4 &1483531937
 Transform:
   m_ObjectHideFlags: 0
