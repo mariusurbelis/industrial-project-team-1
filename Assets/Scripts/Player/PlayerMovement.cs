@@ -25,14 +25,14 @@ public class PlayerMovement : MonoBehaviour
         {
             player.myBody.AddForce(new Vector2(Input.GetAxis("Horizontal") * Time.deltaTime * 5000, Input.GetAxis("Vertical") * Time.deltaTime * 5000), ForceMode2D.Force);
 
-            if (Input.GetKey(KeyCode.Q))
+            /*if (Input.GetKey(KeyCode.Q))
             {
                 player.myBody.AddTorque(Time.deltaTime * 500, ForceMode2D.Force);
             }
             else if (Input.GetKey(KeyCode.E))
             {
                 player.myBody.AddTorque(-Time.deltaTime * 500, ForceMode2D.Force);
-            }
+            }*/
 
             if (joystick)
             {
