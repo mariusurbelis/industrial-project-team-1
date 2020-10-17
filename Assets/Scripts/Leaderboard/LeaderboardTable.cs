@@ -72,12 +72,12 @@ public class LeaderboardTable : MonoBehaviour
                 positionClone[i].transform.position = templatePosition.transform.position;
                 if (i < 10) //column one
                 {
-                    positionClone[i].transform.Translate(-90, 0 - (i * 15), 0);
+                    positionClone[i].transform.Translate(-90, 0 - (i * 15), 0); //move position to the correct row
                 }
                 else //column two
                 {
 
-                    positionClone[i].transform.Translate(90, 0 - ((i-10) * 15), 0);
+                    positionClone[i].transform.Translate(90, 0 - ((i-10) * 15), 0); //move possition to the porrect row
                 }
             }
         }
