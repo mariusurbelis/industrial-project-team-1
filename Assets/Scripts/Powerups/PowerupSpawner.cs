@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class PowerupSpawner : MonoBehaviour
@@ -114,7 +116,7 @@ public class PowerupSpawner : MonoBehaviour
             //loops how many times we want 
             for (int i = 0; i < spawn.spawnAmount; i++)
             {
-                SpawnPowerUp(spawn.prefab); 
+                SpawnPowerUp(spawn.prefab, Powerup.PowerupType.Bomb); 
                 yield return new WaitForSeconds(1f/ spawn.spawnRate) ; //time before the next spawn
             }
             // spawn state is at idle to allow the powerup to be either collected by player or despawn
@@ -123,19 +125,34 @@ public class PowerupSpawner : MonoBehaviour
         }
         
         //instantiate powerup
-        void SpawnPowerUp(Transform powerup)
+        void SpawnPowerUp(Transform powerup, Powerup.PowerupType powerupType)
         {
-           
-            //spawn powerup
-            Debug.Log("Spawning Powerup:" + powerup.name);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                //spawn powerup
+                Debug.Log("Spawning Powerup:" + powerup.name);
 
-            //spawning the powerup in a random location
-        
-            Transform spawnPoint = spawnLocation[ Random.Range(0,spawnLocation.Length)];
-            Instantiate(powerup, spawnPoint.position, spawnPoint.rotation);
-            //PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player"), new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0), Quaternion.identity);
+                //spawning the powerup in a random location
+
+                Transform spawnPoint = spawnLocation[Random.Range(0, spawnLocation.Length)];
+                PhotonNetwork.Instantiate(Path.Combine("Powerups", powerupType.ToString()), spawnPoint.position, spawnPoint.rotation);
+                // PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player"), new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0), Quaternion.identity);
+            }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
     //[System.Serializable]
     //public class Powerup
     //{
