@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -9218380942084464422}
   - component: {fileID: 8111636254005560539}
   m_Layer: 0
-  m_Name: 'Bomb '
+  m_Name: Bomb
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,8 @@ MonoBehaviour:
   observableSearch: 2
   Synchronization: 3
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 8111636254005560539}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
