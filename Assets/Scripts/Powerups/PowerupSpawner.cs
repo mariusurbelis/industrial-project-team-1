@@ -19,8 +19,9 @@ public class PowerupSpawner : MonoBehaviour
     private int nextSpawn = 0;
     public float timeBetweenSpawn = 5f;
     public float spawnCountDown;
-
     private float searchCountdown = 1f;
+
+    public Transform[] spawnLocation;
 
     public SpawnState state = SpawnState.COUNTING;
 
@@ -55,12 +56,17 @@ public class PowerupSpawner : MonoBehaviour
 
             if (nextSpawn + 1 > spawners.Length - 1)
             {
-                nextSpawn = 0;  
+                nextSpawn = 0;
 
                 //possible additions of stack multiplyer here,new scene, etc
                 Debug.Log("All spawns haven spawned. Looping now!");
             }
-            nextSpawn++;
+            else
+            {
+                nextSpawn++;
+
+            }
+           
 
         }
 
@@ -117,6 +123,7 @@ public class PowerupSpawner : MonoBehaviour
            
             //spawn powerup
             Debug.Log("Spawning Powerup:" + powerup.name);
+           // Transform spawnPoint = spawnLocation[];
             Instantiate(powerup, transform.position, transform.rotation);
 
         }
