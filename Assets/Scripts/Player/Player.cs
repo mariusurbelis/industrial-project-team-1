@@ -110,7 +110,12 @@ public class Player : MonoBehaviour
     public void UsePowerup()
     {
         Debug.Log($"{username} used a powerup");
-        photonView.RPC("RPC_BeAffectedByPowerup", RpcTarget.All, powerup, (Vector2)transform.position);
+
+        foreach (Player player in FindObjectsOfType<Player>())
+        {
+            player.photonView.RPC("RPC_BeAffectedByPowerup", RpcTarget.All, powerup, (Vector2)transform.position);
+        }
+
         powerup = Powerup.PowerupType.None;
     }
 
