@@ -133,7 +133,7 @@ public class PowerupSpawner : MonoBehaviour
         
             Transform spawnPoint = spawnLocation[ Random.Range(0,spawnLocation.Length)];
             Instantiate(powerup, spawnPoint.position, spawnPoint.rotation);
-
+            //PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player"), new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0), Quaternion.identity);
         }
     }
     //[System.Serializable]
