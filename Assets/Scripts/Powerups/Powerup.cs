@@ -12,7 +12,7 @@ public class Powerup : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<Player>().powerup != PowerupType.None)
+            if (collision.gameObject.GetComponent<Player>().powerup == PowerupType.None)
             {
                 collision.gameObject.GetComponent<Player>().PickUpPowerup(myType);
                 Destroy(gameObject);
