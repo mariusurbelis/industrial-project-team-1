@@ -38,15 +38,32 @@ public class PowerupSpawner : MonoBehaviour
             //check if powerups are still ingame
             if (PowersupIsStillAround() == false)
             {
-                //begin new round of spawning powerups
-                Debug.Log("All powerups spawned!");
+                SpawnCompleted();
             }
             else
             {
                 return;
             }
         }
-        
+        void SpawnCompleted()
+        {
+            //begin new round of spawning powerups
+            Debug.Log("All powerups spawned!");
+
+            state = SpawnState.COUNTING;
+            spawnCountDown = timeBetweenSpawn;
+
+            if (nextSpawn + 1 > spawners.Length - 1)
+            {
+                nextSpawn = 0;  
+
+                //possible additions of stack multiplyer here,new scene, etc
+                Debug.Log("All spawns haven spawned. Looping now!");
+            }
+            nextSpawn++;
+
+        }
+
         //check if powerups are still in game 
         bool PowersupIsStillAround()
         {
