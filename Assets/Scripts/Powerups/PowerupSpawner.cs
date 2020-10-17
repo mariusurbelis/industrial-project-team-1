@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PowerupSpawner : MonoBehaviour
 {
-
     public enum SpawnState{ SPAWNING, IDLE, COUNTING};
     [System.Serializable]
     public class Spawner
@@ -135,7 +134,8 @@ public class PowerupSpawner : MonoBehaviour
                 //spawning the powerup in a random location
 
                 Transform spawnPoint = spawnLocation[Random.Range(0, spawnLocation.Length)];
-                PhotonNetwork.Instantiate(Path.Combine("Powerups", powerupType.ToString()), spawnPoint.position, spawnPoint.rotation);
+                
+                GameObject spawnedObject = PhotonNetwork.Instantiate(Path.Combine("Powerups", powerupType.ToString()), spawnPoint.position, spawnPoint.rotation);
                 // PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player"), new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0), Quaternion.identity);
             }
         }
