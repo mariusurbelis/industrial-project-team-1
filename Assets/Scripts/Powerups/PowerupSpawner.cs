@@ -5,55 +5,175 @@ using UnityEngine;
 public class PowerupSpawner : MonoBehaviour
 {
 
+    public enum SpawnState{ SPAWNING, IDLE, COUNTING};
     [System.Serializable]
-    public class Powerup
+    public class Spawner
     {
-        public string name;
-        public GameObject prefab;
-        public float chance;
-        public float delayTime;
+        public string spawnName;
+        public Transform prefab;
+        public int spawnAmount;
+        public float spawnRate;
     }
 
-    public Transform[] points;
-    public Powerup[] powerups;
-    public int SpawnTimer;
+    public Spawner[] spawners;
+    private int nextSpawn = 0;
+    public float timeBetweenSpawn = 5f;
+    public float spawnCountDown;
 
-    Powerup chosenPowerUp;
+    private float searchCountdown = 1f;
 
-    float random;
-    float cumulative;
+    public SpawnState state = SpawnState.COUNTING;
 
-    void Start()
-    {
-        SpawnTimer = 0;
+      void Start()
+    {   
+        //setting countdown to 5seconds
+        spawnCountDown = timeBetweenSpawn;
     }
 
-    void Update()
+      void Update()
     {
-        SpawnTimer = SpawnTimer + 1;
-        if (SpawnTimer >= 100)
+        //checks if all the powerup has been collected or destroyed in game
+        if (state == SpawnState.IDLE)
         {
-            SpawnRandom();
-            SpawnTimer = 0;
-        }
-    }
-
-    void SpawnRandom()
-    {
-        random = Random.value;
-        cumulative = 0f;
-
-        for (int i = 0; i < powerups.Length; i++)
-        {
-            cumulative += powerups[i].chance;
-            if (random < cumulative && Time.time >= powerups[i].delayTime)
+            //check if powerups are still ingame
+            if (PowersupIsStillAround() == false)
             {
-                chosenPowerUp = powerups[i];
-                break;
+                //begin new round of spawning powerups
+                Debug.Log("All powerups spawned!");
+            }
+            else
+            {
+                return;
             }
         }
-
-        Instantiate(chosenPowerUp.prefab, points[Random.Range(0, points.Length)].position, points[Random.Range(0, points.Length)].rotation);
         
+        //check if powerups are still in game 
+        bool PowersupIsStillAround()
+        {
+            searchCountdown -= Time.deltaTime;
+
+            if (searchCountdown <= 0f)
+            {
+                searchCountdown = 1f; //resets searchcoutdown to 1second; in the event powerups are still around
+                if (GameObject.FindGameObjectWithTag("PowerUp") == null)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        if (spawnCountDown <= 0)
+        {   
+            //check if spawning has strted
+            if (state != SpawnState.SPAWNING)
+            {
+                //strt spawning wave
+                StartCoroutine( SpawnPowerups ( spawners [nextSpawn]));
+            }
+        }
+        else
+        {   
+            //subtract the number time the last from was drawn 
+            spawnCountDown -= Time.deltaTime; // setting coutdown to be  relevant to time and not frames per second
+        }
+
+        //buffer time before the method strts
+        IEnumerator SpawnPowerups(Spawner spawn)
+        {
+            Debug.Log("Powerups spawning:"+ spawn.spawnName);
+            state = SpawnState.SPAWNING;
+            //loops how many times we want 
+            for (int i = 0; i < spawn.spawnAmount; i++)
+            {
+                SpawnPowerUp(spawn.prefab); 
+                yield return new WaitForSeconds(1f/ spawn.spawnRate) ; //time before the next spawn
+            }
+            // spawn state is at idle to allow the powerup to be either collected by player or despawn
+            state = SpawnState.IDLE;
+            yield break;
+        }
+        
+        //instantiate powerup
+        void SpawnPowerUp(Transform powerup)
+        {
+           
+            //spawn powerup
+            Debug.Log("Spawning Powerup:" + powerup.name);
+            Instantiate(powerup, transform.position, transform.rotation);
+
+        }
     }
+    //[System.Serializable]
+    //public class Powerup
+    //{
+    //    public string name;
+    //    public GameObject prefab;
+    //    public float chance;
+    //    public float delayTime;
+    //    public int   spawnAmount;
+
+    //    //coordinate boundaries to spawn the items
+    //    public float positionX;
+    //    public float positionY;
+    //    public float positionZ;
+    //}
+
+    //public Transform[] points;
+    //public Powerup[] powerups;
+    //public int SpawnTimer;
+
+    //Powerup chosenPowerUp;
+
+    //float random;
+    //float cumulative;
+
+ 
+
+    //void Update()
+    //{
+    //    SpawnTimer = SpawnTimer + 1;
+    //    if (SpawnTimer >= 100)
+    //    {
+    //        SpawnRandom();
+    //        SpawnTimer = 0;
+    //    }
+    //}
+
+    //void SpawnRandom()
+    //{
+    //    random = Random.value;
+    //    cumulative = 0f;
+
+    //    for (int i = 0; i < powerups.Length; i++)
+    //    {
+    //        cumulative += powerups[i].chance;
+    //        if (random < cumulative && Time.time >= powerups[i].delayTime)
+    //        {
+    //            chosenPowerUp = powerups[i];
+    //            break;
+    //        }
+    //    }
+    //    //Debug.Log(points[Random.Range(0, points.Length)].position);
+    //    //Instantiate(chosenPowerUp.prefab, points[Random.Range(0, points.Length)].position, points[Random.Range(0, points.Length)].rotation);
+
+    //    //SpawnTimer = 0;
+    //    for (int i = 0; i < powerups.Length; i++)
+    //    {
+    //        for (int x = 0; x < powerups[x].spawnAmount; x++)
+    //        {
+    //            Vector3 randomPos = new Vector3(Random.Range(-powerups[x].positionX, powerups[x].positionX), powerups[x].positionY, Random.Range(-powerups[x].positionZ, powerups[x].positionZ)) + transform.position; //offest to prevent object spawning out of bounds
+    //            GameObject cloneObject = Instantiate(powerups[x].prefab, randomPos, Quaternion.identity);
+    //            cloneObject.name = powerups[x].name;
+    //            cloneObject.tag = powerups[x].prefab.tag;
+    //        }
+
+    //    }
+      
+    //}
+
+  
+
+
+  
 }
