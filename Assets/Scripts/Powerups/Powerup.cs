@@ -8,6 +8,11 @@ public class Powerup : MonoBehaviour
 
     [SerializeField] private PowerupType myType;
 
+    public void Initialize(PowerupType powerupType)
+    {
+        myType = powerupType;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -19,4 +24,9 @@ public class Powerup : MonoBehaviour
             }
         }
     }
+
+    //public static Sprite ImageFromType(PowerupType powerupType)
+   // {
+
+   // }
 }

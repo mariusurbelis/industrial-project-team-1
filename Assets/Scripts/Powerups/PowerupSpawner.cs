@@ -116,7 +116,7 @@ public class PowerupSpawner : MonoBehaviour
             //loops how many times we want 
             for (int i = 0; i < spawn.spawnAmount; i++)
             {
-                SpawnPowerUp(spawn.prefab, Powerup.PowerupType.Bomb); 
+                SpawnPowerUp(spawn.prefab, (Powerup.PowerupType)Random.Range(1, 9)); 
                 yield return new WaitForSeconds(1f/ spawn.spawnRate) ; //time before the next spawn
             }
             // spawn state is at idle to allow the powerup to be either collected by player or despawn
