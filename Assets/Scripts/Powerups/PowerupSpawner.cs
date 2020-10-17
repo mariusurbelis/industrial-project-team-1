@@ -26,7 +26,12 @@ public class PowerupSpawner : MonoBehaviour
     public SpawnState state = SpawnState.COUNTING;
 
       void Start()
-    {   
+    {
+        if (spawnLocation.Length == 0)
+        {
+            Debug.Log("Spawn points are not given.");
+        }
+
         //setting countdown to 5seconds
         spawnCountDown = timeBetweenSpawn;
     }
@@ -123,8 +128,11 @@ public class PowerupSpawner : MonoBehaviour
            
             //spawn powerup
             Debug.Log("Spawning Powerup:" + powerup.name);
-           // Transform spawnPoint = spawnLocation[];
-            Instantiate(powerup, transform.position, transform.rotation);
+
+            //spawning the powerup in a random location
+        
+            Transform spawnPoint = spawnLocation[ Random.Range(0,spawnLocation.Length)];
+            Instantiate(powerup, spawnPoint.position, spawnPoint.rotation);
 
         }
     }
