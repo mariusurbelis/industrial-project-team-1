@@ -78,8 +78,7 @@ public class Player : MonoBehaviour
         {
             case Powerup.PowerupType.Bomb:
                 //myBody.AddForce(powerupPosition - (Vector2)transform.position, ForceMode2D.Impulse);
-                myBody.AddForce(Vector2.up * 10f, ForceMode2D.Impulse);
-                transform.position += Vector3.right * 5f;
+                myBody.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
                 break;
         }
     }
