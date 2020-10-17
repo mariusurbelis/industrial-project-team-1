@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-using System;
 using Random = UnityEngine.Random;
 
 public class QuizManager : MonoBehaviour

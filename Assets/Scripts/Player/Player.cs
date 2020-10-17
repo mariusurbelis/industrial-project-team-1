@@ -1,8 +1,5 @@
 ﻿using Photon.Pun;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -113,7 +110,7 @@ public class Player : MonoBehaviour
     public void UsePowerup()
     {
         Debug.Log($"{username} used a powerup");
-        photonView.RPC("RPC_BeAffectedByPowerup", RpcTarget.AllBuffered, powerup, (Vector2)transform.position);
+        photonView.RPC("RPC_BeAffectedByPowerup", RpcTarget.All, powerup, (Vector2)transform.position);
         powerup = Powerup.PowerupType.None;
     }
 
