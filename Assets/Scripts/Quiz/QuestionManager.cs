@@ -54,7 +54,6 @@ public class QuestionManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log(jsonData.ToString());
                         jsonString = jsonData.ToString()
                           .Replace("&#033;", "!")
                           .Replace("&#034;", "\"")
@@ -107,7 +106,6 @@ public class QuestionManager : MonoBehaviour
                           .Replace("&Ntilde;", "Ñ")
                           ;
                         ProcessJSON();
-                        Debug.Log(jsonString);
                     }
                 }
             }

@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public string username = "";
     public Color playerColor;
 
+    public string Username => GetComponent<PlayerID>().PlayerDisplayName;
+
     public PhotonView photonView;
     public Rigidbody2D myBody;
     private Animator animator;
@@ -23,7 +25,6 @@ public class Player : MonoBehaviour
         photonView = GetComponent<PhotonView>();
         myBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
 
         if (PlayerDataManager.ValueExists(PlayerDataManager.PlayerColor))
         {
@@ -108,7 +109,7 @@ public class Player : MonoBehaviour
 
     public void UsePowerup()
     {
-        Debug.Log($"{username} used a powerup");
+        Debug.Log($"{Username} used a powerup");
 
         foreach (Player player in FindObjectsOfType<Player>())
         {
@@ -124,18 +125,9 @@ public class Player : MonoBehaviour
     private void Die()
     {
         //Adds players username to a list in the order they were eliminated
-        QuizManager.eliminationList.Add(username);
+        QuizManager.eliminationList.Add(Username);
+        //Debug.Log($"Adding {Username} to the elimination list");
 
-        //Not to be used in this method. example to be used in leaderboard scene
-        int listLength = QuizManager.eliminationList.Count;
-        for (int i = 0; i < listLength; i++)
-        {
-            //temporary addition for debug use
-            Debug.Log(QuizManager.eliminationList[i].ToString());
-
-            //actual code to go in this would be for adding the names of people to the end leaderboard in the order they were eliminated
-            //does not have winner in the list currently
-        }
         // Temporary
         Destroy(gameObject.GetComponent<PlayerMovement>());
         transform.position = new Vector2(0, -4f);

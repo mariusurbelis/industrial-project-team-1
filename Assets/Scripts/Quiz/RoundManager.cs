@@ -9,7 +9,7 @@ using UnityEngine.PlayerLoop;
 public class RoundManager : MonoBehaviour
 {
     public static float roundTimer = 0;
-    private static float roundTime = 10f;
+    public static float roundTime = 10f;
 
     [SerializeField] private TextMeshProUGUI timerText;
 
@@ -64,7 +64,7 @@ public class RoundManager : MonoBehaviour
         }
         else
         {
-            if (!roundEndInformed)
+            if (!roundEndInformed && !gameDone)
             {
                 // DONE
                 roundTimer = 0;
@@ -82,16 +82,21 @@ public class RoundManager : MonoBehaviour
             }
         }
 
-
-        Debug.Log("PM: " + FindObjectsOfType<PlayerMovement>().Length);
-
         if (FindObjectsOfType<PlayerMovement>().Length == 0 && !gameDone && PhotonNetwork.IsMasterClient)
         {
-            QuizManager.LoadLeaderboard();
-            Debug.Log("Loading leaderboard");
+            //Debug.Log("Loading leaderboard");
+            StartCoroutine(LoadLeaderboard());
             gameDone = true;
         }
     }
+
+    private IEnumerator LoadLeaderboard()
+    {
+        yield return new WaitForSeconds(1.5f);
+        QuizManager.LoadLeaderboard();
+        yield return null;
+    }
+
     /// <summary>
     /// Starts the first round.
     /// </summary>
@@ -99,6 +104,7 @@ public class RoundManager : MonoBehaviour
     private IEnumerator StartNewRound()
     {
         FindObjectOfType<UIManager>().OpenTrapdoors(QuizManager.currentCorrectAnswerID);
+        FindObjectOfType<UIManager>().SetTimerText(0);
         yield return new WaitForSeconds(1.5f);
         FindObjectOfType<UIManager>().CloseTrapdoors();
         NextRound();
