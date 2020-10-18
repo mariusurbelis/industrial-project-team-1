@@ -10,7 +10,7 @@ using Random = UnityEngine.Random;
 
 public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
 {
-    [SerializeField] private int RoomSize = 20;
+    //[SerializeField] private int RoomSize = 20;
     [SerializeField] private GameObject connectButton = null;
     [SerializeField] private Slider playerCountSlider = null;
     [SerializeField] private TextMeshProUGUI sliderValue = null;
