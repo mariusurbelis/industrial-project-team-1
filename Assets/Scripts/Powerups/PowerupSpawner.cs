@@ -114,7 +114,7 @@ public class PowerupSpawner : MonoBehaviour
             state = SpawnState.SPAWNING;
             //loops how many times we want 
             for (int i = 0; i < spawn.spawnAmount; i++)
-            {
+            {   
                 SpawnPowerUp(spawn.prefab, (Powerup.PowerupType)Random.Range(1, 9)); 
                 yield return new WaitForSeconds(1f/ spawn.spawnRate) ; //time before the next spawn
             }
@@ -136,93 +136,9 @@ public class PowerupSpawner : MonoBehaviour
                 Transform spawnPoint = spawnLocation[Random.Range(0, spawnLocation.Length)];
                 
                 GameObject spawnedObject = PhotonNetwork.Instantiate(Path.Combine("Powerups", powerupType.ToString()), spawnPoint.position, spawnPoint.rotation);
-                // PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player"), new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0), Quaternion.identity);
+                
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //[System.Serializable]
-    //public class Powerup
-    //{
-    //    public string name;
-    //    public GameObject prefab;
-    //    public float chance;
-    //    public float delayTime;
-    //    public int   spawnAmount;
-
-    //    //coordinate boundaries to spawn the items
-    //    public float positionX;
-    //    public float positionY;
-    //    public float positionZ;
-    //}
-
-    //public Transform[] points;
-    //public Powerup[] powerups;
-    //public int SpawnTimer;
-
-    //Powerup chosenPowerUp;
-
-    //float random;
-    //float cumulative;
-
- 
-
-    //void Update()
-    //{
-    //    SpawnTimer = SpawnTimer + 1;
-    //    if (SpawnTimer >= 100)
-    //    {
-    //        SpawnRandom();
-    //        SpawnTimer = 0;
-    //    }
-    //}
-
-    //void SpawnRandom()
-    //{
-    //    random = Random.value;
-    //    cumulative = 0f;
-
-    //    for (int i = 0; i < powerups.Length; i++)
-    //    {
-    //        cumulative += powerups[i].chance;
-    //        if (random < cumulative && Time.time >= powerups[i].delayTime)
-    //        {
-    //            chosenPowerUp = powerups[i];
-    //            break;
-    //        }
-    //    }
-    //    //Debug.Log(points[Random.Range(0, points.Length)].position);
-    //    //Instantiate(chosenPowerUp.prefab, points[Random.Range(0, points.Length)].position, points[Random.Range(0, points.Length)].rotation);
-
-    //    //SpawnTimer = 0;
-    //    for (int i = 0; i < powerups.Length; i++)
-    //    {
-    //        for (int x = 0; x < powerups[x].spawnAmount; x++)
-    //        {
-    //            Vector3 randomPos = new Vector3(Random.Range(-powerups[x].positionX, powerups[x].positionX), powerups[x].positionY, Random.Range(-powerups[x].positionZ, powerups[x].positionZ)) + transform.position; //offest to prevent object spawning out of bounds
-    //            GameObject cloneObject = Instantiate(powerups[x].prefab, randomPos, Quaternion.identity);
-    //            cloneObject.name = powerups[x].name;
-    //            cloneObject.tag = powerups[x].prefab.tag;
-    //        }
-
-    //    }
-      
-    //}
-
-  
-
-
   
 }

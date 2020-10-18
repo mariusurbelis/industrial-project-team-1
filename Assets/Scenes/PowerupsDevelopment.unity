@@ -732,12 +732,12 @@ MonoBehaviour:
     spawnAmount: 2
     spawnRate: 2
   - spawnName: Fans
-    prefab: {fileID: 7432950498497180221, guid: 18321f49fa8ddab4986647607ee65a16,
+    prefab: {fileID: 4155198418396907297, guid: 18321f49fa8ddab4986647607ee65a16,
       type: 3}
     spawnAmount: 3
     spawnRate: 10
   - spawnName: Ices
-    prefab: {fileID: 4244757314607507597, guid: 6bccf7de4360be3428f427ca962f71db,
+    prefab: {fileID: 1664342849564077123, guid: 6bccf7de4360be3428f427ca962f71db,
       type: 3}
     spawnAmount: 4
     spawnRate: 5

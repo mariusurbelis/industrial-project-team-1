@@ -19,9 +19,4 @@ public class Powerup : MonoBehaviour
             }
         }
     }
-
-    //public static Sprite ImageFromType(PowerupType powerupType)
-   // {
-
-   // }
 }
