@@ -43,7 +43,7 @@ MonoBehaviour:
   - RPC_LoadQuestion
   - RPC_LoadLobby
   - RPC_SyncTimer
-  - RPC_BeAffectedByPowerup
+  - RPC_LoadLeaderboard
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
