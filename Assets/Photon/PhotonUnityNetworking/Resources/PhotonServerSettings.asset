@@ -45,6 +45,7 @@ MonoBehaviour:
   - RPC_SyncTimer
   - RPC_LoadLeaderboard
   - RPC_BeAffectedByPowerup
+  - RPC_FillLeaderboard
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

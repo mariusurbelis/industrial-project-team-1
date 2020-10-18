@@ -37,6 +37,11 @@ public class QuizManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        uiManager.SetInitialTime((int)RoundManager.roundTime);
+    }
+
     /// <summary>
     /// Loads a question for every existing player.
     /// </summary>

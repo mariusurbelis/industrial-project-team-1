@@ -1,52 +1,66 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LeaderboardTable : MonoBehaviour
 {
-    public GameObject[] positions;
-
-
+    [SerializeField] private GameObject leaderboardElementPrefab;
+    [SerializeField] private GameObject leaderboardListPanel;
+    [SerializeField] private Button homeButton;
 
     /// <summary>
-    /// Start is called before the first frame update
+    /// Start is called before the first frame update.
     /// </summary>
     void Start()
     {
-        int numberOfPlayers = QuizManager.eliminationList.Count;
-        
-        fillLeaderboard();
+        homeButton.onClick.AddListener(LoadHomeScreen);
 
+        if (PhotonNetwork.IsMasterClient)
+        {
+            QuizManager.eliminationList.Reverse();
+            GetComponent<PhotonView>().RPC("RPC_FillLeaderboard", RpcTarget.AllBuffered, QuizManager.eliminationList.ToArray(), 0);
+        }
     }
 
     /// <summary>
-    /// Fills the leaderboard with all of the players names
+    /// Fills the leaderboard with all of the players names.
     /// </summary>
-    void fillLeaderboard()
+    [PunRPC]
+    public void RPC_FillLeaderboard(string[] eliminationList, int pointlessInt)
     {
-        int counter = 0;
-        for (int i = QuizManager.eliminationList.Count - 1; i >= 0; i--)
+        for (int i = 0; i < eliminationList.Length; i++)
         {
-            setNickname(counter, QuizManager.eliminationList[counter]);
-            counter++;
-        }
-        for (int j = counter; j<4; j++)
-        {
-            positions[j].SetActive(false);
+            GameObject leaderboardElement = Instantiate(leaderboardElementPrefab, leaderboardListPanel.transform);
+            leaderboardElement.gameObject.transform.Find("Nickname").GetComponent<TextMeshProUGUI>().text = eliminationList[i];
+            leaderboardElement.gameObject.transform.Find("Position").GetComponent<TextMeshProUGUI>().text = PositionFromIndex(i);
         }
     }
-    
+
     /// <summary>
-    /// Sets the nickname at the given position
+    /// Makes an int position into a position string.
     /// </summary>
-    /// <param name="position">The position on the leaderboard thats being edited</param>
-    /// <param name="name">The nickname of the player</param>
-    void setNickname(int position, string name)
+    /// <param name="index">Index of the position</param>
+    /// <returns>The string of the position with a suffix</returns>
+    private string PositionFromIndex(int index)
     {
-        positions[position].transform.Find("nickname").GetComponent<Text>().text = name;
+        switch(index)
+        {
+            case 0:
+                return "1st";
+            case 1:
+                return "2nd";
+            case 2:
+                return "3rd";
+            default:
+                return $"{index + 1}th";
+        }
     }
-    
 
-
+    private void LoadHomeScreen()
+    {
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene("ConnectionScene");
+    }
 }

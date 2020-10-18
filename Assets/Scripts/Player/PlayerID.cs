@@ -34,4 +34,5 @@ public class PlayerID : MonoBehaviour
         nameText.text = name;
     }
 
+    public string PlayerDisplayName => nameText.text;
 }
