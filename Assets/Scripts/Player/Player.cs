@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
     {
         //Adds players username to a list in the order they were eliminated
         QuizManager.eliminationList.Add(Username);
-        Debug.Log($"Adding {Username} to the elimination list");
+        //Debug.Log($"Adding {Username} to the elimination list");
 
         // Temporary
         Destroy(gameObject.GetComponent<PlayerMovement>());
