@@ -167,6 +167,7 @@ MonoBehaviour:
   playerColor: {r: 0, g: 0, b: 0, a: 0}
   photonView: {fileID: 0}
   myBody: {fileID: 0}
+  powerup: 0
   health: 3
   selectedOption: -1
 --- !u!114 &1083335995569099073
