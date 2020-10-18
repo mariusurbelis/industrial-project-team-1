@@ -40,7 +40,7 @@ public class AnswersManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Trapdoor is not active");
+            //Debug.Log("Trapdoor is not active");
         }
     }
 

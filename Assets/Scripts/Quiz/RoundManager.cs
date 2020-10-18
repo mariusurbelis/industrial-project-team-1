@@ -84,7 +84,7 @@ public class RoundManager : MonoBehaviour
 
         if (FindObjectsOfType<PlayerMovement>().Length == 0 && !gameDone && PhotonNetwork.IsMasterClient)
         {
-            Debug.Log("Loading leaderboard");
+            //Debug.Log("Loading leaderboard");
             StartCoroutine(LoadLeaderboard());
             gameDone = true;
         }
