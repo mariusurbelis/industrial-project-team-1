@@ -1609,9 +1609,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joinButton: {fileID: 1513625760}
   hostButton: {fileID: 1723413295}
-  settingsButton: {fileID: 0}
+  settingsButton: {fileID: 1581209596}
   backButton: {fileID: 1954523945}
-  instructionsButton: {fileID: 0}
+  instructionsButton: {fileID: 977784945}
   closeInstructionsButton: {fileID: 1522716384}
   navigationPanel: {fileID: 1947202436}
   joinHostPanel: {fileID: 887057894}
