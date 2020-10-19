@@ -133,11 +133,6 @@ PrefabInstance:
       propertyPath: answersManager
       value: 
       objectReference: {fileID: 375143487}
-    - target: {fileID: 4472418422688077123, guid: 68e376d531774d5479d86620f084a738,
-        type: 3}
-      propertyPath: m_timerImage
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8095046471891161702, guid: 68e376d531774d5479d86620f084a738,
         type: 3}
       propertyPath: m_LocalPosition.x
