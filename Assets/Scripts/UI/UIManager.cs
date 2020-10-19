@@ -87,10 +87,9 @@ public class UIManager : MonoBehaviour
         spriteNo = Mathf.Clamp(spriteNo, 0, 35);
         m_timerImage.sprite = m_timerSprites[spriteNo];
         //If only 3 seconds left
-        if (currentTime == 3 && !audioSource.isPlaying)
+        if (currentTime == 3)
         {
-            PlayTimerTickSounds();
-            
+            Sound.PlaySound(Sound.timerTickSound);  
         }
         //Change colour to red when timer is ticking down
         if(currentTime <= 3)
@@ -101,15 +100,6 @@ public class UIManager : MonoBehaviour
         {
             m_timerImage.color = new Color(0.1526344f, 0.5217617f, 0.9245283f, 1);
         }
-    }
-
-    /// <summary>
-    /// Plays the timer countdown sound
-    /// </summary>
-    private void PlayTimerTickSounds()
-    {
-        audioSource.Play();
-        Debug.Log("play");
     }
 
     /// <summary>

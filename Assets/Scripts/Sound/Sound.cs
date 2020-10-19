@@ -4,8 +4,11 @@ using UnityEngine.UI;
 public class Sound : MonoBehaviour
 {
     public static AudioClip screamSound;
+    public static AudioClip timerTickSound;
 
     public AudioClip screamSoundStub;
+    public AudioClip timerTickSoundStub;
+
 
     public static AudioSource audioSource;
 
@@ -19,6 +22,7 @@ public class Sound : MonoBehaviour
             audioSource = GetComponent<AudioSource>();
 
             screamSound = screamSoundStub;
+            timerTickSound = timerTickSoundStub;
 
 
             if (!FindObjectOfType<AudioListener>())
