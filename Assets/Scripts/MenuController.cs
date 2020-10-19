@@ -16,15 +16,16 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Button instructionsButton = null;
     [SerializeField] private Button closeInstructionsButton = null;
     [SerializeField] private GameObject navigationPanel = null;
-    [SerializeField] private GameObject userPanel = null;
+    [SerializeField] private GameObject joinHostPanel = null;
     [SerializeField] private GameObject hostPanel = null;
+    [SerializeField] private GameObject roomNameInput = null;
     [SerializeField] private GameObject instructionsPopUP = null;
     [SerializeField] private GameObject gameName = null;
     [SerializeField] private GameObject lobbyInfo = null;
 
     private void Start()
     {
-        joinButton.onClick.AddListener(() => { ShowScreen(userPanel); state = State.Join; });
+        joinButton.onClick.AddListener(() => { ShowScreen(joinHostPanel); state = State.Join; roomNameInput.SetActive(true); });
         hostButton.onClick.AddListener(() => { ShowHostScreen(); state = State.Host; });
         backButton.onClick.AddListener(() => { ShowScreen(navigationPanel); state = State.None; });
         instructionsButton.onClick.AddListener(() => { ShowInstructions(); });
@@ -33,8 +34,9 @@ public class MenuController : MonoBehaviour
 
     private void ShowHostScreen()
     {
-        ShowScreen(userPanel);
+        ShowScreen(joinHostPanel);
         hostPanel.SetActive(true);
+        roomNameInput.SetActive(false);
     }
 
     private void ShowScreen(GameObject activeObject)
@@ -46,7 +48,7 @@ public class MenuController : MonoBehaviour
     private void HideUI()
     {
         navigationPanel.SetActive(false);
-        userPanel.SetActive(false);
+        joinHostPanel.SetActive(false);
         hostPanel.SetActive(false);
         instructionsPopUP.SetActive(false);
     }
