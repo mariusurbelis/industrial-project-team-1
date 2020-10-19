@@ -9,7 +9,7 @@ using UnityEngine.PlayerLoop;
 public class RoundManager : MonoBehaviour
 {
     public static float roundTimer = 0;
-    public static float roundTime = 1f;
+    public static float roundTime = 10f;
 
     [SerializeField] private TextMeshProUGUI timerText;
 
