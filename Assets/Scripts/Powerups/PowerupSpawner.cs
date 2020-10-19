@@ -7,6 +7,7 @@ using UnityEngine;
 public class PowerupSpawner : MonoBehaviour
 {
     public enum SpawnState{ SPAWNING, IDLE, COUNTING};
+    
     [System.Serializable]
     public class Spawner
     {
@@ -65,7 +66,7 @@ public class PowerupSpawner : MonoBehaviour
                 nextSpawn = 0;
 
                 //possible additions of stack multiplyer here,new scene, etc
-                Debug.Log("All spawns haven spawned. Looping now!");
+                Debug.Log("All spawns have spawned. Looping now!");
             }
             else
             {
