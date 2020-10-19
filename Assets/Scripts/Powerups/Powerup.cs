@@ -6,7 +6,7 @@ public class Powerup : MonoBehaviour
 {
     public enum PowerupType { None, Bomb, Half, Fan, Hint, Ice, LightsOut, Star, WildCard };
 
-    [SerializeField] private PowerupType myType;
+    [SerializeField] private PowerupType myType = PowerupType.None;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

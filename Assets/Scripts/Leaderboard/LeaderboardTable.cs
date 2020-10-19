@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class LeaderboardTable : MonoBehaviour
 {
-    [SerializeField] private GameObject leaderboardElementPrefab;
-    [SerializeField] private GameObject leaderboardListPanel;
-    [SerializeField] private Button homeButton;
+    [SerializeField] private GameObject leaderboardElementPrefab = null;
+    [SerializeField] private GameObject leaderboardListPanel = null;
+    [SerializeField] private Button homeButton = null;
 
     /// <summary>
     /// Start is called before the first frame update.

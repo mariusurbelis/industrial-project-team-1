@@ -30,11 +30,11 @@ public class DevelopmentMode : MonoBehaviourPunCallbacks, ILobbyCallbacks
         PhotonNetwork.Instantiate(Path.Combine("Prefabs", "Player"), new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0), Quaternion.identity);
     }
 
-    private int yAxisOffset = 10;
+    //private int yAxisOffset = 10;
 
     void OnGUI()
     {
-        yAxisOffset = 100;
+        //yAxisOffset = 100;
 
         //GUI.Label(new Rect(new Vector2(10, yAxisOffset += 15), new Vector2(200, 20)), $"Room: {PhotonNetwork.CurrentRoom.Name}");
         //GUI.Label(new Rect(new Vector2(10, yAxisOffset += 15), new Vector2(200, 20)), $"Players: {PhotonNetwork.CurrentRoom.PlayerCount}");
