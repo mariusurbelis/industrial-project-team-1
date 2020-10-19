@@ -559,10 +559,10 @@ MonoBehaviour:
   - {fileID: 7547987951761831828}
   - {fileID: 7547987952726802744}
   trapdoorHighlights:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7858174285466569415}
+  - {fileID: 6543221399668853664}
+  - {fileID: 9207421149731137997}
+  - {fileID: 2292476217100826881}
 --- !u!1 &7547987951946846061
 GameObject:
   m_ObjectHideFlags: 0
