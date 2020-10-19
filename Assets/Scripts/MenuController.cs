@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,22 +12,32 @@ public class MenuController : MonoBehaviour
 
     [SerializeField] private Button joinButton = null;
     [SerializeField] private Button hostButton = null;
-    [SerializeField] private Button settingsButton = null;
     [SerializeField] private Button backButton = null;
     [SerializeField] private Button instructionsButton = null;
     [SerializeField] private Button closeInstructionsButton = null;
+    [SerializeField] private Button startGameButton = null;
     [SerializeField] private GameObject navigationPanel = null;
     [SerializeField] private GameObject joinHostPanel = null;
     [SerializeField] private GameObject hostPanel = null;
     [SerializeField] private GameObject roomNameInput = null;
     [SerializeField] private GameObject instructionsPopUP = null;
-    [SerializeField] private GameObject gameName = null;
-    [SerializeField] private GameObject lobbyInfo = null;
+    //[SerializeField] private GameObject gameName = null;
+    //[SerializeField] private GameObject lobbyInfo = null;
 
     private void Start()
     {
-        joinButton.onClick.AddListener(() => { ShowScreen(joinHostPanel); state = State.Join; roomNameInput.SetActive(true); });
-        hostButton.onClick.AddListener(() => { ShowHostScreen(); state = State.Host; });
+        joinButton.onClick.AddListener(() =>
+        {
+            ShowScreen(joinHostPanel); state = State.Join; roomNameInput.SetActive(true);
+            startGameButton.GetComponentInChildren<TextMeshProUGUI>().text = "Join";
+        });
+
+        hostButton.onClick.AddListener(() =>
+        {
+            ShowHostScreen(); state = State.Host;
+            startGameButton.GetComponentInChildren<TextMeshProUGUI>().text = "Host";
+        });
+
         backButton.onClick.AddListener(() => { ShowScreen(navigationPanel); state = State.None; });
         instructionsButton.onClick.AddListener(() => { ShowInstructions(); });
         closeInstructionsButton.onClick.AddListener(() => { ShowScreen(navigationPanel); });

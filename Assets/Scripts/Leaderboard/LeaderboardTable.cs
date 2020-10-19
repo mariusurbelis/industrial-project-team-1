@@ -45,7 +45,7 @@ public class LeaderboardTable : MonoBehaviour
     /// <returns>The string of the position with a suffix</returns>
     private string PositionFromIndex(int index)
     {
-        switch(index)
+        switch (index)
         {
             case 0:
                 return "1st";
@@ -60,7 +60,9 @@ public class LeaderboardTable : MonoBehaviour
 
     private void LoadHomeScreen()
     {
-        PhotonNetwork.LeaveRoom();
+        if (PhotonNetwork.InRoom) PhotonNetwork.LeaveRoom();
+        //if (PhotonNetwork.InLobby) PhotonNetwork.LeaveLobby();
+        //if (PhotonNetwork.IsConnected) PhotonNetwork.Disconnect();
         SceneManager.LoadScene("ConnectionScene");
     }
 }

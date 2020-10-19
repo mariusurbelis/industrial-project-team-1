@@ -11,6 +11,8 @@ public class UITest : MonoBehaviour
     private void Start()
     {
         UIManager.OpenTrapdoors(1);
+        timePassed = 10;
+        timer = 10;
     }
 
     // Update is called once per frame
