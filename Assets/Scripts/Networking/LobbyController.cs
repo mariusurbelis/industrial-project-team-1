@@ -26,7 +26,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        PhotonNetwork.JoinLobby();
+        if (!PhotonNetwork.InLobby) PhotonNetwork.JoinLobby();
         ToggleConnectButton(true);
     }
 
@@ -131,6 +131,8 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
     public void Disconnect()
     {
         if (PhotonNetwork.InRoom) PhotonNetwork.LeaveRoom();
+        if (PhotonNetwork.InLobby) PhotonNetwork.LeaveLobby();
+        if (PhotonNetwork.IsConnected) PhotonNetwork.Disconnect();
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)

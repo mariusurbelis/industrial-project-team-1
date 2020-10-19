@@ -9,7 +9,6 @@ public class QuizManager : MonoBehaviour
 {
     public static int currentCorrectAnswerID = -1;
     
-
     private static QuizManager instance;
 
     [SerializeField] private GameObject[] options = null;
@@ -26,6 +25,8 @@ public class QuizManager : MonoBehaviour
     {
         instance = this;
 
+        currentCorrectAnswerID = -1;
+
         uiManager = FindObjectOfType<UIManager>();
         photonView = GetComponent<PhotonView>();
 
@@ -39,6 +40,7 @@ public class QuizManager : MonoBehaviour
 
     private void Start()
     {
+        eliminationList.Clear();
         uiManager.SetInitialTime((int)RoundManager.roundTime);
     }
 
@@ -51,7 +53,6 @@ public class QuizManager : MonoBehaviour
     [PunRPC]
     void RPC_LoadQuestion(int ID, int[] order, bool multiple)
     {
-
         Question question = QuestionManager.GetQuestion(ID, multiple);
 
         List<string> answers = new List<string>();
@@ -199,7 +200,6 @@ public class QuizManager : MonoBehaviour
                     Debug.LogError("No PhotonView!");
                 }
             }
-
 
             instance.photonView.RPC("RPC_LoadQuestion", RpcTarget.AllBuffered, questionID, ids, multiple);
             //instance.RPC_LoadQuestion(questionID, ids);
