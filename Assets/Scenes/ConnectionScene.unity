@@ -1613,6 +1613,7 @@ MonoBehaviour:
   backButton: {fileID: 1954523945}
   instructionsButton: {fileID: 977784945}
   closeInstructionsButton: {fileID: 1522716384}
+  startGameButton: {fileID: 477648157}
   navigationPanel: {fileID: 1947202436}
   joinHostPanel: {fileID: 887057894}
   hostPanel: {fileID: 326953757}
