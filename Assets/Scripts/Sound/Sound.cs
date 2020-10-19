@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.UI;
 
 public class Sound : MonoBehaviour
 {
@@ -9,20 +9,29 @@ public class Sound : MonoBehaviour
 
     public static AudioSource audioSource;
 
+    public static bool soundOn = true;
+
+
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        if(soundOn)
+		{
+            audioSource = GetComponent<AudioSource>();
 
-        screamSound = screamSoundStub;
+            screamSound = screamSoundStub;
 
-        if (!FindObjectOfType<AudioListener>())
-        {
-            gameObject.AddComponent<AudioListener>();
+
+            if (!FindObjectOfType<AudioListener>())
+            {
+                gameObject.AddComponent<AudioListener>();
+            }
         }
     }
 
     public static void PlaySound(AudioClip clip)
     {
-        audioSource.PlayOneShot(clip);
+		if (soundOn) audioSource.PlayOneShot(clip);
     }
+
+	
 }
