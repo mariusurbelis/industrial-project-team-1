@@ -52,7 +52,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         PlayerDataManager.ClearData();
         PlayerDataManager.SaveData(PlayerDataManager.PlayerUsername, GameObject.Find("Username InputField").GetComponent<TextMeshProUGUI>().text);
         PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(new Color(Random.value, Random.value, Random.value))}");
-        string chosenRoomName = GameObject.Find("Room Name Entry").GetComponent<TextMeshProUGUI>().text;
+        string chosenRoomName = GameObject.Find("Room Name InputField").GetComponent<TextMeshProUGUI>().text.ToUpper();
         if (!PhotonNetwork.InRoom) PhotonNetwork.JoinRoom(chosenRoomName);
     }
 
