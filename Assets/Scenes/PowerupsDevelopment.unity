@@ -121,66 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &446260644
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 446260645}
-  m_Layer: 0
-  m_Name: bombLoc
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &446260645
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 446260644}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.24, y: -4, z: -1.1674688}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &691813018
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 691813019}
-  m_Layer: 0
-  m_Name: IceLoc
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &691813019
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691813018}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.92, y: 1.63, z: -1.1674688}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &875627809
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,27 +300,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawners:
-  - spawnName: Bombs
-    prefab: {fileID: 5468122197406047574, guid: 8229284c3016c27458601bc100608861,
+  - prefab: {fileID: 7813362843534585315, guid: d3cecb9ef76549a489e499bfe377865a,
       type: 3}
     spawnAmount: 2
     spawnRate: 2
-  - spawnName: Fans
-    prefab: {fileID: 4155198418396907297, guid: 18321f49fa8ddab4986647607ee65a16,
+  - prefab: {fileID: 7813362843534585315, guid: d3cecb9ef76549a489e499bfe377865a,
       type: 3}
     spawnAmount: 3
     spawnRate: 10
-  - spawnName: Ices
-    prefab: {fileID: 1664342849564077123, guid: 6bccf7de4360be3428f427ca962f71db,
+  - prefab: {fileID: 7813362843534585315, guid: d3cecb9ef76549a489e499bfe377865a,
       type: 3}
     spawnAmount: 4
     spawnRate: 5
   timeBetweenSpawn: 5
   spawnCountDown: 0
-  spawnLocation:
-  - {fileID: 446260645}
-  - {fileID: 1739047179}
-  - {fileID: 691813019}
   state: 2
 --- !u!4 &1483531937
 Transform:
@@ -452,36 +385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99afbff5c97a1704a9335e83d6da8d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1739047178
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1739047179}
-  m_Layer: 0
-  m_Name: fanLoc
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1739047179
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739047178}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.43, y: -4, z: -1.1674688}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4358999491677484295
 PrefabInstance:
   m_ObjectHideFlags: 0

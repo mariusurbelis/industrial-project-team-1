@@ -11,7 +11,6 @@ public class PowerupSpawner : MonoBehaviour
     [System.Serializable]
     public class Spawner
     {
-        public string spawnName;
         public Transform prefab;
         public int spawnAmount;
         public float spawnRate;
@@ -23,16 +22,18 @@ public class PowerupSpawner : MonoBehaviour
     public float spawnCountDown;
     private float searchCountdown = 1f;
 
-    public Transform[] spawnLocation;
+    // gamescreen size for random spawn locations
+    private float minX = -8f;
+    private float maxX = 8f;
+    private float minY = -4f;
+    private float maxY = 4f;
+  
 
     public SpawnState state = SpawnState.COUNTING;
 
       void Start()
     {
-        if (spawnLocation.Length == 0)
-        {
-            Debug.Log("Spawn points are not given.");
-        }
+      
 
         //setting countdown to 5seconds
         spawnCountDown = timeBetweenSpawn;
@@ -111,33 +112,34 @@ public class PowerupSpawner : MonoBehaviour
         //buffer time before the method strts
         IEnumerator SpawnPowerups(Spawner spawn)
         {
-            Debug.Log("Powerups spawning:"+ spawn.spawnName);
+            Debug.Log("Powerups spawning");
             state = SpawnState.SPAWNING;
             //loops how many times we want 
             for (int i = 0; i < spawn.spawnAmount; i++)
             {   
-                SpawnPowerUp(spawn.prefab, (Powerup.PowerupType)Random.Range(1, 9)); 
+                SpawnPowerUp(spawn.prefab, (Powerup.PowerupType)Random.Range(1, 9)); //spawning a random powerup
                 yield return new WaitForSeconds(1f/ spawn.spawnRate) ; //time before the next spawn
             }
-            // spawn state is at idle to allow the powerup to be either collected by player or despawn
+
+            // spawn state is at idle to allow the powerup to be either collected by player or despawned
             state = SpawnState.IDLE;
             yield break;
         }
         
         //instantiate powerup
         void SpawnPowerUp(Transform powerup, Powerup.PowerupType powerupType)
-        {
+        {    
             if (PhotonNetwork.IsMasterClient)
             {
                 //spawn powerup
-                Debug.Log("Spawning Powerup:" + powerup.name);
+                Debug.Log("Spawning Powerup:" + powerupType.ToString());
 
-                //spawning the powerup in a random location
+                //spawning the powerup in a random location in game
+                Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(minX, maxX), UnityEngine.Random.Range(minY, maxY), 0f);
+                Quaternion spawnPositionRotation = (Quaternion.Euler(Random.Range(minX, maxX), Random.Range(minY, maxY), 0));
 
-                Transform spawnPoint = spawnLocation[Random.Range(0, spawnLocation.Length)];
-                
-                GameObject spawnedObject = PhotonNetwork.Instantiate(Path.Combine("Powerups", powerupType.ToString()), spawnPoint.position, spawnPoint.rotation);
-                
+                GameObject spawnedObject = PhotonNetwork.Instantiate(Path.Combine("Powerups", powerupType.ToString()),spawnPosition, spawnPositionRotation);
+            
             }
         }
     }
