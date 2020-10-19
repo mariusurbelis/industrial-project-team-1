@@ -11,6 +11,8 @@ public class SoundtrackManager : MonoBehaviour
 
 	[SerializeField] private Button audioBtn = null;
 
+	[SerializeField] private Button soundEffectsBtn = null;
+
 	public static AudioSource audioSource;
 
 	public static AudioClip soundTrackSound;
@@ -23,6 +25,11 @@ public class SoundtrackManager : MonoBehaviour
 
 	[SerializeField] private Image buttonImage;
 
+	[SerializeField] private Sprite soundEffectsOnImage;
+
+	[SerializeField] private Sprite soundEffectsOffImage;
+
+	[SerializeField] private Image buttonEffectsImage;
 	void Awake()
 	{
 		if (instance == null)
@@ -37,7 +44,9 @@ public class SoundtrackManager : MonoBehaviour
 
 		soundTrackSound = soundTrackSoundStub;
 
-		audioBtn.onClick.AddListener(() => ToggleSound());
+		audioBtn.onClick.AddListener(() => ToggleSoundtrack());
+
+		soundEffectsBtn.onClick.AddListener(() => ToggleSoundEffects());
 
 		buttonImage.GetComponent<Image>();
 
@@ -49,19 +58,23 @@ public class SoundtrackManager : MonoBehaviour
 		buttonImage.sprite = soundOnImage;
 		Sound.soundOn = true;
 	}
-	private void ToggleSound()
+	private void ToggleSoundtrack()
 	{
 		if (audioSource.isPlaying)
 		{
 			audioSource.Stop();
 			buttonImage.sprite = soundOffImage;
-			Sound.soundOn = false;
 		}
 		else
 		{
 			audioSource.PlayOneShot(soundTrackSound);
 			buttonImage.sprite = soundOnImage;
-			Sound.soundOn = true;
 		}
+	}
+
+	private void ToggleSoundEffects()
+	{
+		Sound.soundOn = !Sound.soundOn;
+		buttonEffectsImage.sprite = Sound.soundOn ? soundEffectsOnImage : soundEffectsOffImage;
 	}
 }
