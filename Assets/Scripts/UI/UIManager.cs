@@ -20,12 +20,21 @@ public class UIManager : MonoBehaviour
 
     private AudioSource audioSource;
 
-    private int m_maxHearts = 3;
-    private int m_maxTime = 10;
+    const int _HEARTCOUNT = 3;
+    const int _MAXTIME = 10;
+
+    private int m_maxHearts = _HEARTCOUNT;
+    private int m_maxTime = _MAXTIME;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        m_maxHearts = _HEARTCOUNT;
+        m_maxTime = _MAXTIME;
+
+        //Initialize variables
+        SetCurrentHearts(m_maxHearts);
+        SetInitialTime(m_maxTime);
     }
 
     /// <summary>
