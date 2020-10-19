@@ -9,7 +9,7 @@ using UnityEngine.PlayerLoop;
 public class RoundManager : MonoBehaviour
 {
     public static float roundTimer = 0;
-    public static float roundTime = 10f;
+    public static float roundTime = 1f;
 
     [SerializeField] private TextMeshProUGUI timerText;
 
@@ -19,6 +19,7 @@ public class RoundManager : MonoBehaviour
     {
         NextRound();
     }
+
     /// <summary>
     /// Creates a new round by resetting the timer and loading a new question.
     /// </summary>
@@ -29,6 +30,7 @@ public class RoundManager : MonoBehaviour
         roundEndInformed = false;
         QuizManager.LoadNewQuestion();
     }
+
     /// <summary>
     /// Resets the timer.
     /// </summary>
