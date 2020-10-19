@@ -52,8 +52,15 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         PlayerDataManager.ClearData();
         PlayerDataManager.SaveData(PlayerDataManager.PlayerUsername, GameObject.Find("Username InputField").GetComponent<TextMeshProUGUI>().text);
         PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(new Color(Random.value, Random.value, Random.value))}");
-        string chosenRoomName = GameObject.Find("Room Name InputField").GetComponent<TextMeshProUGUI>().text;
-        if (!PhotonNetwork.InRoom) PhotonNetwork.JoinRoom(chosenRoomName);
+        string chosenRoomName = GameObject.Find("Room Name InputField").GetComponent<TextMeshProUGUI>().text.ToUpper();
+
+        string finalRoomCode = "";
+
+        for (int i = 0; i < 4; i++)
+            finalRoomCode = string.Concat(finalRoomCode, chosenRoomName[i]);
+
+        if (!PhotonNetwork.InRoom) PhotonNetwork.JoinRoom(finalRoomCode);
+        //Debug.Log($"{finalRoomCode} ({finalRoomCode.Length})");
     }
 
     public void Host()
@@ -63,12 +70,15 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         PlayerDataManager.SaveData(PlayerDataManager.PlayerUsername, GameObject.Find("Username InputField").GetComponent<TextMeshProUGUI>().text);
         PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(new Color(Random.value, Random.value, Random.value))}");
         //string chosenRoomName = GameObject.Find("Room Name InputField").GetComponent<TextMeshProUGUI>().text;
+
         string chosenRoomName = GenerateRoomCode();
 
         //CreateRoom(chosenRoomName);
 
         PhotonNetwork.JoinOrCreateRoom(chosenRoomName, new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)(int)playerCountSlider.value }, TypedLobby.Default);
         //if (!PhotonNetwork.InRoom) PhotonNetwork.JoinRoom("MainRoom");
+
+        //Debug.Log($"{chosenRoomName} ({chosenRoomName.Length})");
     }
 
     /// <summary>
@@ -109,7 +119,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
         for (int i = 0; i < 4; i++)
         {
-            finalRoomCode += (char)('a' + Random.Range(0, 26));
+            finalRoomCode = string.Concat(finalRoomCode, (char)('a' + Random.Range(0, 26)));
         }
 
         return finalRoomCode.ToUpper();
