@@ -8,13 +8,14 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5468122197406047574}
+  - component: {fileID: 6609634986793763319}
   - component: {fileID: 5468122197406047569}
   - component: {fileID: 5468122197406047568}
   - component: {fileID: 5468122197406047571}
   - component: {fileID: 5468122197406047570}
   - component: {fileID: -9218380942084464422}
   - component: {fileID: 8111636254005560539}
+  - component: {fileID: 5858006643397192953}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: PowerUp
@@ -22,20 +23,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5468122197406047574
-Transform:
+--- !u!224 &6609634986793763319
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5468122197406047581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.30164245, y: 0.8169931, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.30164245, y: 0.8169931}
+  m_SizeDelta: {x: 0.34, y: 0.32}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &5468122197406047569
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -182,3 +188,11 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+--- !u!222 &5858006643397192953
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5468122197406047581}
+  m_CullTransparentMesh: 0
