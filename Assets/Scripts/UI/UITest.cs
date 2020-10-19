@@ -5,8 +5,8 @@ using UnityEngine;
 public class UITest : MonoBehaviour
 {
     public UIManager UIManager;
-    private float timePassed = 30;
-    private int timer = 30;
+    private float timePassed = 10;
+    private int timer = 5;
 
     private void Start()
     {
