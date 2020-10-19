@@ -7,9 +7,11 @@ public class Inventory : MonoBehaviour
 {
     private TextMeshProUGUI powerupText;
 
+    
     void Start()
     {
         powerupText = GameObject.Find("PowerupText").GetComponent<TextMeshProUGUI>();
+        
     }
 
     void Update()
@@ -17,6 +19,7 @@ public class Inventory : MonoBehaviour
         if (Player.Me)
         {
             powerupText.text = "Player has: " + Player.Me.powerup.ToString();
+          
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -24,4 +27,6 @@ public class Inventory : MonoBehaviour
             Player.Me.UsePowerup();
         }
     }
+
+   
 }
