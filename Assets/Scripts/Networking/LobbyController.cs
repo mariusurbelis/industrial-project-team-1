@@ -60,7 +60,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
             finalRoomCode = string.Concat(finalRoomCode, chosenRoomName[i]);
 
         if (!PhotonNetwork.InRoom) PhotonNetwork.JoinRoom(finalRoomCode);
-        Debug.Log($"{finalRoomCode} ({finalRoomCode.Length})");
+        //Debug.Log($"{finalRoomCode} ({finalRoomCode.Length})");
     }
 
     public void Host()
@@ -78,9 +78,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         PhotonNetwork.JoinOrCreateRoom(chosenRoomName, new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = (byte)(int)playerCountSlider.value }, TypedLobby.Default);
         //if (!PhotonNetwork.InRoom) PhotonNetwork.JoinRoom("MainRoom");
 
-        Debug.Log($"{chosenRoomName} ({chosenRoomName.Length})");
-
-
+        //Debug.Log($"{chosenRoomName} ({chosenRoomName.Length})");
     }
 
     /// <summary>
@@ -95,7 +93,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
 
         foreach (RoomInfo room in roomList)
         {
-            roomListText.text += $"{room.Name} ({room.Name.Length}): {room.PlayerCount}/{room.MaxPlayers}\n";
+            roomListText.text += $"{room.Name}: {room.PlayerCount}/{room.MaxPlayers}\n";
         }
 
         if (roomList.Count == 0)
