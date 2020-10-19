@@ -12,7 +12,6 @@ public class MenuController : MonoBehaviour
 
     [SerializeField] private Button joinButton = null;
     [SerializeField] private Button hostButton = null;
-    [SerializeField] private Button settingsButton = null;
     [SerializeField] private Button backButton = null;
     [SerializeField] private Button instructionsButton = null;
     [SerializeField] private Button closeInstructionsButton = null;
@@ -22,8 +21,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject hostPanel = null;
     [SerializeField] private GameObject roomNameInput = null;
     [SerializeField] private GameObject instructionsPopUP = null;
-    [SerializeField] private GameObject gameName = null;
-    [SerializeField] private GameObject lobbyInfo = null;
+    //[SerializeField] private GameObject gameName = null;
+    //[SerializeField] private GameObject lobbyInfo = null;
 
     private void Start()
     {
