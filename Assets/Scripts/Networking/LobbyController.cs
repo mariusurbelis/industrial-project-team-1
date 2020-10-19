@@ -62,7 +62,8 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         PlayerDataManager.ClearData();
         PlayerDataManager.SaveData(PlayerDataManager.PlayerUsername, GameObject.Find("Username InputField").GetComponent<TextMeshProUGUI>().text);
         PlayerDataManager.SaveData(PlayerDataManager.PlayerColor, $"#{ColorUtility.ToHtmlStringRGB(new Color(Random.value, Random.value, Random.value))}");
-        string chosenRoomName = GameObject.Find("Room Name InputField").GetComponent<TextMeshProUGUI>().text;
+        //string chosenRoomName = GameObject.Find("Room Name InputField").GetComponent<TextMeshProUGUI>().text;
+        string chosenRoomName = GenerateRoomCode();
 
         //CreateRoom(chosenRoomName);
 
@@ -100,6 +101,18 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
     private void ToggleConnectButton(bool active)
     {
         connectButton.SetActive(active);
+    }
+
+    private string GenerateRoomCode()
+    {
+        string finalRoomCode = "";
+
+        for (int i = 0; i < 4; i++)
+        {
+            finalRoomCode += (char)('a' + Random.Range(0, 26));
+        }
+
+        return finalRoomCode.ToUpper();
     }
 
     /// <summary>
