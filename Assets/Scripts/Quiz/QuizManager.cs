@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Photon.Pun;
-using System;
 using Random = UnityEngine.Random;
 
 public class QuizManager : MonoBehaviour
@@ -36,6 +35,11 @@ public class QuizManager : MonoBehaviour
         {
             answerOptions[i] = options[i].GetComponentInChildren<TextMeshProUGUI>();
         }
+    }
+
+    private void Start()
+    {
+        uiManager.SetInitialTime((int)RoundManager.roundTime);
     }
 
     /// <summary>
@@ -88,6 +92,16 @@ public class QuizManager : MonoBehaviour
         RoomController.LoadSceneByID(1);
     }
 
+
+    /// <summary>
+    /// Loads a leaderboard for every existing player.
+    /// </summary>
+    [PunRPC]
+    void RPC_LoadLeaderboard()
+    {
+        RoomController.LoadSceneByID(3);
+    }
+
     /// <summary>
     /// Synchronises the timer for every existing player.
     /// </summary>
@@ -121,6 +135,17 @@ public class QuizManager : MonoBehaviour
         if (PhotonNetwork.IsMasterClient)
         {
             instance.photonView.RPC("RPC_LoadLobby", RpcTarget.AllBuffered);
+        }
+    }
+
+    /// <summary>
+    /// Loads the leaderboard scene for every player.
+    /// </summary>
+    public static void LoadLeaderboard()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            instance.photonView.RPC("RPC_LoadLeaderboard", RpcTarget.AllBuffered);
         }
     }
 

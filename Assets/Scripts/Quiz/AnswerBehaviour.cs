@@ -5,16 +5,23 @@ using UnityEngine;
 public class AnswerBehaviour : MonoBehaviour
 {
 	[SerializeField] private int optionID = -1;
+	public GameObject highlight;
     /// <summary>
     /// Checks if a player movement collides with the gameObject attached to.
 	/// If a player object is detected the player's selected option will be set.
     /// </summary>
     /// <param name="collider">Colider used to check if a player object is intersecting</param>
-    void OnTriggerEnter2D(Collider2D collider)
+    void OnTriggerStay2D(Collider2D collider)
 	{
 		if (collider.gameObject.CompareTag("Player"))
 		{
-			collider.gameObject.GetComponent<Player>().selectedOption = optionID;
+			Player player = collider.gameObject.GetComponent<Player>();
+			player.selectedOption = optionID;
+			if(player.IsMe)
+            {
+				highlight.SetActive(true);
+			}
+			
 		}
 	}
 	/// <summary>
@@ -27,7 +34,12 @@ public class AnswerBehaviour : MonoBehaviour
 	{
 		if (collider.gameObject.CompareTag("Player"))
 		{
-			collider.gameObject.GetComponent<Player>().selectedOption = -1;
+			Player player = collider.gameObject.GetComponent<Player>();
+			player.selectedOption = -1;
+			if (player.IsMe)
+			{
+				highlight.SetActive(false);
+			}
 		}
 	}
 }

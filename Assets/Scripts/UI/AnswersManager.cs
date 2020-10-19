@@ -8,6 +8,9 @@ public class AnswersManager : MonoBehaviour
 {
     public GameObject[] answerArray;
     public Sprite m_closedTrapdoorSprite;
+    public Image[] trapdoorImages;
+    public GameObject[] trapdoorHighlights;
+
     private int[] answerOrder = new int[4];
     private Animator anim;
 
@@ -34,6 +37,10 @@ public class AnswersManager : MonoBehaviour
         {
             anim = answer.GetComponentInChildren<Animator>();
             anim.Play("trapdoor_close");
+        }
+        else
+        {
+            //Debug.Log("Trapdoor is not active");
         }
     }
 
