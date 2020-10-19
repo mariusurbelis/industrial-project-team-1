@@ -18,7 +18,7 @@ public class PlayerCounter : MonoBehaviour
     {
         if (PhotonNetwork.InRoom && TimerDone())
         {
-            //text.text = $"Players: {PhotonNetwork.CurrentRoom.PlayerCount} ({PhotonNetwork.CurrentRoom.Name})";
+            text.text = $"Room ID: {PhotonNetwork.CurrentRoom.Name}\n(Players: {PhotonNetwork.CurrentRoom.PlayerCount})";
         }
     }
 
