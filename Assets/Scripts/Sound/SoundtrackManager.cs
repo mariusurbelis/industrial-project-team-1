@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class SoundtrackManager : MonoBehaviour
 {
 	public static SoundtrackManager instance;
+
 	[SerializeField] private Button audioBtn = null;
-	[SerializeField] private GameObject audioBtnGameObject = null;
 
 	public static AudioSource audioSource;
 
@@ -25,16 +25,6 @@ public class SoundtrackManager : MonoBehaviour
 
 	void Awake()
 	{
-		audioSource = GetComponent<AudioSource>();
-
-		soundTrackSound = soundTrackSoundStub;
-
-		audioBtn.onClick.AddListener(() => ToggleSound());
-
-		buttonImage.GetComponent<Image>();
-
-		audioSource.PlayOneShot(soundTrackSound);
-
 		if (instance == null)
 			instance = this;
 		else
@@ -43,6 +33,21 @@ public class SoundtrackManager : MonoBehaviour
 			return;
 		}
 		DontDestroyOnLoad(gameObject);
+		audioSource = GetComponent<AudioSource>();
+
+		soundTrackSound = soundTrackSoundStub;
+
+		audioBtn.onClick.AddListener(() => ToggleSound());
+
+		buttonImage.GetComponent<Image>();
+
+	}
+
+	void Start()
+	{
+		audioSource.PlayOneShot(soundTrackSound);
+		buttonImage.sprite = soundOnImage;
+		Sound.soundOn = true;
 	}
 	private void ToggleSound()
 	{

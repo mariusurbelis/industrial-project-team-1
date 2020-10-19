@@ -3534,7 +3534,6 @@ GameObject:
   - component: {fileID: 1619167147}
   - component: {fileID: 1619167146}
   - component: {fileID: 1619167148}
-  - component: {fileID: 1619167149}
   m_Layer: 0
   m_Name: Soundtrack
   m_TagString: Untagged
@@ -3670,19 +3669,6 @@ MonoBehaviour:
   soundOnImage: {fileID: 21300000, guid: 0000207a73d6b9841a0058678028c250, type: 3}
   soundOffImage: {fileID: 21300000, guid: 4d4b4f29dae8f534faa1bbb7e265302b, type: 3}
   buttonImage: {fileID: 534754674}
---- !u!114 &1619167149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619167145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7545076fdd816334aa80ecfb6d489bb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screamSoundStub: {fileID: 8300000, guid: c047a0528a04eda44b4c472bf198791c, type: 3}
 --- !u!1 &1721238906
 GameObject:
   m_ObjectHideFlags: 0
