@@ -213,3 +213,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPanelPrefab: {fileID: 2682169086854517449, guid: 431679431e01d5442810f71072c476a5,
     type: 3}
+  playerListTransform: {fileID: 6861960459688021619}

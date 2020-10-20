@@ -10,8 +10,8 @@ public class GameSetupController : MonoBehaviour
     void Start()
     {
         CreatePlayer();
-        homeButton.onClick.RemoveAllListeners();
-        homeButton.onClick.AddListener(QuizManager.LoadHomeScreen);
+        //homeButton.onClick.RemoveAllListeners();
+        //homeButton.onClick.AddListener(QuizManager.LoadHomeScreen);
     }
 
     /// <summary>
