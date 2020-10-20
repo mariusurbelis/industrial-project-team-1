@@ -38,7 +38,9 @@ public class PlayerList : MonoBehaviour
             {
                 playerPanel.GetComponentInChildren<TextMeshProUGUI>().text = player.Username;
                 playerPanel.transform.Find("Player Image").GetComponent<Image>().color = player.PlayerColor - Color.black * 0.9f;
-                spectateText.SetActive(true);
+
+                if (player.Username == Player.Me.Username)
+                    spectateText.SetActive(true);
             }
             else
             {
