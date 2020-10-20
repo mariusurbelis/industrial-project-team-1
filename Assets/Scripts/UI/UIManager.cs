@@ -165,6 +165,4 @@ public class UIManager : MonoBehaviour
     {
         nextRoundManager.HideScreen();
     }
-
-
 }
