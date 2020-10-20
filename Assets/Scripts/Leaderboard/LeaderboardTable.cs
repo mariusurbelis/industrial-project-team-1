@@ -15,7 +15,8 @@ public class LeaderboardTable : MonoBehaviour
     /// </summary>
     void Start()
     {
-        homeButton.onClick.AddListener(LoadHomeScreen);
+        homeButton.onClick.RemoveAllListeners();
+        homeButton.onClick.AddListener(QuizManager.LoadHomeScreen);
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -56,13 +57,5 @@ public class LeaderboardTable : MonoBehaviour
             default:
                 return $"{index + 1}th";
         }
-    }
-
-    private void LoadHomeScreen()
-    {
-        if (PhotonNetwork.InRoom) PhotonNetwork.LeaveRoom();
-        //if (PhotonNetwork.InLobby) PhotonNetwork.LeaveLobby();
-        //if (PhotonNetwork.IsConnected) PhotonNetwork.Disconnect();
-        SceneManager.LoadScene("ConnectionScene");
     }
 }
