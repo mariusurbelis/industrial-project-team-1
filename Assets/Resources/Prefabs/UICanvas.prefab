@@ -805,6 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   answersManager: {fileID: 0}
+  nextRoundManager: {fileID: 0}
   m_questionTextComponent: {fileID: 356444552745726383}
   m_timerTextComponent: {fileID: 1171099611129385801}
   m_aliveHeartSprite: {fileID: 6579227091846251853, guid: 6e015692a2393574388138fd92094a12,

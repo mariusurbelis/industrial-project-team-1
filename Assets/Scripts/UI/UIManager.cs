@@ -7,6 +7,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public AnswersManager answersManager;
+    public NextRoundManager nextRoundManager;
 
     public TextMeshProUGUI m_questionTextComponent;
     public TextMeshProUGUI m_timerTextComponent;
@@ -154,4 +155,16 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    public void ShowNextRoundScreen(string questionText)
+    {
+        nextRoundManager.ShowScreen(questionText);
+    }
+
+    public void HideNextRoundScreen()
+    {
+        nextRoundManager.HideScreen();
+    }
+
+
 }

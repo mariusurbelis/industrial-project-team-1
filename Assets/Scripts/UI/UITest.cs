@@ -5,13 +5,13 @@ using UnityEngine;
 public class UITest : MonoBehaviour
 {
     public UIManager UIManager;
-    private float timePassed = 10;
+    private float timePassed = 30;
     private int timer = 5;
 
     private void Start()
     {
         UIManager.OpenTrapdoors(1);
-        timePassed = 10;
+        timePassed = 30;
         timer = 10;
     }
 
@@ -43,6 +43,8 @@ public class UITest : MonoBehaviour
             int[] order = { 0, 3, 1, 2 };
             UIManager.SetAnswers(answers, order);
 
+            UIManager.HideNextRoundScreen();
+
         }
         else if (timer <= 25)
         {
@@ -54,6 +56,7 @@ public class UITest : MonoBehaviour
             UIManager.SetAnswers(answers, order);
 
             UIManager.CloseTrapdoors();
+            UIManager.ShowNextRoundScreen("test1");
         }
         
         
