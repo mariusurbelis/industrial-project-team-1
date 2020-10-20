@@ -14,6 +14,12 @@ public class AnswersManager : MonoBehaviour
     private int[] answerOrder = new int[4];
     private Animator anim;
 
+
+    private void Start()
+    {
+        
+    }
+
     /// <summary>
     /// Opens a trapdoor
     /// </summary>
@@ -51,6 +57,7 @@ public class AnswersManager : MonoBehaviour
     /// <param name="order">Order the answers should be displayed in</param>
     public void SetAnswers(string[] answerOptions, int[] order)
     {
+        Debug.Log("Answer1 is " + answerOptions[0]);
         // If there are only two answers, question is true false, so take two options away
         if (answerOptions.Length == 4)
         {

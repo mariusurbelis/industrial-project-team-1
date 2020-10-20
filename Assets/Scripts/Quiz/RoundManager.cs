@@ -19,6 +19,7 @@ public class RoundManager : MonoBehaviour
     {
         NextRound();
     }
+
     /// <summary>
     /// Creates a new round by resetting the timer and loading a new question.
     /// </summary>
@@ -30,6 +31,7 @@ public class RoundManager : MonoBehaviour
         QuizManager.LoadNewQuestion();
         Sound.PlayNewRoundSound(Sound.newRoundSound);
     }
+
     /// <summary>
     /// Resets the timer.
     /// </summary>

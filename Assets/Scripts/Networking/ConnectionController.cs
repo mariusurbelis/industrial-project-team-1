@@ -9,8 +9,11 @@ public class ConnectionController : MonoBehaviourPunCallbacks
 {
     void Start()
     {
-        PhotonNetwork.GameVersion = "0.0.1";
-        PhotonNetwork.ConnectUsingSettings();
+        if (!PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.GameVersion = "0.0.1";
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public override void OnConnectedToMaster()

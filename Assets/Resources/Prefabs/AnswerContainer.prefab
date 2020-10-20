@@ -381,7 +381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.304912, g: 0.8773585, b: 0.29383236, a: 1}
+  m_Color: {r: 0.52466524, g: 0.8784314, b: 0.5173961, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -477,10 +477,10 @@ MonoBehaviour:
   - {fileID: 7547987951761831828}
   - {fileID: 7547987952726802744}
   trapdoorHighlights:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7858174285466569415}
+  - {fileID: 6543221399668853664}
+  - {fileID: 9207421149731137997}
+  - {fileID: 2292476217100826881}
 --- !u!1 &7547987951946846061
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,8 +547,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Answer 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75a6041231a23574395312014cf7291c, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 75a6041231a23574395312014cf7291c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8490566, g: 0.27634388, b: 0.27634388, a: 1}
+  m_Color: {r: 0.8509804, g: 0.3557098, b: 0.3557098, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -848,8 +848,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Answer 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75a6041231a23574395312014cf7291c, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 75a6041231a23574395312014cf7291c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.17515129, g: 0.32663578, b: 0.9056604, a: 1}
+  m_Color: {r: 0.3659765, g: 0.47628, b: 0.90588236, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9882382, g: 0.990566, b: 0, a: 1}
+  m_Color: {r: 0.98996073, g: 0.99215686, b: 0.436549, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1446,8 +1446,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Answer 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75a6041231a23574395312014cf7291c, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 75a6041231a23574395312014cf7291c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1579,8 +1579,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Answer 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75a6041231a23574395312014cf7291c, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 75a6041231a23574395312014cf7291c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

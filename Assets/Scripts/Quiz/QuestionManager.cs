@@ -7,17 +7,20 @@ using UnityEngine.Networking;
 
 public class QuestionManager : MonoBehaviour
 {
-    private static string jsonString;
-    private static List<Question> MCquestions;
-    private static List<Question> Bquestions;
-    private static int MCamount = 0;
-    private static int Bamount = 0;
+    private static string jsonString = "";
+    private static List<Question> MCquestions = new List<Question>();
+    private static List<Question> Bquestions = new List<Question>();
 
-    // Start is called before the first frame update
     void Start()
     {
+        jsonString = "";
+        QuantityBoolean = 0;
+        QuantityMultiple = 0;
+        MCquestions.Clear();
+        Bquestions.Clear();
         GetJsonData();
     }
+
     /// <summary>
     /// Starts a Coroutine to get JSON data from API
     /// </summary>
@@ -25,6 +28,7 @@ public class QuestionManager : MonoBehaviour
     {
         StartCoroutine(RequestWebService());
     }
+
     /// <summary>
     /// Requests a web request to the API and parses the data from the API to a JSON file.
     /// </summary>
@@ -111,6 +115,7 @@ public class QuestionManager : MonoBehaviour
             }
         }
     }
+
     /// <summary>
     /// Processes the data from the JSON file retrieved from the API.
     /// Stores each question in the JSON file, into a question object.
@@ -120,10 +125,6 @@ public class QuestionManager : MonoBehaviour
     {
         var D = JSON.Parse(jsonString);
         int length = D["results"].Count;
-        // List of multiple choice questions
-        MCquestions = new List<Question>();
-        // List of boolean true/false questions
-        Bquestions = new List<Question>();
 
         for (int i = 0; i < length; i++)
         {
@@ -139,14 +140,14 @@ public class QuestionManager : MonoBehaviour
                 string thirdIA = D["results"][i]["incorrect_answers"][2];
                 Question newQuestion = new Question(category, type, difficulty, question, correctAnswer, firstIA, secondIA, thirdIA);
                 MCquestions.Add(newQuestion);
-                MCamount++;
+                QuantityMultiple++;
             }
             else if (type == "boolean")
             {
                 string firstIA = D["results"][i]["incorrect_answers"][0];
                 Question newQuestion = new Question(category, type, difficulty, question, correctAnswer, firstIA);
                 Bquestions.Add(newQuestion);
-                Bamount++;
+                QuantityBoolean++;
             }
         }
     }
@@ -165,22 +166,11 @@ public class QuestionManager : MonoBehaviour
     /// <summary>
     /// Used to get the quantity of multiple choice questions in the JSON file.
     /// </summary>
-	public static int QuantityMultiple
-	{
-		get
-		{
-			return MCamount;
-		}
-	}
+	public static int QuantityMultiple { get; private set; } = 0;
+
     /// <summary>
     /// Used to get the quantity of boolean questions in the JSON file.
     /// </summary>
-	public static int QuantityBoolean
-	{
-		get
-		{
-			return Bamount;
-		}
-	}
+	public static int QuantityBoolean { get; private set; } = 0;
 
 }

@@ -18,8 +18,24 @@ public class UIManager : MonoBehaviour
     public Component m_heartContainer;  // Container of the heart objects
     public Image[] m_hearts;            // Array of the heart objects
 
-    private int m_maxHearts = 3;
-    private int m_maxTime = 30;
+    private AudioSource audioSource;
+
+    const int _HEARTCOUNT = 3;
+    const int _MAXTIME = 10;
+
+    private int m_maxHearts = _HEARTCOUNT;
+    private int m_maxTime = _MAXTIME;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        m_maxHearts = _HEARTCOUNT;
+        m_maxTime = _MAXTIME;
+
+        //Initialize variables
+        SetCurrentHearts(m_maxHearts);
+        SetInitialTime(m_maxTime);
+    }
 
     /// <summary>
     /// Sets the question text
@@ -70,6 +86,20 @@ public class UIManager : MonoBehaviour
         int spriteNo = (int)timeRatio;
         spriteNo = Mathf.Clamp(spriteNo, 0, 35);
         m_timerImage.sprite = m_timerSprites[spriteNo];
+        //If only 3 seconds left
+        if (currentTime == 3)
+        {
+            Sound.PlaySound(Sound.timerTickSound);  
+        }
+        //Change colour to red when timer is ticking down
+        if(currentTime <= 3)
+        {
+            m_timerImage.color = new Color(1, 0, 0, 1);
+        }
+        else
+        {
+            m_timerImage.color = new Color(0.1526344f, 0.5217617f, 0.9245283f, 1);
+        }
     }
 
     /// <summary>

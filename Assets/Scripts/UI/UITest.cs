@@ -5,12 +5,14 @@ using UnityEngine;
 public class UITest : MonoBehaviour
 {
     public UIManager UIManager;
-    private float timePassed = 30;
-    private int timer = 30;
+    private float timePassed = 10;
+    private int timer = 5;
 
     private void Start()
     {
         UIManager.OpenTrapdoors(1);
+        timePassed = 10;
+        timer = 10;
     }
 
     // Update is called once per frame
