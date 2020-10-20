@@ -28,6 +28,7 @@ public class RoundManager : MonoBehaviour
         ResetTimer();
         roundEndInformed = false;
         QuizManager.LoadNewQuestion();
+        Sound.PlayNewRoundSound(Sound.newRoundSound);
     }
     /// <summary>
     /// Resets the timer.
