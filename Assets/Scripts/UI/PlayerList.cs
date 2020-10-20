@@ -8,15 +8,16 @@ public class PlayerList : MonoBehaviour
 {
     public static PlayerList instance;
 
-    [SerializeField] private GameObject playerPanelPrefab;
-    [SerializeField] private Transform playerListTransform;
+    [SerializeField] private GameObject playerPanelPrefab = null;
+    [SerializeField] private GameObject spectateText = null;
+    [SerializeField] private Transform playerListTransform = null;
 
     private List<GameObject> playerPanels = new List<GameObject>();
 
     private void Awake() => instance = this;
 
     private void Start() => StartCoroutine(SpawnPlayerPanels());
-        
+
     private void DrawPlayerPanels()
     {
         for (int i = playerPanels.Count - 1; i >= 0; i--)
@@ -33,10 +34,13 @@ public class PlayerList : MonoBehaviour
 
             playerPanels.Add(playerPanel);
 
-            if (QuizManager.eliminationList.Contains(player.PlayerName))
+            if (QuizManager.eliminationList.Contains(player.Username))
             {
                 playerPanel.GetComponentInChildren<TextMeshProUGUI>().text = player.Username;
                 playerPanel.transform.Find("Player Image").GetComponent<Image>().color = player.PlayerColor - Color.black * 0.9f;
+
+                if (player.Username == Player.Me.Username)
+                    spectateText.SetActive(true);
             }
             else
             {
@@ -53,7 +57,7 @@ public class PlayerList : MonoBehaviour
 
     private IEnumerator SpawnPlayerPanels()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.25f);
         DrawPlayerPanels();
         yield return null;
     }
