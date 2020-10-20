@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         if (selectedOption != QuizManager.currentCorrectAnswerID)
         {
             health--;
-            Sound.PlaySound(Sound.screamSound);
+            Sound.PlayScreamSound(Sound.screamSound);
             ToggleMovement(false);
             animator.SetTrigger((selectedOption != -1) ? "Die" : "Melt");
             StartCoroutine(BackToMiddle());
@@ -69,12 +69,19 @@ public class Player : MonoBehaviour
                 Die();
             }
         }
+        else
+        {
+            Sound.PlayCorrectSound(Sound.correctSound);
+        }
     }
 
     [PunRPC]
     void RPC_BeAffectedByPowerup(Powerup.PowerupType powerupType, Vector2 powerupPosition)
     {
         Debug.Log("Got affected by a powerup");
+
+        Sound.PlayBombSound(Sound.bombSound);
+
         switch (powerupType)
         {
             case Powerup.PowerupType.Bomb:
@@ -110,6 +117,8 @@ public class Player : MonoBehaviour
     public void UsePowerup()
     {
         Debug.Log($"{Username} used a powerup");
+
+        Sound.PlayBombSound(Sound.bombSound);
 
         foreach (Player player in FindObjectsOfType<Player>())
         {

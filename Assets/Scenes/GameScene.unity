@@ -536,6 +536,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5566264854765752486, guid: 721813a9def46b142aa3e8f50afb285f,
+        type: 3}
+      propertyPath: bombStub
+      value: 
+      objectReference: {fileID: 8300000, guid: 3315b8e5b26381a40aae66d5039b2bb5, type: 3}
+    - target: {fileID: 5566264854765752486, guid: 721813a9def46b142aa3e8f50afb285f,
+        type: 3}
+      propertyPath: correctStub
+      value: 
+      objectReference: {fileID: 8300000, guid: e17e9343a3c5f844a8cdebaa7d2f7949, type: 3}
+    - target: {fileID: 5566264854765752486, guid: 721813a9def46b142aa3e8f50afb285f,
+        type: 3}
+      propertyPath: newRoundStub
+      value: 
+      objectReference: {fileID: 8300000, guid: 5dc83aa8091f26b4b81354d1533bc167, type: 3}
     - target: {fileID: 5566264854765752487, guid: 721813a9def46b142aa3e8f50afb285f,
         type: 3}
       propertyPath: m_Name
