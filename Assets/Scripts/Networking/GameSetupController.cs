@@ -6,12 +6,9 @@ using Random = UnityEngine.Random;
 
 public class GameSetupController : MonoBehaviour
 {
-    [SerializeField] private Button homeButton = null;
     void Start()
     {
         CreatePlayer();
-        //homeButton.onClick.RemoveAllListeners();
-        //homeButton.onClick.AddListener(QuizManager.LoadHomeScreen);
     }
 
     /// <summary>
