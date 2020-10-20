@@ -33,7 +33,7 @@ public class PlayerList : MonoBehaviour
 
             playerPanels.Add(playerPanel);
 
-            if (QuizManager.eliminationList.Contains(player.PlayerName))
+            if (QuizManager.eliminationList.Contains(player.Username))
             {
                 playerPanel.GetComponentInChildren<TextMeshProUGUI>().text = player.Username;
                 playerPanel.transform.Find("Player Image").GetComponent<Image>().color = player.PlayerColor - Color.black * 0.9f;
