@@ -11,8 +11,8 @@ public class Inventory : MonoBehaviour
 
   
     private TextMeshProUGUI powerupText;
-    public Image icon;
-    public Button removeButton;
+    public static Image icon;
+    public static Button removeButton;
     
 
     public void AddPowerup(Sprite newPowerup)
@@ -26,16 +26,18 @@ public class Inventory : MonoBehaviour
     }
 
     public void DropPowerup()
-    {
+    {   
         icon.sprite = null;
         icon.enabled = false;
         removeButton.interactable = false;
+        Player.Me.DropPowerup();
     }
 
     void Start()
     {
         powerupText = GameObject.Find("PowerupText").GetComponent<TextMeshProUGUI>();
-       
+        icon = GameObject.Find("PowerUpIcon").GetComponent<Image>();
+        removeButton = GameObject.Find("DropPowerupBtn").GetComponent<Button>();
     }
 
     void Update()

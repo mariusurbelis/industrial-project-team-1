@@ -119,6 +119,12 @@ public class Player : MonoBehaviour
         powerup = Powerup.PowerupType.None;
     }
 
+    public void DropPowerup()
+    {
+        Debug.Log($"{Username} dropped powerup");
+        powerup = Powerup.PowerupType.None;
+    }
+
     /// <summary>
     /// Player's movement is disabled and the player is taken back to the center of the game screen.
     /// </summary>
