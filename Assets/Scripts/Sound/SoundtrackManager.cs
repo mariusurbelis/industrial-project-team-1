@@ -36,7 +36,6 @@ public class SoundtrackManager : MonoBehaviour
 
 	public void Initialize()
 	{
-		Debug.Log("start function started");
 		audioBtn = GameObject.Find("AudioBtn").GetComponent<Button>();
 		soundEffectsBtn = GameObject.Find("SoundEffectsBtn").GetComponent<Button>();
 		buttonImage = GameObject.Find("AudioImage").GetComponent<Image>();

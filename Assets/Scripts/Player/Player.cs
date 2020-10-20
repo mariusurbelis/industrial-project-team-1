@@ -137,6 +137,8 @@ public class Player : MonoBehaviour
         QuizManager.eliminationList.Add(Username);
         //Debug.Log($"Adding {Username} to the elimination list");
 
+        PlayerList.UpdateList();
+
         // Temporary
         Destroy(gameObject.GetComponent<PlayerMovement>());
         transform.position = new Vector2(0, -4f);
