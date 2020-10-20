@@ -211,3 +211,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c82f1364d5560479f5d9db6da7e341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPanelPrefab: {fileID: 2682169086854517449, guid: 431679431e01d5442810f71072c476a5,
+    type: 3}

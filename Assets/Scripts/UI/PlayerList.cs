@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 
 public class PlayerList : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject playerPanelPrefab;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        foreach (Player player in FindObjectsOfType<Player>())
+        {
+            GameObject playerPanel = Instantiate(playerPanelPrefab, transform);
+            playerPanel.GetComponentInChildren<TextMeshProUGUI>().text = player.PlayerName;
+        }
     }
 }
