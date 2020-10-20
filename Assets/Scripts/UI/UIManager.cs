@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public AnswersManager answersManager;
     public NextRoundManager nextRoundManager;
+    public PlayerDeathPopup playerDeathPopup;
 
     public TextMeshProUGUI m_questionTextComponent;
     public TextMeshProUGUI m_timerTextComponent;
@@ -165,4 +166,16 @@ public class UIManager : MonoBehaviour
     {
         nextRoundManager.HideScreen();
     }
+
+    public void ShowDeathPopup()
+    {
+        playerDeathPopup.ShowScreen();
+    }
+
+    public void HideDeathPopup()
+    {
+        playerDeathPopup.HideScreen();
+    }
+
+
 }

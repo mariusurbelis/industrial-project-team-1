@@ -11,8 +11,9 @@ public class UITest : MonoBehaviour
     private void Start()
     {
         UIManager.OpenTrapdoors(1);
-        timePassed = 30;
+        timePassed = 25;
         timer = 10;
+        UIManager.ShowDeathPopup();
     }
 
     // Update is called once per frame
@@ -33,6 +34,8 @@ public class UITest : MonoBehaviour
             string[] answers = { "a1", "a2", "a3", "a4" };
             int[] order = { 0, 3, 1, 2 };
             UIManager.SetAnswers(answers, order);
+
+            
         }
         else if (timer <= 20)
         {
@@ -44,6 +47,9 @@ public class UITest : MonoBehaviour
             UIManager.SetAnswers(answers, order);
 
             UIManager.HideNextRoundScreen();
+            UIManager.HideDeathPopup();
+
+
 
         }
         else if (timer <= 25)
