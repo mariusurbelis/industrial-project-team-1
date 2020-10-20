@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 2
+  powerUpIcon: {fileID: 2219522055840168616, guid: 5dbc312d29746c741aadff8cc6089559,
+    type: 3}
 --- !u!61 &7899430854534284747
 BoxCollider2D:
   m_ObjectHideFlags: 0
