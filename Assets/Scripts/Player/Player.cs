@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Color playerColor;
 
     public string Username => GetComponent<PlayerID>().PlayerDisplayName;
+    public Color PlayerColor => GetComponent<PlayerAvatar>().PlayerDisplayColor;
 
     public PhotonView photonView;
     public Rigidbody2D myBody;
@@ -62,12 +63,16 @@ public class Player : MonoBehaviour
             Sound.PlayScreamSound(Sound.screamSound);
             ToggleMovement(false);
             animator.SetTrigger((selectedOption != -1) ? "Die" : "Melt");
-            StartCoroutine(BackToMiddle());
 
             if (health <= 0)
             {
                 Die();
             }
+            else
+            {
+                StartCoroutine(BackToMiddle());
+            }
+
         }
         else
         {
@@ -143,9 +148,11 @@ public class Player : MonoBehaviour
         QuizManager.eliminationList.Add(Username);
         //Debug.Log($"Adding {Username} to the elimination list");
 
+        PlayerList.UpdateList();
+
         // Temporary
         Destroy(gameObject.GetComponent<PlayerMovement>());
-        transform.position = new Vector2(0, -4f);
+        transform.position = new Vector2(100, 100f);
         isDead = true;
     }
 
