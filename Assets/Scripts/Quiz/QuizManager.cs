@@ -244,5 +244,9 @@ public class QuizManager : MonoBehaviour
         //if (PhotonNetwork.IsConnected) PhotonNetwork.Disconnect();
         SceneManager.LoadScene("ConnectionScene");
     }
+    public static void LoadLobbyScreen()
+    {
+        if (PhotonNetwork.InRoom) { SceneManager.LoadScene("LobbyScene"); }
+    }
 
 }

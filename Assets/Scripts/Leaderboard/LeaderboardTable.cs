@@ -9,6 +9,7 @@ public class LeaderboardTable : MonoBehaviour
     [SerializeField] private GameObject leaderboardElementPrefab = null;
     [SerializeField] private GameObject leaderboardListPanel = null;
     [SerializeField] private Button homeButton = null;
+    [SerializeField] private Button playAgainButton = null;
 
     /// <summary>
     /// Start is called before the first frame update.
@@ -17,6 +18,8 @@ public class LeaderboardTable : MonoBehaviour
     {
         homeButton.onClick.RemoveAllListeners();
         homeButton.onClick.AddListener(QuizManager.LoadHomeScreen);
+        playAgainButton.onClick.RemoveAllListeners();
+        playAgainButton.onClick.AddListener(QuizManager.LoadLobbyScreen);
 
         if (PhotonNetwork.IsMasterClient)
         {
