@@ -36,7 +36,6 @@ public class Inventory : MonoBehaviour
     {
         powerupText = GameObject.Find("PowerupText").GetComponent<TextMeshProUGUI>();
        
-       
     }
 
     void Update()
