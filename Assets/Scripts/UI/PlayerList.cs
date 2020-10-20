@@ -35,13 +35,13 @@ public class PlayerList : MonoBehaviour
 
             if (QuizManager.eliminationList.Contains(player.PlayerName))
             {
-                playerPanel.GetComponentInChildren<TextMeshProUGUI>().text = "RIP";
-                playerPanel.transform.Find("Player Image").GetComponent<Image>().color = player.playerColor - Color.black * 0.9f;
+                playerPanel.GetComponentInChildren<TextMeshProUGUI>().text = player.Username;
+                playerPanel.transform.Find("Player Image").GetComponent<Image>().color = player.PlayerColor - Color.black * 0.9f;
             }
             else
             {
-                playerPanel.GetComponentInChildren<TextMeshProUGUI>().text = player.PlayerName;
-                playerPanel.transform.Find("Player Image").GetComponent<Image>().color = player.playerColor;
+                playerPanel.GetComponentInChildren<TextMeshProUGUI>().text = player.Username;
+                playerPanel.transform.Find("Player Image").GetComponent<Image>().color = player.PlayerColor;
             }
         }
     }

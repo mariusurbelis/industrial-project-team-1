@@ -35,4 +35,6 @@ public class PlayerAvatar : MonoBehaviour
         spriteRenderer.color = new Color(r, g, b);
     }
 
+    public Color PlayerDisplayColor => spriteRenderer.color;
+
 }

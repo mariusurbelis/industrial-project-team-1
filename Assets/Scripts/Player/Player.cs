@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Color playerColor;
 
     public string Username => GetComponent<PlayerID>().PlayerDisplayName;
+    public Color PlayerColor => GetComponent<PlayerAvatar>().PlayerDisplayColor;
 
     public PhotonView photonView;
     public Rigidbody2D myBody;
