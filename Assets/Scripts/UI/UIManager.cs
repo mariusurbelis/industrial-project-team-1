@@ -7,6 +7,8 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public AnswersManager answersManager;
+    public NextRoundManager nextRoundManager;
+    public PlayerDeathPopup playerDeathPopup;
 
     public TextMeshProUGUI m_questionTextComponent;
     public TextMeshProUGUI m_timerTextComponent;
@@ -154,4 +156,26 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    public void ShowNextRoundScreen(string questionText)
+    {
+        nextRoundManager.ShowScreen(questionText);
+    }
+
+    public void HideNextRoundScreen()
+    {
+        nextRoundManager.HideScreen();
+    }
+
+    public void ShowDeathPopup()
+    {
+        playerDeathPopup.ShowScreen();
+    }
+
+    public void HideDeathPopup()
+    {
+        playerDeathPopup.HideScreen();
+    }
+
+
 }

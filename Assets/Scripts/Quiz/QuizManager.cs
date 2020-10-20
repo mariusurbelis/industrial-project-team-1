@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Pun;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class QuizManager : MonoBehaviour
 {
@@ -235,6 +236,17 @@ public class QuizManager : MonoBehaviour
             }
             return order;
         }
+    }
+    public static void LoadHomeScreen()
+    {
+        if (PhotonNetwork.InRoom) PhotonNetwork.LeaveRoom();
+        //if (PhotonNetwork.InLobby) PhotonNetwork.LeaveLobby();
+        //if (PhotonNetwork.IsConnected) PhotonNetwork.Disconnect();
+        SceneManager.LoadScene("ConnectionScene");
+    }
+    public static void LoadLobbyScreen()
+    {
+        if (PhotonNetwork.InRoom) { SceneManager.LoadScene("LobbyScene"); }
     }
 
 }

@@ -9,13 +9,17 @@ public class LeaderboardTable : MonoBehaviour
     [SerializeField] private GameObject leaderboardElementPrefab = null;
     [SerializeField] private GameObject leaderboardListPanel = null;
     [SerializeField] private Button homeButton = null;
+    [SerializeField] private Button playAgainButton = null;
 
     /// <summary>
     /// Start is called before the first frame update.
     /// </summary>
     void Start()
     {
-        homeButton.onClick.AddListener(LoadHomeScreen);
+        homeButton.onClick.RemoveAllListeners();
+        homeButton.onClick.AddListener(QuizManager.LoadHomeScreen);
+        playAgainButton.onClick.RemoveAllListeners();
+        playAgainButton.onClick.AddListener(QuizManager.LoadLobbyScreen);
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -56,13 +60,5 @@ public class LeaderboardTable : MonoBehaviour
             default:
                 return $"{index + 1}th";
         }
-    }
-
-    private void LoadHomeScreen()
-    {
-        if (PhotonNetwork.InRoom) PhotonNetwork.LeaveRoom();
-        //if (PhotonNetwork.InLobby) PhotonNetwork.LeaveLobby();
-        //if (PhotonNetwork.IsConnected) PhotonNetwork.Disconnect();
-        SceneManager.LoadScene("ConnectionScene");
     }
 }
