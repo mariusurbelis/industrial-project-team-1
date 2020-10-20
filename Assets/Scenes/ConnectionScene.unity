@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 107326178}
   - component: {fileID: 107326177}
   m_Layer: 5
-  m_Name: Icon
+  m_Name: AudioImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1609,7 +1609,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joinButton: {fileID: 1513625760}
   hostButton: {fileID: 1723413295}
-  settingsButton: {fileID: 1581209596}
   backButton: {fileID: 1954523945}
   instructionsButton: {fileID: 977784945}
   closeInstructionsButton: {fileID: 1522716384}
@@ -1619,8 +1618,6 @@ MonoBehaviour:
   hostPanel: {fileID: 326953757}
   roomNameInput: {fileID: 794999298}
   instructionsPopUP: {fileID: 563843954}
-  gameName: {fileID: 2017179922}
-  lobbyInfo: {fileID: 1021203382}
 --- !u!4 &950264470
 Transform:
   m_ObjectHideFlags: 0
@@ -3773,17 +3770,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9aeaf621102e604ab89e233bbb3d4e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioBtn: {fileID: 1318030123}
-  soundEffectsBtn: {fileID: 1581209596}
   soundTrackSoundStub: {fileID: 8300000, guid: de4c869ea7c38d440913f04c7e73f66e, type: 3}
   soundOnImage: {fileID: 21300000, guid: 0000207a73d6b9841a0058678028c250, type: 3}
   soundOffImage: {fileID: 21300000, guid: 4d4b4f29dae8f534faa1bbb7e265302b, type: 3}
-  buttonImage: {fileID: 107326177}
   soundEffectsOnImage: {fileID: 21300000, guid: b16506d6ca845624796529cf229a1452,
     type: 3}
   soundEffectsOffImage: {fileID: 21300000, guid: bd2a3e8efe1c172419e0142ea08e2b1c,
     type: 3}
-  buttonEffectsImage: {fileID: 1750014817}
 --- !u!1 &1721238906
 GameObject:
   m_ObjectHideFlags: 0
@@ -4049,7 +4042,7 @@ GameObject:
   - component: {fileID: 1750014818}
   - component: {fileID: 1750014817}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SoundEffectsImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
