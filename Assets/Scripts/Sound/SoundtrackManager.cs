@@ -1,75 +1,86 @@
-﻿using ExitGames.Client.Photon;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.U2D;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SoundtrackManager : MonoBehaviour
 {
-    public static SoundtrackManager instance;
+	public static SoundtrackManager instance;
 
-    [SerializeField] private Button audioBtn = null;
-    [SerializeField] private Button soundEffectsBtn = null;
+	private Button audioBtn = null;
+	private Button soundEffectsBtn = null;
 
-    public static AudioSource audioSource;
-    public static AudioClip soundTrackSound;
-    public AudioClip soundTrackSoundStub;
+	public static AudioSource audioSource;
+	public static AudioClip soundTrackSound;
+	public AudioClip soundTrackSoundStub;
 
-    [SerializeField] private Sprite soundOnImage = null;
-    [SerializeField] private Sprite soundOffImage = null;
-    [SerializeField] private Image buttonImage = null;
-    [SerializeField] private Sprite soundEffectsOnImage = null;
-    [SerializeField] private Sprite soundEffectsOffImage = null;
-    [SerializeField] private Image buttonEffectsImage = null;
+	[SerializeField] private Sprite soundOnImage = null;
+	[SerializeField] private Sprite soundOffImage = null;
+	private Image buttonImage = null;
+	[SerializeField] private Sprite soundEffectsOnImage = null;
+	[SerializeField] private Sprite soundEffectsOffImage = null;
+	private Image buttonEffectsImage = null;
 
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
-        audioSource = GetComponent<AudioSource>();
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+			return;
+		}
 
-        soundTrackSound = soundTrackSoundStub;
+		DontDestroyOnLoad(gameObject);
+	}
 
-        audioBtn.onClick.AddListener(() => ToggleSoundtrack());
+	public void Initialize()
+	{
+		Debug.Log("start function started");
+		audioBtn = GameObject.Find("AudioBtn").GetComponent<Button>();
+		soundEffectsBtn = GameObject.Find("SoundEffectsBtn").GetComponent<Button>();
+		buttonImage = GameObject.Find("AudioImage").GetComponent<Image>();
+		buttonEffectsImage = GameObject.Find("SoundEffectsImage").GetComponent<Image>();
 
-        soundEffectsBtn.onClick.AddListener(() => ToggleSoundEffects());
+		audioSource = GetComponent<AudioSource>();
+		buttonImage.GetComponent<Image>();
 
-        buttonImage.GetComponent<Image>();
+		audioBtn.onClick.RemoveAllListeners();
+		soundEffectsBtn.onClick.RemoveAllListeners();
 
-    }
+		audioBtn.onClick.AddListener(() => ToggleSoundtrack());
+		soundEffectsBtn.onClick.AddListener(() => ToggleSoundEffects());
 
-    void Start()
-    {
-        audioSource.PlayOneShot(soundTrackSound);
-        buttonImage.sprite = soundOnImage;
-        Sound.soundOn = true;
-    }
-    private void ToggleSoundtrack()
-    {
-        if (audioSource.isPlaying)
-        {
-            audioSource.Stop();
-            buttonImage.sprite = soundOffImage;
-        }
-        else
-        {
-            audioSource.PlayOneShot(soundTrackSound);
-            buttonImage.sprite = soundOnImage;
-        }
-    }
+		if (!soundTrackSound)
+		{
+			soundTrackSound = soundTrackSoundStub;
+		}
+		
+		ResetButtonImages();
+	}
+	public void ToggleSoundtrack()
+	{
+		if (audioSource.isPlaying)
+		{
+			audioSource.Stop();
+		}
+		else
+		{
+			audioSource.Play();
+		}
 
-    private void ToggleSoundEffects()
-    {
-        Sound.soundOn = !Sound.soundOn;
-        buttonEffectsImage.sprite = Sound.soundOn ? soundEffectsOnImage : soundEffectsOffImage;
-    }
+		ResetButtonImages();
+	}
+
+	public void ToggleSoundEffects()
+	{
+		Sound.soundOn = !Sound.soundOn;
+		ResetButtonImages();
+	}
+
+	private void ResetButtonImages()
+	{
+		buttonImage.sprite = audioSource.isPlaying ? soundOnImage : soundOffImage;
+		buttonEffectsImage.sprite = Sound.soundOn ? soundEffectsOnImage : soundEffectsOffImage;
+	}
 }
