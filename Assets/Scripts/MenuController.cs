@@ -26,6 +26,8 @@ public class MenuController : MonoBehaviour
 
     private void Start()
     {
+        FindObjectOfType<SoundtrackManager>().Initialize();
+
         joinButton.onClick.AddListener(() =>
         {
             ShowScreen(joinHostPanel); state = State.Join; roomNameInput.SetActive(true);

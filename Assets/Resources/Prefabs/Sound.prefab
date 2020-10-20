@@ -141,3 +141,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screamSoundStub: {fileID: 8300000, guid: c047a0528a04eda44b4c472bf198791c, type: 3}
+  timerTickSoundStub: {fileID: 8300000, guid: 353cfd0a021aa4644abe8d74455f04ee, type: 3}
