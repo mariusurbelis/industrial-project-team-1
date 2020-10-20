@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Color playerColor;
 
     public string Username => GetComponent<PlayerID>().PlayerDisplayName;
+    public Color PlayerColor => GetComponent<PlayerAvatar>().PlayerDisplayColor;
 
     public PhotonView photonView;
     public Rigidbody2D myBody;
@@ -136,6 +137,8 @@ public class Player : MonoBehaviour
         //Adds players username to a list in the order they were eliminated
         QuizManager.eliminationList.Add(Username);
         //Debug.Log($"Adding {Username} to the elimination list");
+
+        PlayerList.UpdateList();
 
         // Temporary
         Destroy(gameObject.GetComponent<PlayerMovement>());
