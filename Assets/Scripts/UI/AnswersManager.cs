@@ -56,8 +56,7 @@ public class AnswersManager : MonoBehaviour
     /// <param name="answerOptions">Array of answers to display</param>
     /// <param name="order">Order the answers should be displayed in</param>
     public void SetAnswers(string[] answerOptions, int[] order)
-    {
-        Debug.Log("Answer1 is " + answerOptions[0]);
+    { 
         // If there are only two answers, question is true false, so take two options away
         if (answerOptions.Length == 4)
         {

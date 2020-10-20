@@ -614,6 +614,7 @@ MonoBehaviour:
     type: 3}
   leaderboardListPanel: {fileID: 317943990}
   homeButton: {fileID: 1944753600}
+  playAgainButton: {fileID: 206525019}
 --- !u!4 &371349151
 Transform:
   m_ObjectHideFlags: 0
