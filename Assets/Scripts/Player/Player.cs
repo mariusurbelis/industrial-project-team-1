@@ -63,12 +63,15 @@ public class Player : MonoBehaviour
             Sound.PlayScreamSound(Sound.screamSound);
             ToggleMovement(false);
             animator.SetTrigger((selectedOption != -1) ? "Die" : "Melt");
-            StartCoroutine(BackToMiddle());
+
+            if (isDead) return;
 
             if (health <= 0)
             {
                 Die();
             }
+
+            StartCoroutine(BackToMiddle());
         }
         else
         {
@@ -142,7 +145,7 @@ public class Player : MonoBehaviour
 
         // Temporary
         Destroy(gameObject.GetComponent<PlayerMovement>());
-        transform.position = new Vector2(0, -4f);
+        transform.position = new Vector2(100, 100f);
         isDead = true;
     }
 
