@@ -1,16 +1,17 @@
 ﻿using Photon.Pun;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class GameSetupController : MonoBehaviour
 {
+    [SerializeField] private Button homeButton = null;
     void Start()
     {
         CreatePlayer();
+        homeButton.onClick.RemoveAllListeners();
+        homeButton.onClick.AddListener(QuizManager.LoadHomeScreen);
     }
 
     /// <summary>
