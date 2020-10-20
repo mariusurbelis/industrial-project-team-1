@@ -64,14 +64,15 @@ public class Player : MonoBehaviour
             ToggleMovement(false);
             animator.SetTrigger((selectedOption != -1) ? "Die" : "Melt");
 
-            if (isDead) return;
-
             if (health <= 0)
             {
                 Die();
             }
+            else
+            {
+                StartCoroutine(BackToMiddle());
+            }
 
-            StartCoroutine(BackToMiddle());
         }
         else
         {
