@@ -39,7 +39,7 @@ public class Sound : MonoBehaviour
 
         if(soundOn)
 		{
-            audioSource = GetComponent<AudioSource>();
+            //audioSource = GetComponent<AudioSource>();
             
             //added from f-add-sound-effects
             screamAudioSource = GetComponent<AudioSource>();
@@ -83,5 +83,8 @@ public class Sound : MonoBehaviour
     if (soundOn) correctAudioSource.PlayOneShot(clip);
     }
 
-	
+	public static void PlaySound(AudioClip clip)
+	{
+        if (soundOn) correctAudioSource.PlayOneShot(clip);
+    }
 }
