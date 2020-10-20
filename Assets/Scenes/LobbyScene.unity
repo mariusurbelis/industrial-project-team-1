@@ -882,6 +882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963137592}
   - component: {fileID: 963137593}
+  - component: {fileID: 963137594}
   m_Layer: 0
   m_Name: Game Setup
   m_TagString: Untagged
@@ -913,6 +914,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5065bb91b7c9df4f94c1c9f44d2327f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &963137594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963137591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 694895c03c0762543abef8f512457a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   homeButton: {fileID: 1225403544}
