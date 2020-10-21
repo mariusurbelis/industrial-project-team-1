@@ -17,16 +17,12 @@ public class Inventory : MonoBehaviour
     /// </summary>
     public void AddPowerup(Sprite newPowerup)
     {
-        if (Player.Me.powerup.ToString()!="None")
-        {
+        Debug.Log("Sprite passed:" + newPowerup);
 
-            Debug.Log("Sprite passed:" + newPowerup);
-
-            icon.sprite = newPowerup;
-            Debug.Log("Sprite obtained:" + icon.sprite);
-            icon.enabled = true;
-            removeButton.interactable = true;
-        }
+        icon.sprite = newPowerup;
+        Debug.Log("Sprite obtained:" + icon.sprite);
+        icon.enabled = true;
+        removeButton.interactable = true;
     }
 
 
@@ -53,7 +49,7 @@ public class Inventory : MonoBehaviour
         if (Player.Me)
         {
             powerupText.text = "Player has: " + Player.Me.powerup.ToString();
-          
+
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -69,9 +65,9 @@ public class Inventory : MonoBehaviour
 
     }
 
-   
 
-    
+
+
 
 }
 

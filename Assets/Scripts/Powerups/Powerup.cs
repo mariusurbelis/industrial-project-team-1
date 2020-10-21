@@ -11,14 +11,14 @@ public class Powerup : MonoBehaviour
 
     [SerializeField] private PowerupType myType = PowerupType.None;
 
-    public Sprite powerUpIcon= null; //variable to store powerup Icons of the prefab
-     private Inventory inventory;
+    public Sprite powerUpIcon = null; //variable to store powerup Icons of the prefab
+    private Inventory inventory;
 
 
     private void Start()
     {
         inventory = GameObject.Find("Logic").GetComponent<Inventory>();
-        
+
     }
 
 
@@ -26,22 +26,22 @@ public class Powerup : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<Player>().powerup == PowerupType.None)
-            {   
-                collision.gameObject.GetComponent<Player>().PickUpPowerup(myType);
-                //Debug.Log("Collison with:" + myType);
-                //initialising gameobject prefab with the powerup picked up in game with the relevant powerup in the powerups folder prefab
-                GameObject powerIconPrefab = (GameObject)Resources.Load(Path.Combine("Powerups", myType.ToString()), typeof(GameObject));
-              
-                //Debug.Log("PowerupPrefab:" + powerIconPrefab);
-                powerUpIcon = powerIconPrefab.GetComponent<SpriteRenderer>().sprite;
+            if (collision.gameObject.GetComponent<Player>().powerup != PowerupType.None) return;
+            if (collision.gameObject.GetComponent<Player>().IsMe) return;
 
-                 Debug.Log("PowerupIcon:" + powerUpIcon);
-               
-                inventory.AddPowerup(powerUpIcon);
+            collision.gameObject.GetComponent<Player>().PickUpPowerup(myType);
+            //Debug.Log("Collison with:" + myType);
+            //initialising gameobject prefab with the powerup picked up in game with the relevant powerup in the powerups folder prefab
+            GameObject powerIconPrefab = (GameObject)Resources.Load(Path.Combine("Powerups", myType.ToString()), typeof(GameObject));
 
-                Destroy(gameObject);
-            }
+            //Debug.Log("PowerupPrefab:" + powerIconPrefab);
+            powerUpIcon = powerIconPrefab.GetComponent<SpriteRenderer>().sprite;
+
+            Debug.Log("PowerupIcon:" + powerUpIcon);
+
+            inventory.AddPowerup(powerUpIcon);
+
+            Destroy(gameObject);
         }
     }
 }
