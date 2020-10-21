@@ -26,7 +26,11 @@ public class Powerup : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<Player>().powerup != PowerupType.None) return;
+            if (collision.gameObject.GetComponent<Player>().powerup != PowerupType.None)
+            {
+                Destroy(gameObject);
+                return;
+            }  
             if (collision.gameObject.GetComponent<Player>().IsMe)
             {
 
