@@ -82,14 +82,11 @@ public class Player : MonoBehaviour
 
     [PunRPC]
     void RPC_BeAffectedByPowerup(Powerup.PowerupType powerupType, Vector2 powerupPosition)
-    {
-        Debug.Log("Got affected by a powerup");
-
-        Sound.PlayBombSound(Sound.bombSound);
-
+    { 
         switch (powerupType)
         {
             case Powerup.PowerupType.Bomb:
+                Sound.PlayBombSound(Sound.bombSound);
                 //myBody.AddForce(powerupPosition - (Vector2)transform.position, ForceMode2D.Impulse);
                 myBody.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
                 break;
@@ -122,8 +119,6 @@ public class Player : MonoBehaviour
     public void UsePowerup()
     {
         Debug.Log($"{Username} used a powerup");
-
-        Sound.PlayBombSound(Sound.bombSound);
 
         foreach (Player player in FindObjectsOfType<Player>())
         {
