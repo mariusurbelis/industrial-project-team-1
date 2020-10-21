@@ -194,7 +194,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2817734163486500992}
-        m_MethodName: DropPowerup
+        m_MethodName: DropPowerupIcon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -216,8 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99afbff5c97a1704a9335e83d6da8d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 627057488813381962}
-  removeButton: {fileID: 757190971506898303}
 --- !u!1 &4358999490517159161
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,8 +422,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 0}
+    rgba: 16777215
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -697,7 +695,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5247997062657948597}
-        m_MethodName: UsePowerup
+        m_MethodName: PowerUpClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -727,8 +725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99afbff5c97a1704a9335e83d6da8d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 627057488813381962}
-  removeButton: {fileID: 757190971506898303}
 --- !u!1 &8922377780064941545
 GameObject:
   m_ObjectHideFlags: 0

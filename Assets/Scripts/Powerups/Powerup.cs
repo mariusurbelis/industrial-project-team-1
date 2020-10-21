@@ -12,11 +12,13 @@ public class Powerup : MonoBehaviour
     [SerializeField] private PowerupType myType = PowerupType.None;
 
     public Sprite powerUpIcon= null; //variable to store powerup Icons of the prefab
-    private Inventory inventory;
+     private Inventory inventory;
+
 
     private void Start()
     {
         inventory = GameObject.Find("Logic").GetComponent<Inventory>();
+        
     }
 
 
@@ -33,8 +35,11 @@ public class Powerup : MonoBehaviour
               
                 //Debug.Log("PowerupPrefab:" + powerIconPrefab);
                 powerUpIcon = powerIconPrefab.GetComponent<SpriteRenderer>().sprite;
-               // Debug.Log("PowerupIcon:" + powerUpIcon);
+
+                 Debug.Log("PowerupIcon:" + powerUpIcon);
+               
                 inventory.AddPowerup(powerUpIcon);
+
                 Destroy(gameObject);
             }
         }
