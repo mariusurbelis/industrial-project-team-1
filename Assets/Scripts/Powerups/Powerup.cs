@@ -38,12 +38,12 @@ public class Powerup : MonoBehaviour
 
                 //Debug.Log("PowerupPrefab:" + powerIconPrefab);
                 powerUpIcon = powerIconPrefab.GetComponent<SpriteRenderer>().sprite;
-               
-               // Debug.Log("PowerupIcon:" + powerUpIcon);
-                
-               inventory.AddPowerup(powerUpIcon);
-               PhotonNetwork.Destroy(gameObject);
+
+                // Debug.Log("PowerupIcon:" + powerUpIcon);
+
+                inventory.AddPowerup(powerUpIcon);
             }
+            Destroy(gameObject);
         }
     }
 }
