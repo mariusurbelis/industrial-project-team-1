@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -11,16 +12,15 @@ public class RoundManager : MonoBehaviour
     public static float roundTimer = 0;
     public static float roundTime = 10f;
 
-    private bool gameRunning = true;
+    public static bool gameRunning = true;
 
     [SerializeField] private TextMeshProUGUI timerText;
 
     public static bool gameDone = false;
-    private int players = 0;
 
     void Start()
     {
-        Debug.Log("NUMBER OF PLAYERS: " + players);
+        gameDone = false;
         NextRound();
     }
 
@@ -99,18 +99,19 @@ public class RoundManager : MonoBehaviour
             }
         }
         //If one player is left in multiplayer
-        if (PhotonNetwork.CurrentRoom.PlayerCount > 1 && PhotonNetwork.CurrentRoom.PlayerCount == QuizManager.eliminationList.ToArray().Length&&!gameDone)
+        if (PhotonNetwork.CurrentRoom.PlayerCount > 1 && PhotonNetwork.CurrentRoom.PlayerCount == QuizManager.eliminationList.ToArray().Length && !gameDone)
         {
-            StartCoroutine(LoadLeaderboard());
+            // Show that the player won
+            //StartCoroutine(LoadLeaderboard());
             gameDone = true;
         }
         //If player has lost all lives in single players
-        else if(PhotonNetwork.CurrentRoom.PlayerCount==1 && QuizManager.eliminationList.ToArray().Length==1 && !gameDone)
+        else if (PhotonNetwork.CurrentRoom.PlayerCount == 1 && QuizManager.eliminationList.ToArray().Length == 1 && !gameDone)
         {
             StartCoroutine(LoadLeaderboard());
             gameDone = true;
         }
-        
+
 
     }
 
@@ -135,9 +136,4 @@ public class RoundManager : MonoBehaviour
         yield return null;
     }
 
-
-    private void addToPlayerCounter()
-    {
-        players++;
-    }
 }
