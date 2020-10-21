@@ -86,9 +86,15 @@ public class Player : MonoBehaviour
         switch (powerupType)
         {
             case Powerup.PowerupType.Bomb:
+                float bombForce = 40f;
+                float bombRadius = 4f;
+
                 Sound.PlayBombSound(Sound.bombSound);
-                //myBody.AddForce(powerupPosition - (Vector2)transform.position, ForceMode2D.Impulse);
-                myBody.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
+                Vector2 delta = -(powerupPosition - (Vector2)transform.position);   // Vector of difference between player and bomb
+                float deltaMag = Mathf.Abs(delta.magnitude);    // Magniude of delta
+                // (-1/radius * mag) + 1 is a linear equation, starting at 1 and ending at 0. Then gets multiplied by bombForce scalar and the direction of the delta.
+                Vector2 force = Mathf.Max((((-1 / bombRadius) * deltaMag) + 1), 0) * bombForce * delta.normalized;
+                myBody.AddForce(force, ForceMode2D.Impulse);
                 break;
         }
     }
