@@ -44,15 +44,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawners:
-  - prefab: {fileID: 7813362843534585315, guid: d3cecb9ef76549a489e499bfe377865a,
+  - prefab: {fileID: 8950389900291322178, guid: d3cecb9ef76549a489e499bfe377865a,
       type: 3}
     spawnAmount: 2
     spawnRate: 2
-  - prefab: {fileID: 7813362843534585315, guid: d3cecb9ef76549a489e499bfe377865a,
+  - prefab: {fileID: 8950389900291322178, guid: d3cecb9ef76549a489e499bfe377865a,
       type: 3}
     spawnAmount: 3
     spawnRate: 10
-  - prefab: {fileID: 7813362843534585315, guid: d3cecb9ef76549a489e499bfe377865a,
+  - prefab: {fileID: 8950389900291322178, guid: d3cecb9ef76549a489e499bfe377865a,
       type: 3}
     spawnAmount: 4
     spawnRate: 5

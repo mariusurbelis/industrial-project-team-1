@@ -44,22 +44,20 @@ public class Player : MonoBehaviour
 
         gameObject.AddComponent<PlayerAvatar>();
         gameObject.AddComponent<PlayerID>();
-
     }
-
 
     /// <summary>
     /// Informs the player that a round is done. Checks if player answered correctly and changes its health accordingly. If health reaches 0 player loses.
     /// </summary>
     public void RegisterRoundDone()
     {
-        if(PhotonNetwork.CurrentRoom.PlayerCount>1)
+        if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
             CheckIfWinner();
         // return if dead ---------------
         if (isDead) return;
         //if(!IsMe) return;
         //Debug.Log($"Player {username} selected {selectedOption} option");
-        
+
         // Selected option to check against the correct answer
         if (selectedOption != QuizManager.currentCorrectAnswerID)
         {
@@ -68,8 +66,7 @@ public class Player : MonoBehaviour
             ToggleMovement(false);
             animator.SetTrigger((selectedOption != -1) ? "Die" : "Melt");
 
-            
-            if (health <= 0|| RoundManager.gameDone)
+            if (health <= 0 || RoundManager.gameDone)
             {
                 Die();
             }
@@ -81,23 +78,25 @@ public class Player : MonoBehaviour
         }
         else
         {
-            
             Sound.PlayCorrectSound(Sound.correctSound);
         }
     }
 
     [PunRPC]
     void RPC_BeAffectedByPowerup(Powerup.PowerupType powerupType, Vector2 powerupPosition)
-    {
-        Debug.Log("Got affected by a powerup");
-
-        Sound.PlayBombSound(Sound.bombSound);
-
+    { 
         switch (powerupType)
         {
             case Powerup.PowerupType.Bomb:
-                //myBody.AddForce(powerupPosition - (Vector2)transform.position, ForceMode2D.Impulse);
-                myBody.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
+                float bombForce = 40f;
+                float bombRadius = 4f;
+
+                Sound.PlayBombSound(Sound.bombSound);
+                Vector2 delta = -(powerupPosition - (Vector2)transform.position);   // Vector of difference between player and bomb
+                float deltaMag = Mathf.Abs(delta.magnitude);    // Magniude of delta
+                // (-1/radius * mag) + 1 is a linear equation, starting at 1 and ending at 0. Then gets multiplied by bombForce scalar and the direction of the delta.
+                Vector2 force = Mathf.Max((((-1 / bombRadius) * deltaMag) + 1), 0) * bombForce * delta.normalized;
+                myBody.AddForce(force, ForceMode2D.Impulse);
                 break;
         }
     }
@@ -129,13 +128,17 @@ public class Player : MonoBehaviour
     {
         Debug.Log($"{Username} used a powerup");
 
-        Sound.PlayBombSound(Sound.bombSound);
-
         foreach (Player player in FindObjectsOfType<Player>())
         {
             player.photonView.RPC("RPC_BeAffectedByPowerup", RpcTarget.All, powerup, (Vector2)transform.position);
         }
 
+        powerup = Powerup.PowerupType.None;
+    }
+
+    public void DropPowerup()
+    {
+        Debug.Log($"{Username} dropped powerup");
         powerup = Powerup.PowerupType.None;
     }
 
@@ -155,6 +158,19 @@ public class Player : MonoBehaviour
         // Temporary
         Destroy(gameObject.GetComponent<PlayerMovement>());
         transform.position = new Vector2(100, 100f);
+        isDead = true;
+    }
+
+    /// <summary>
+    /// Player's movement is disabled and the player is taken back to the center of the game screen.
+    /// </summary>
+    private void Win()
+    {
+        QuizManager.eliminationList.Add(Username);
+        PlayerList.UpdateList();
+        RoundManager.gameRunning = false;
+        Destroy(gameObject.GetComponent<PlayerMovement>());
+        //transform.position = new Vector2(100, 100f);
         isDead = true;
     }
 
@@ -197,7 +213,6 @@ public class Player : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// Checks if one player is remaining in multiplayer and adds their username to the elimination list
     /// </summary>
@@ -205,9 +220,9 @@ public class Player : MonoBehaviour
     private bool CheckIfWinner()
     {
         int winnerCounter = 0;
-        if(PhotonNetwork.CurrentRoom.PlayerCount - QuizManager.eliminationList.ToArray().Length <= 1 && PhotonNetwork.CurrentRoom.PlayerCount > 1)
+        if (PhotonNetwork.CurrentRoom.PlayerCount - QuizManager.eliminationList.ToArray().Length <= 1 && PhotonNetwork.CurrentRoom.PlayerCount > 1)
         {
-            foreach(string name in QuizManager.eliminationList)
+            foreach (string name in QuizManager.eliminationList)
             {
                 winnerCounter++;
                 if (username == name)
@@ -217,10 +232,10 @@ public class Player : MonoBehaviour
             }
             if (winnerCounter == 1)
             {
-                Die();
+                Win();
                 return true;
             }
-            
+
         }
         return false;
     }
