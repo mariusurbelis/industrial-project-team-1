@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
 
         gameObject.AddComponent<PlayerAvatar>();
         gameObject.AddComponent<PlayerID>();
-
     }
 
 
@@ -53,13 +52,13 @@ public class Player : MonoBehaviour
     /// </summary>
     public void RegisterRoundDone()
     {
-        if(PhotonNetwork.CurrentRoom.PlayerCount>1)
+        if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
             CheckIfWinner();
         // return if dead ---------------
         if (isDead) return;
         //if(!IsMe) return;
         //Debug.Log($"Player {username} selected {selectedOption} option");
-        
+
         // Selected option to check against the correct answer
         if (selectedOption != QuizManager.currentCorrectAnswerID)
         {
@@ -68,8 +67,7 @@ public class Player : MonoBehaviour
             ToggleMovement(false);
             animator.SetTrigger((selectedOption != -1) ? "Die" : "Melt");
 
-            
-            if (health <= 0|| RoundManager.gameDone)
+            if (health <= 0 || RoundManager.gameDone)
             {
                 Die();
             }
@@ -81,7 +79,6 @@ public class Player : MonoBehaviour
         }
         else
         {
-            
             Sound.PlayCorrectSound(Sound.correctSound);
         }
     }
@@ -158,6 +155,19 @@ public class Player : MonoBehaviour
         isDead = true;
     }
 
+    /// <summary>
+    /// Player's movement is disabled and the player is taken back to the center of the game screen.
+    /// </summary>
+    private void Win()
+    {
+        QuizManager.eliminationList.Add(Username);
+        PlayerList.UpdateList();
+        RoundManager.gameRunning = false;
+        Destroy(gameObject.GetComponent<PlayerMovement>());
+        //transform.position = new Vector2(100, 100f);
+        isDead = true;
+    }
+
     public void PickUpPowerup(Powerup.PowerupType powerupType)
     {
         powerup = powerupType;
@@ -205,9 +215,9 @@ public class Player : MonoBehaviour
     private bool CheckIfWinner()
     {
         int winnerCounter = 0;
-        if(PhotonNetwork.CurrentRoom.PlayerCount - QuizManager.eliminationList.ToArray().Length <= 1 && PhotonNetwork.CurrentRoom.PlayerCount > 1)
+        if (PhotonNetwork.CurrentRoom.PlayerCount - QuizManager.eliminationList.ToArray().Length <= 1 && PhotonNetwork.CurrentRoom.PlayerCount > 1)
         {
-            foreach(string name in QuizManager.eliminationList)
+            foreach (string name in QuizManager.eliminationList)
             {
                 winnerCounter++;
                 if (username == name)
@@ -217,10 +227,10 @@ public class Player : MonoBehaviour
             }
             if (winnerCounter == 1)
             {
-                Die();
+                Win();
                 return true;
             }
-            
+
         }
         return false;
     }
