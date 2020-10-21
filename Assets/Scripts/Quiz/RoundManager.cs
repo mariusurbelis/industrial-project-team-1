@@ -118,7 +118,7 @@ public class RoundManager : MonoBehaviour
 
     private IEnumerator LoadLeaderboard()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(4f);
         QuizManager.LoadLeaderboard();
         yield return null;
     }
