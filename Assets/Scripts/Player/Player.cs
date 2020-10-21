@@ -143,6 +143,7 @@ public class Player : MonoBehaviour
         //Debug.Log($"Adding {Username} to the elimination list");
 
         PlayerList.UpdateList();
+        FindObjectOfType<UIManager>().ShowDeathPopup();
 
         // Temporary
         Destroy(gameObject.GetComponent<PlayerMovement>());
