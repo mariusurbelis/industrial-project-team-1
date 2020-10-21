@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public PhotonView photonView;
     public Rigidbody2D myBody;
     private Animator animator;
-    private bool isDead = false;
+    public static bool isDead = false;
 
     public Powerup.PowerupType powerup = Powerup.PowerupType.None;
 
@@ -51,11 +51,13 @@ public class Player : MonoBehaviour
     /// </summary>
     public void RegisterRoundDone()
     {
+        if(PhotonNetwork.CurrentRoom.PlayerCount>1)
+            CheckIfWinner();
         // return if dead ---------------
         if (isDead) return;
         //if(!IsMe) return;
         //Debug.Log($"Player {username} selected {selectedOption} option");
-
+        
         // Selected option to check against the correct answer
         if (selectedOption != QuizManager.currentCorrectAnswerID)
         {
@@ -64,7 +66,8 @@ public class Player : MonoBehaviour
             ToggleMovement(false);
             animator.SetTrigger((selectedOption != -1) ? "Die" : "Melt");
 
-            if (health <= 0)
+            
+            if (health <= 0|| RoundManager.gameDone)
             {
                 Die();
             }
@@ -76,6 +79,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            
             Sound.PlayCorrectSound(Sound.correctSound);
         }
     }
@@ -187,5 +191,33 @@ public class Player : MonoBehaviour
 
             return null;
         }
+    }
+
+
+    /// <summary>
+    /// Checks if one player is remaining in multiplayer and adds their username to the elimination list
+    /// </summary>
+    /// <returns>returns true if one player is left and false if multiple players remain</returns>
+    private bool CheckIfWinner()
+    {
+        int winnerCounter = 0;
+        if(PhotonNetwork.CurrentRoom.PlayerCount - QuizManager.eliminationList.ToArray().Length <= 1 && PhotonNetwork.CurrentRoom.PlayerCount > 1)
+        {
+            foreach(string name in QuizManager.eliminationList)
+            {
+                winnerCounter++;
+                if (username == name)
+                {
+                    winnerCounter--;
+                }
+            }
+            if (winnerCounter == 1)
+            {
+                Die();
+                return true;
+            }
+            
+        }
+        return false;
     }
 }
