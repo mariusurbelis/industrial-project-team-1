@@ -102,7 +102,8 @@ public class RoundManager : MonoBehaviour
         if (PhotonNetwork.CurrentRoom.PlayerCount > 1 && PhotonNetwork.CurrentRoom.PlayerCount == QuizManager.eliminationList.ToArray().Length && !gameDone)
         {
             // Show that the player won
-            //StartCoroutine(LoadLeaderboard());
+            FindObjectOfType<UIManager>().ShowWinPopup();
+            StartCoroutine(LoadLeaderboard());
             gameDone = true;
         }
         //If player has lost all lives in single players
