@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Powerup : MonoBehaviour
+public class Powerup : MonoBehaviourPun
 {
     public enum PowerupType { None, Bomb, Hint, Fan, Half, Ice, LightsOut, Star, WildCard };
 
@@ -42,6 +42,7 @@ public class Powerup : MonoBehaviour
                 Debug.Log("PowerupIcon:" + powerUpIcon);
 
                 inventory.AddPowerup(powerUpIcon);
+                base.photonView.RequestOwnership();
                 PhotonNetwork.Destroy(gameObject);
                 Debug.Log("Game object:"+ gameObject + "has been destroyed.");
             }
