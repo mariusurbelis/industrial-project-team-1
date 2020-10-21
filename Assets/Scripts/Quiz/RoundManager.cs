@@ -29,7 +29,19 @@ public class RoundManager : MonoBehaviour
         ResetTimer();
         roundEndInformed = false;
         QuizManager.LoadNewQuestion();
+        StartCoroutine(WaitForPopupEnd());
+    }
+
+    private IEnumerator WaitForPopupEnd()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            yield return new WaitForSeconds(1f);
+            ResetTimer();
+        }
+
         Sound.PlayNewRoundSound(Sound.newRoundSound);
+        yield return null;
     }
 
     /// <summary>

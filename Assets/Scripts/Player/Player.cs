@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     private Animator animator;
     private bool isDead = false;
 
+    public bool IsDead => QuizManager.eliminationList.Contains(Username);
+
     public Powerup.PowerupType powerup = Powerup.PowerupType.None;
 
     public int health = 3;

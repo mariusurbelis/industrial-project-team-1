@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class QuizManager : MonoBehaviour
 {
     public static int currentCorrectAnswerID = -1;
-    
+
     private static QuizManager instance;
 
     [SerializeField] private GameObject[] options = null;
@@ -73,7 +73,18 @@ public class QuizManager : MonoBehaviour
 
         currentCorrectAnswerID = order[0];
         UIManager.SetQuestionText(question.question);
-        UIManager.ShowNextRoundScreen(question.question, 3f);
+
+
+        if (Player.Me)
+        {
+            //Debug.Log($"{Player.Me.Username} cont?: {Player.Me.IsDead}");
+
+            if (!Player.Me.IsDead)
+            {
+                Debug.Log("Showing the screen");
+                UIManager.ShowNextRoundScreen(question.question, 3f);
+            }
+        }
 
         string[] finalAnswers = new string[answers.Count];
 

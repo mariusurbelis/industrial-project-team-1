@@ -29,7 +29,7 @@ public class PlayerList : MonoBehaviour
 
         foreach (Player player in FindObjectsOfType<Player>())
         {
-            Debug.Log("Player panel spawned");
+            //Debug.Log("Player panel spawned");
             GameObject playerPanel = Instantiate(playerPanelPrefab, playerListTransform);
 
             playerPanels.Add(playerPanel);
