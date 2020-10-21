@@ -23,7 +23,7 @@ public class RoundManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Creates a new round by resetting the timer and loading a new question. Also checks if game is over and calls leaderboard
+    /// Creates a new round by resetting the timer and loading a new question. Also checks if game is over and calls leaderboard.
     /// </summary>
     private void NextRound()
     {
