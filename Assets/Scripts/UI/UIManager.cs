@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public AnswersManager answersManager;
     public NextRoundManager nextRoundManager;
     public PlayerDeathPopup playerDeathPopup;
+    public PlayerWinPopup playerWinPopup;
 
     public TextMeshProUGUI m_questionTextComponent;
     public TextMeshProUGUI m_timerTextComponent;
@@ -201,5 +202,20 @@ public class UIManager : MonoBehaviour
         playerDeathPopup.HideScreen();
     }
 
+    public void ShowWinPopup()
+    {
+        playerWinPopup.ShowScreen();
+    }
 
+    public void ShowWinPopup(float timer)
+    {
+        StartCoroutine(ShowWinPopupCoRoutine(timer));
+    }
+
+    private IEnumerator ShowWinPopupCoRoutine(float timer)
+    {
+        playerWinPopup.ShowScreen();
+        yield return new WaitForSeconds(timer);
+        playerWinPopup.HideScreen();
+    }
 }
