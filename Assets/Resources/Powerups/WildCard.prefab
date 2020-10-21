@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6064077994279291473}
   - component: {fileID: 9042332237266098327}
   - component: {fileID: 321385248045501875}
-  - component: {fileID: -7812091736144245207}
   m_Layer: 0
   m_Name: WildCard
   m_TagString: PowerUp
@@ -186,15 +185,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &-7812091736144245207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6018798188230955551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9b3e56f5b38a0449bbfbd0e44bc395, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

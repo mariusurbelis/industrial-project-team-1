@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1612623790326180811}
   - component: {fileID: 1018609463993791551}
   - component: {fileID: 4452933971790539163}
-  - component: {fileID: 6206895584831338120}
   m_Layer: 0
   m_Name: LightsOut
   m_TagString: PowerUp
@@ -186,15 +185,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &6206895584831338120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4014077094030304316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac9b3e56f5b38a0449bbfbd0e44bc395, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

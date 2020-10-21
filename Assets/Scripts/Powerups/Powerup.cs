@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 
-public class Powerup : MonoBehaviourPun
+public class Powerup : MonoBehaviour
 {
     public enum PowerupType { None, Bomb, Hint, Fan, Half, Ice, LightsOut, Star, WildCard };
 
@@ -38,11 +39,10 @@ public class Powerup : MonoBehaviourPun
 
                 //Debug.Log("PowerupPrefab:" + powerIconPrefab);
                 powerUpIcon = powerIconPrefab.GetComponent<SpriteRenderer>().sprite;
-
+               
                 Debug.Log("PowerupIcon:" + powerUpIcon);
-
+                gameObject.GetComponent<PhotonView>().TransferOwnership(Int32.Parse(collision.gameObject.GetComponent<Player>().PlayerID));
                 inventory.AddPowerup(powerUpIcon);
-                base.photonView.RequestOwnership();
                 PhotonNetwork.Destroy(gameObject);
                 Debug.Log("Game object:"+ gameObject + "has been destroyed.");
             }
