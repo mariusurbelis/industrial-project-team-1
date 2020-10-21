@@ -11,6 +11,8 @@ public class RoundManager : MonoBehaviour
     public static float roundTimer = 0;
     public static float roundTime = 10f;
 
+    private bool gameRunning = true;
+
     [SerializeField] private TextMeshProUGUI timerText;
 
     public static bool gameDone = false;
@@ -31,7 +33,16 @@ public class RoundManager : MonoBehaviour
         ResetTimer();
         roundEndInformed = false;
         QuizManager.LoadNewQuestion();
+        StartCoroutine(WaitForPopupEnd());
+    }
+
+    private IEnumerator WaitForPopupEnd()
+    {
+        gameRunning = false;
+        yield return new WaitForSeconds(3f);
+        gameRunning = true;
         Sound.PlayNewRoundSound(Sound.newRoundSound);
+        yield return null;
     }
 
     /// <summary>
@@ -51,7 +62,8 @@ public class RoundManager : MonoBehaviour
 
         if (roundTimer > 0)
         {
-            roundTimer -= Time.deltaTime;
+            if (gameRunning)
+                roundTimer -= Time.deltaTime;
 
             if (PhotonNetwork.IsMasterClient)
             {
