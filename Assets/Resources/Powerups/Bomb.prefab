@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 1
+  powerUpIcon: {fileID: 417076364118230161, guid: 7e7ebd9f9e6b5a3438b1d7b13271bb2e,
+    type: 3}
 --- !u!114 &-9218380942084464422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,8 +168,8 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   observableSearch: 2
-  Synchronization: 3
-  OwnershipTransfer: 0
+  Synchronization: 1
+  OwnershipTransfer: 1
   ObservedComponents:
   - {fileID: 8111636254005560539}
   viewIdField: 0

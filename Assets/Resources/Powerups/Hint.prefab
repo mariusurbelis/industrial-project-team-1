@@ -123,7 +123,7 @@ MonoBehaviour:
   prefixField: -1
   observableSearch: 2
   Synchronization: 3
-  OwnershipTransfer: 0
+  OwnershipTransfer: 1
   ObservedComponents:
   - {fileID: 3482464934808938230}
   viewIdField: 0
@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myType: 4
+  powerUpIcon: {fileID: 6662707897243783616, guid: e66908e650e38b44ab0e6656482638e0,
+    type: 3}
 --- !u!61 &989119105981408257
 BoxCollider2D:
   m_ObjectHideFlags: 0

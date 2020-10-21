@@ -2310,10 +2310,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "1. Answers the questions by moving the player into the answer boxes.\n2.
-    Each player are only able to hold a certain amount of power-up; use them wisely.\n3.
-    There is a timelimit to answer the question/stay under the answer boxes before
-    the trapdoor opens. \n4. You die when you lose all your lives from choosing the
-    wrong answer. \n5. Be the last remaining survivor to win the game.\n\n"
+    Each player are only able to hold a certain 1 power-up; either click on the powerup
+    Icon or press E to use them.\n3. There is a timelimit to answer the question/stay
+    under the answer boxes before the trapdoor opens. \n4. You die when you lose
+    all your lives from choosing the wrong answer. \n5. Be the last remaining survivor
+    to win the game.\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
