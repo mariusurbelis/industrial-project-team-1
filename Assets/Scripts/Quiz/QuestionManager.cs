@@ -60,8 +60,8 @@ public class QuestionManager : MonoBehaviour
                     {
                         jsonString = jsonData.ToString()
                           .Replace("&#033;", "!")
-                          .Replace("&#034;", "\"")
-                          .Replace("&quot;", "\"")
+                          .Replace("&#034;", "''")
+                          .Replace("&quot;", "''")
                           .Replace("&#035;", "#")
                           .Replace("&#036;", "'")
                           .Replace("&#037;", "%")
