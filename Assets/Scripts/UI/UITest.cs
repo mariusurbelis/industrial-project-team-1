@@ -13,7 +13,7 @@ public class UITest : MonoBehaviour
         UIManager.OpenTrapdoors(1);
         timePassed = 30;
         timer = 10;
-        UIManager.ShowDeathPopup(1);
+        // UIManager.ShowNextRoundScreen("start", 3);
     }
 
     // Update is called once per frame
@@ -62,7 +62,7 @@ public class UITest : MonoBehaviour
             UIManager.SetAnswers(answers, order);
 
             UIManager.CloseTrapdoors();
-            //UIManager.ShowNextRoundScreen("test1", 7f);
+            UIManager.ShowNextRoundScreen("test1", 3f);
         }
         
         

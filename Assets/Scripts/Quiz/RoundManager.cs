@@ -11,17 +11,21 @@ public class RoundManager : MonoBehaviour
     public static float roundTimer = 0;
     public static float roundTime = 10f;
 
+    private bool gameRunning = true;
+
     [SerializeField] private TextMeshProUGUI timerText;
 
-    private bool gameDone = false;
+    public static bool gameDone = false;
+    private int players = 0;
 
     void Start()
     {
+        Debug.Log("NUMBER OF PLAYERS: " + players);
         NextRound();
     }
 
     /// <summary>
-    /// Creates a new round by resetting the timer and loading a new question.
+    /// Creates a new round by resetting the timer and loading a new question. Also checks if game is over and calls leaderboard.
     /// </summary>
     private void NextRound()
     {
@@ -29,7 +33,16 @@ public class RoundManager : MonoBehaviour
         ResetTimer();
         roundEndInformed = false;
         QuizManager.LoadNewQuestion();
+        StartCoroutine(WaitForPopupEnd());
+    }
+
+    private IEnumerator WaitForPopupEnd()
+    {
+        gameRunning = false;
+        yield return new WaitForSeconds(3f);
+        gameRunning = true;
         Sound.PlayNewRoundSound(Sound.newRoundSound);
+        yield return null;
     }
 
     /// <summary>
@@ -49,7 +62,8 @@ public class RoundManager : MonoBehaviour
 
         if (roundTimer > 0)
         {
-            roundTimer -= Time.deltaTime;
+            if (gameRunning)
+                roundTimer -= Time.deltaTime;
 
             if (PhotonNetwork.IsMasterClient)
             {
@@ -84,13 +98,20 @@ public class RoundManager : MonoBehaviour
                 StartCoroutine(StartNewRound());
             }
         }
-
-        if (FindObjectsOfType<PlayerMovement>().Length == 0 && !gameDone && PhotonNetwork.IsMasterClient)
+        //If one player is left in multiplayer
+        if (PhotonNetwork.CurrentRoom.PlayerCount > 1 && PhotonNetwork.CurrentRoom.PlayerCount == QuizManager.eliminationList.ToArray().Length&&!gameDone)
         {
-            //Debug.Log("Loading leaderboard");
             StartCoroutine(LoadLeaderboard());
             gameDone = true;
         }
+        //If player has lost all lives in single players
+        else if(PhotonNetwork.CurrentRoom.PlayerCount==1 && QuizManager.eliminationList.ToArray().Length==1 && !gameDone)
+        {
+            StartCoroutine(LoadLeaderboard());
+            gameDone = true;
+        }
+        
+
     }
 
     private IEnumerator LoadLeaderboard()
@@ -114,4 +135,9 @@ public class RoundManager : MonoBehaviour
         yield return null;
     }
 
+
+    private void addToPlayerCounter()
+    {
+        players++;
+    }
 }

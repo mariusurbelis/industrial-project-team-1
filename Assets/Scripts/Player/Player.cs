@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     private Animator animator;
     private bool isDead = false;
 
+    public bool IsDead => QuizManager.eliminationList.Contains(Username);
+
     public Powerup.PowerupType powerup = Powerup.PowerupType.None;
 
     public int health = 3;
@@ -45,17 +47,18 @@ public class Player : MonoBehaviour
 
     }
 
-
     /// <summary>
     /// Informs the player that a round is done. Checks if player answered correctly and changes its health accordingly. If health reaches 0 player loses.
     /// </summary>
     public void RegisterRoundDone()
     {
+        if(PhotonNetwork.CurrentRoom.PlayerCount>1)
+            CheckIfWinner();
         // return if dead ---------------
         if (isDead) return;
         //if(!IsMe) return;
         //Debug.Log($"Player {username} selected {selectedOption} option");
-
+        
         // Selected option to check against the correct answer
         if (selectedOption != QuizManager.currentCorrectAnswerID)
         {
@@ -64,7 +67,8 @@ public class Player : MonoBehaviour
             ToggleMovement(false);
             animator.SetTrigger((selectedOption != -1) ? "Die" : "Melt");
 
-            if (health <= 0)
+            
+            if (health <= 0|| RoundManager.gameDone)
             {
                 Die();
             }
@@ -76,6 +80,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            
             Sound.PlayCorrectSound(Sound.correctSound);
         }
     }
@@ -150,7 +155,8 @@ public class Player : MonoBehaviour
         //Debug.Log($"Adding {Username} to the elimination list");
 
         PlayerList.UpdateList();
-        FindObjectOfType<UIManager>().ShowDeathPopup(1f);
+
+        if (IsMe) FindObjectOfType<UIManager>().ShowDeathPopup(2f);
 
         // Temporary
         Destroy(gameObject.GetComponent<PlayerMovement>());
@@ -195,5 +201,32 @@ public class Player : MonoBehaviour
 
             return null;
         }
+    }
+
+    /// <summary>
+    /// Checks if one player is remaining in multiplayer and adds their username to the elimination list
+    /// </summary>
+    /// <returns>returns true if one player is left and false if multiple players remain</returns>
+    private bool CheckIfWinner()
+    {
+        int winnerCounter = 0;
+        if(PhotonNetwork.CurrentRoom.PlayerCount - QuizManager.eliminationList.ToArray().Length <= 1 && PhotonNetwork.CurrentRoom.PlayerCount > 1)
+        {
+            foreach(string name in QuizManager.eliminationList)
+            {
+                winnerCounter++;
+                if (username == name)
+                {
+                    winnerCounter--;
+                }
+            }
+            if (winnerCounter == 1)
+            {
+                Die();
+                return true;
+            }
+            
+        }
+        return false;
     }
 }

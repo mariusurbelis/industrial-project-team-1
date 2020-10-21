@@ -10,7 +10,7 @@ public class NextRoundManager : MonoBehaviour
     public Image m_fadeImage;
     public Image m_questionBoxImage;
 
-    private bool fadeIn = false;
+    public bool fadeIn = false;
     private bool fadeOut = false;
 
     const float QUESTION_BOX_MAX_FADE = 1f;
@@ -20,9 +20,11 @@ public class NextRoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_questionText.text = "";
-        fadeIn = false;
-        fadeOut = false;
+        // m_questionText.text = "";
+        // fadeIn = false;
+        // fadeOut = false;
+        m_questionBoxImage.color = new Color(1f, 1f, 1f, 0f);
+        m_fadeImage.color = new Color(0f, 0f, 0f, 0f);
     }
 
     void Update()
@@ -48,6 +50,7 @@ public class NextRoundManager : MonoBehaviour
                 fadeIn = true;
                 m_fadeImage.color = new Color(0f, 0f, 0f, Mathf.Min(m_fadeImage.color.a + FADE_STEP, FADE_IMAGE_MAX_FADE));
             }
+            
         }
 
         if (fadeOut)
