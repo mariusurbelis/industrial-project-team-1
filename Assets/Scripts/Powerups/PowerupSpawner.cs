@@ -117,7 +117,7 @@ public class PowerupSpawner : MonoBehaviour
             //loops how many times we want 
             for (int i = 0; i < spawn.spawnAmount; i++)
             {   
-                SpawnPowerUp(spawn.prefab, (Powerup.PowerupType)Random.Range(1, 2)); //spawning a random powerup
+                SpawnPowerUp(spawn.prefab, (Powerup.PowerupType)Random.Range(1, 1)); //spawning a random powerup
                 yield return new WaitForSeconds(1f/ spawn.spawnRate) ; //time before the next spawn
             }
 
