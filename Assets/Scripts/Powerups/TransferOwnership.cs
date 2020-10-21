@@ -35,6 +35,10 @@ public class TransferOwnership : MonoBehaviourPun, IPunOwnershipCallbacks
         }
     }
 
+    private void OnDeletingObject()
+    {
+        base.photonView.RequestOwnership();
+    }
    
 
     
