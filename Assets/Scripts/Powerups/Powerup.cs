@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Powerup : MonoBehaviour
 {
-    public enum PowerupType { None, Bomb, Half, Fan, Hint, Ice, LightsOut, Star, WildCard };
+    public enum PowerupType { None, Bomb, Hint, Fan, Half, Ice, LightsOut, Star, WildCard };
 
     [SerializeField] private PowerupType myType = PowerupType.None;
 
