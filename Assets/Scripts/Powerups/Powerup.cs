@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -26,11 +27,7 @@ public class Powerup : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.GetComponent<Player>().powerup != PowerupType.None)
-            {
-                Destroy(gameObject);
-                return;
-            }  
+            if (collision.gameObject.GetComponent<Player>().powerup != PowerupType.None) return;
             if (collision.gameObject.GetComponent<Player>().IsMe)
             {
 
@@ -45,8 +42,8 @@ public class Powerup : MonoBehaviour
                 Debug.Log("PowerupIcon:" + powerUpIcon);
 
                 inventory.AddPowerup(powerUpIcon);
-
-                Destroy(gameObject);
+                
+                PhotonNetwork.Destroy(gameObject);
             }
         }
     }
