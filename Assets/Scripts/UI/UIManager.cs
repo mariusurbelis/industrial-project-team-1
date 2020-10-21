@@ -162,6 +162,18 @@ public class UIManager : MonoBehaviour
         nextRoundManager.ShowScreen(questionText);
     }
 
+    public void ShowNextRoundScreen(string questionText, float timer)
+    {
+        StartCoroutine(ShowNextRoundScreenCoRoutine(questionText, timer));
+    }
+
+    private IEnumerator ShowNextRoundScreenCoRoutine(string questionText, float timer)
+    {
+        nextRoundManager.ShowScreen(questionText);
+        yield return new WaitForSeconds(timer);
+        nextRoundManager.HideScreen();
+    }
+
     public void HideNextRoundScreen()
     {
         nextRoundManager.HideScreen();
@@ -170,6 +182,18 @@ public class UIManager : MonoBehaviour
     public void ShowDeathPopup()
     {
         playerDeathPopup.ShowScreen();
+    }
+
+    public void ShowDeathPopup(float timer)
+    {
+        StartCoroutine(ShowDeathPopupCoRoutine(timer));
+    }
+
+    private IEnumerator ShowDeathPopupCoRoutine(float timer)
+    {
+        playerDeathPopup.ShowScreen();
+        yield return new WaitForSeconds(timer);
+        playerDeathPopup.HideScreen();
     }
 
     public void HideDeathPopup()
