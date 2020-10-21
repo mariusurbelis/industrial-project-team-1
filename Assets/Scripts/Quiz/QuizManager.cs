@@ -85,6 +85,11 @@ public class QuizManager : MonoBehaviour
                 UIManager.ShowNextRoundScreen(question.question, 3f);
             }
         }
+        else
+        {
+            Debug.Log("Showing the screen");
+            UIManager.ShowNextRoundScreen(question.question, 3f);
+        }
 
         string[] finalAnswers = new string[answers.Count];
 
