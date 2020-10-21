@@ -148,6 +148,8 @@ public class Player : MonoBehaviour
 
         PlayerList.UpdateList();
 
+        if (IsMe) FindObjectOfType<UIManager>().ShowDeathPopup(2f);
+
         // Temporary
         Destroy(gameObject.GetComponent<PlayerMovement>());
         transform.position = new Vector2(100, 100f);
