@@ -17,7 +17,7 @@ public class QuizManager : MonoBehaviour
     //list of usernames of dead players in the order they were eliminated
     public static List<string> eliminationList = new List<string>();
 
-    private UIManager uiManager;
+    private static UIManager UIManager;
     private PhotonView photonView;
 
     private static List<int> usedIDs = new List<int>();
@@ -28,7 +28,7 @@ public class QuizManager : MonoBehaviour
 
         currentCorrectAnswerID = -1;
 
-        uiManager = FindObjectOfType<UIManager>();
+        UIManager = FindObjectOfType<UIManager>();
         photonView = GetComponent<PhotonView>();
 
         answerOptions = new TextMeshProUGUI[options.Length];
@@ -42,7 +42,7 @@ public class QuizManager : MonoBehaviour
     private void Start()
     {
         eliminationList.Clear();
-        uiManager.SetInitialTime((int)RoundManager.roundTime);
+        UIManager.SetInitialTime((int)RoundManager.roundTime);
     }
 
     /// <summary>
@@ -72,7 +72,8 @@ public class QuizManager : MonoBehaviour
         }
 
         currentCorrectAnswerID = order[0];
-        uiManager.SetQuestionText(question.question);
+        UIManager.SetQuestionText(question.question);
+        UIManager.ShowNextRoundScreen(question.question, 3f);
 
         string[] finalAnswers = new string[answers.Count];
 
@@ -94,7 +95,6 @@ public class QuizManager : MonoBehaviour
         RoomController.LoadSceneByID(1);
     }
 
-
     /// <summary>
     /// Loads a leaderboard for every existing player.
     /// </summary>
@@ -115,7 +115,7 @@ public class QuizManager : MonoBehaviour
         {
             RoundManager.roundTimer = timer;
         }
-        uiManager.SetTimerText(Mathf.RoundToInt(RoundManager.roundTimer));
+        UIManager.SetTimerText(Mathf.RoundToInt(RoundManager.roundTimer));
     }
 
     /// <summary>
@@ -156,7 +156,7 @@ public class QuizManager : MonoBehaviour
     /// </summary>
 	public static void SetLives()
     {
-        instance.uiManager.SetCurrentHearts((Player.Me) ? Player.Me.health : 0);
+        UIManager.SetCurrentHearts((Player.Me) ? Player.Me.health : 0);
     }
 
     /// <summary>
