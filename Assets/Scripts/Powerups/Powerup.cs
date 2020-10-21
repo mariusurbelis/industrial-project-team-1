@@ -31,7 +31,6 @@ public class Powerup : MonoBehaviour
             if (collision.gameObject.GetComponent<Player>().powerup != PowerupType.None) return;
             if (collision.gameObject.GetComponent<Player>().IsMe)
             {
-
                 collision.gameObject.GetComponent<Player>().PickUpPowerup(myType);
                 //Debug.Log("Collison with:" + myType);
                 //initialising gameobject prefab with the powerup picked up in game with the relevant powerup in the powerups folder prefab
@@ -43,7 +42,7 @@ public class Powerup : MonoBehaviour
                // Debug.Log("PowerupIcon:" + powerUpIcon);
                 
                inventory.AddPowerup(powerUpIcon);
-               Destroy(gameObject);
+               PhotonNetwork.Destroy(gameObject);
             }
         }
     }
