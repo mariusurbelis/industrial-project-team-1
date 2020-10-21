@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public PhotonView photonView;
     public Rigidbody2D myBody;
     private Animator animator;
-    public static bool isDead = false;
+    private bool isDead = false;
 
     public Powerup.PowerupType powerup = Powerup.PowerupType.None;
 
