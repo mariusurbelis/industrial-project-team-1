@@ -73,7 +73,7 @@ public class QuizManager : MonoBehaviour
 
         currentCorrectAnswerID = order[0];
         UIManager.SetQuestionText(question.question);
-        UIManager.ShowNextRoundScreen(question.question);
+        UIManager.ShowNextRoundScreen(question.question, 3f);
 
         string[] finalAnswers = new string[answers.Count];
 
