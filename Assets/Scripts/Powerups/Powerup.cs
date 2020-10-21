@@ -42,8 +42,7 @@ public class Powerup : MonoBehaviour
                 Debug.Log("PowerupIcon:" + powerUpIcon);
 
                 inventory.AddPowerup(powerUpIcon);
-                
-                PhotonNetwork.Destroy(gameObject);
+                Player.Destroy(gameObject);
             }
         }
     }
