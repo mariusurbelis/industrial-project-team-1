@@ -62,7 +62,8 @@ public class UITest : MonoBehaviour
             UIManager.SetAnswers(answers, order);
 
             UIManager.CloseTrapdoors();
-            UIManager.ShowNextRoundScreen("test1", 3f);
+            //UIManager.ShowNextRoundScreen("test1", 3f);
+            UIManager.ShowWinPopup(4f);
         }
         
         
