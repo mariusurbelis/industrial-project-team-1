@@ -28,7 +28,7 @@ public class Powerup : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //if (collision.gameObject.GetComponent<Player>().powerup != PowerupType.None) return;
+            if (collision.gameObject.GetComponent<Player>().powerup != PowerupType.None) return;
             if (collision.gameObject.GetComponent<Player>().IsMe)
             {
 
@@ -40,9 +40,11 @@ public class Powerup : MonoBehaviour
                 //Debug.Log("PowerupPrefab:" + powerIconPrefab);
                 powerUpIcon = powerIconPrefab.GetComponent<SpriteRenderer>().sprite;
                
-                Debug.Log("PowerupIcon:" + powerUpIcon);
+               // Debug.Log("PowerupIcon:" + powerUpIcon);
+                Debug.Log("aaa:"+gameObject);
+                gameObject.GetComponent<PhotonView>().TransferOwnership(Int32.Parse(collision.gameObject.GetComponent<Player>().PlayerID));
                 inventory.AddPowerup(powerUpIcon);
-                Destroy(gameObject);
+                PhotonNetwork.Destroy(gameObject);
             }
         }
     }
