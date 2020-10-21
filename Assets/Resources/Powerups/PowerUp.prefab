@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -9218380942084464422, guid: 8229284c3016c27458601bc100608861,
+        type: 3}
+      propertyPath: ObservedComponentsFoldoutOpen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5468122197406047569, guid: 8229284c3016c27458601bc100608861,
         type: 3}
       propertyPath: m_Sprite
