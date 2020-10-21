@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 149375875171475218}
   - component: {fileID: 4608869575993929303}
   - component: {fileID: 8230500227328294467}
+  - component: {fileID: 2754120513388977043}
   m_Layer: 0
   m_Name: Ice
   m_TagString: PowerUp
@@ -185,3 +186,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &2754120513388977043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6547469854363247893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9b3e56f5b38a0449bbfbd0e44bc395, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
