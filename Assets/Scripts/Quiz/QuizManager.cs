@@ -54,6 +54,7 @@ public class QuizManager : MonoBehaviour
     [PunRPC]
     void RPC_LoadQuestion(int ID, int[] order, bool multiple)
     {
+        Debug.Log("Enter RPC_LoadQuestion");
         Question question = QuestionManager.GetQuestion(ID, multiple);
 
         List<string> answers = new List<string>();
@@ -180,6 +181,7 @@ public class QuizManager : MonoBehaviour
     /// </summary>
     public static void LoadNewQuestion()
     {
+        Debug.Log("Enter LoadNewQuestion");
         if (PhotonNetwork.IsMasterClient)
         {
             // Randomize the ids array
@@ -189,23 +191,34 @@ public class QuizManager : MonoBehaviour
             bool multiple = Mathf.RoundToInt(Random.value) == 0;
             int[] ids = RandomizeOrder(multiple);
 
+            // Thought this might fix the freeze
+            //if(usedIDs.Count >= 30)
+            //{
+            //    usedIDs.Clear();
+            //}
+            //Debug.Log("Questions used = " + usedIDs.Count);
+
             if (multiple)
             {
+                Debug.Log("Enter LoadNewQuestion.multiple");
                 questionID = Random.Range(0, QuestionManager.QuantityMultiple);
                 while (usedIDs.Contains(questionID))
                 {
                     questionID = Random.Range(0, QuestionManager.QuantityMultiple);
                 }
                 usedIDs.Add(questionID);
+                Debug.Log("Exit LoadNewQuestion.multiple");
             }
             else
             {
+                Debug.Log("Enter LoadNewQuestion.else");
                 questionID = Random.Range(0, QuestionManager.QuantityBoolean);
                 while (usedIDs.Contains(questionID))
                 {
                     questionID = Random.Range(0, QuestionManager.QuantityBoolean);
                 }
                 usedIDs.Add(questionID);
+                Debug.Log("Exit LoadNewQuestion.else");
             }
 
             if (instance == null)

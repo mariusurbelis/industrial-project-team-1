@@ -160,6 +160,7 @@ public class QuestionManager : MonoBehaviour
     /// <returns>Returns the question selected from the array of questions</returns>
     public static Question GetQuestion(int ID, bool multiple)
     {
+        Debug.Log("Enter GetQuestion");
         return multiple ? MCquestions[ID] : Bquestions[ID];
     }
 

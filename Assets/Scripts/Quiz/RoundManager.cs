@@ -29,6 +29,7 @@ public class RoundManager : MonoBehaviour
     /// </summary>
     private void NextRound()
     {
+        Debug.Log("Enter NextRound");
         //Debug.Log("Next round starting");
         ResetTimer();
         roundEndInformed = false;
@@ -89,6 +90,7 @@ public class RoundManager : MonoBehaviour
                 // Inform people
                 foreach (Player player in FindObjectsOfType<Player>())
                 {
+                    Debug.Log("inform");
                     player.RegisterRoundDone();
                 }
                 roundEndInformed = true;
@@ -101,6 +103,7 @@ public class RoundManager : MonoBehaviour
         //If one player is left in multiplayer
         if (PhotonNetwork.CurrentRoom.PlayerCount > 1 && PhotonNetwork.CurrentRoom.PlayerCount == QuizManager.eliminationList.ToArray().Length && !gameDone)
         {
+            Debug.Log("105");
             // Show that the player won
             FindObjectOfType<UIManager>().ShowWinPopup();
             StartCoroutine(LoadLeaderboard());
@@ -109,6 +112,7 @@ public class RoundManager : MonoBehaviour
         //If player has lost all lives in single players
         else if (PhotonNetwork.CurrentRoom.PlayerCount == 1 && QuizManager.eliminationList.ToArray().Length == 1 && !gameDone)
         {
+            Debug.Log("114");
             StartCoroutine(LoadLeaderboard());
             gameDone = true;
         }
@@ -129,11 +133,20 @@ public class RoundManager : MonoBehaviour
     /// <returns>Returns time between new rounds</returns>
     private IEnumerator StartNewRound()
     {
+        Debug.Log("Enter StartNewRound");
+        // FREEZE START
         FindObjectOfType<UIManager>().OpenTrapdoors(QuizManager.currentCorrectAnswerID);
+        Debug.Log("Enter 1");
         FindObjectOfType<UIManager>().SetTimerText(0);
+        Debug.Log("Enter 2");
+        //Problem is with this line
         yield return new WaitForSeconds(1.5f);
+        Debug.Log("Enter 3");
         FindObjectOfType<UIManager>().CloseTrapdoors();
+        Debug.Log("Enter 4");
+        // FREEZE END
         NextRound();
+        Debug.Log("Enter 5");
         yield return null;
     }
 
