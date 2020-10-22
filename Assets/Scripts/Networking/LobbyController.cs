@@ -87,7 +87,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
     /// <param name="roomList">List of rooms</param>
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        TextMeshProUGUI roomListText = GameObject.Find("INFO").GetComponent<TextMeshProUGUI>();
+        /*TextMeshProUGUI roomListText = GameObject.Find("INFO").GetComponent<TextMeshProUGUI>();
 
         roomListText.text = "";
 
@@ -99,7 +99,7 @@ public class LobbyController : MonoBehaviourPunCallbacks, ILobbyCallbacks
         if (roomList.Count == 0)
         {
             roomListText.text = "No Rooms Online";
-        }
+        }*/
     }
 
     public void UpdateSliderText()
