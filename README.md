@@ -8,3 +8,5 @@
 * [Quiz Game](https://urbelis.dev/quiz-royale-game-team-1/)
 * [Questions API](https://api.urbelis.dev/project?key=questions)
 * [File Storage](https://storage.urbelis.dev/s/eTeqJYrtjoziDpk)
+
+*[TESTING Link](https://urbelis.dev/quiz/testing/)
