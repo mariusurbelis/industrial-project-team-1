@@ -43,7 +43,7 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         gameRunning = true;
         Sound.PlayNewRoundSound(Sound.newRoundSound);
-        yield return null;
+        yield break;
     }
 
     /// <summary>
@@ -124,7 +124,7 @@ public class RoundManager : MonoBehaviour
     {
         yield return new WaitForSeconds(4f);
         QuizManager.LoadLeaderboard();
-        yield return null;
+        yield break;
     }
 
     /// <summary>
@@ -147,7 +147,7 @@ public class RoundManager : MonoBehaviour
         // FREEZE END
         NextRound();
         Debug.Log("Enter 5");
-        yield return null;
+        yield break;
     }
 
 }

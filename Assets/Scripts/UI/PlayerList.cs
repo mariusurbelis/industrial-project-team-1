@@ -59,6 +59,6 @@ public class PlayerList : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         DrawPlayerPanels();
-        yield return null;
+        yield break;
     }
 }
