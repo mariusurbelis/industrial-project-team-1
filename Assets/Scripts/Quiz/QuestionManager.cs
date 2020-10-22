@@ -7,23 +7,32 @@ using UnityEngine.Networking;
 
 public class QuestionManager : MonoBehaviour
 {
-    private static string jsonString;
-    private static List<Question> MCquestions;
-    private static List<Question> Bquestions;
-    private static int MCamount = 0;
-    private static int Bamount = 0;
+    private static string jsonString = "";
+    private static List<Question> MCquestions = new List<Question>();
+    private static List<Question> Bquestions = new List<Question>();
 
-    // Start is called before the first frame update
     void Start()
     {
+        jsonString = "";
+        QuantityBoolean = 0;
+        QuantityMultiple = 0;
+        MCquestions.Clear();
+        Bquestions.Clear();
         GetJsonData();
     }
 
+    /// <summary>
+    /// Starts a Coroutine to get JSON data from API
+    /// </summary>
     public void GetJsonData()
     {
         StartCoroutine(RequestWebService());
     }
 
+    /// <summary>
+    /// Requests a web request to the API and parses the data from the API to a JSON file.
+    /// </summary>
+    /// <returns>Returns a finish signal whenever the web request has been sent</returns>
     IEnumerator RequestWebService()
     {
         string getDataUrl = "https://api.urbelis.dev/project?key=questions";
@@ -49,7 +58,57 @@ public class QuestionManager : MonoBehaviour
                     }
                     else
                     {
-                        jsonString = jsonData.ToString();
+                        jsonString = jsonData.ToString()
+                          .Replace("&#033;", "!")
+                          .Replace("&#034;", "''")
+                          .Replace("&quot;", "''")
+                          .Replace("&#035;", "#")
+                          .Replace("&#036;", "'")
+                          .Replace("&#037;", "%")
+                          .Replace("&#038;", "&")
+                          .Replace("&amp;", "&")
+                          .Replace("&#039;", "'")
+                          .Replace("&#040;", "(")
+                          .Replace("&#041;", ")")
+                          .Replace("&#047;", "/")
+                          .Replace("&#064;", "@")
+                          .Replace("&#009;", "")
+                          .Replace("&#010;", "")
+                          .Replace("&#013;", "")
+                          .Replace("&#160;", "")
+                          .Replace("&#092;", "'")
+                          .Replace("&agrave;", "à")
+                          .Replace("&aacute;", "á")
+                          .Replace("&apos;", "'")
+                          .Replace("&acirc;", "â")
+                          .Replace("&atilde;", "ã")
+                          .Replace("&Agrave;", "À")
+                          .Replace("&Aacute;", "Á")
+                          .Replace("&#Acirc;", "Â")
+                          .Replace("&Atilde;", "Ã")
+                          .Replace("&egrave;", "è")
+                          .Replace("&eacute;", "é")
+                          .Replace("&ecirc;", "ê")
+                          .Replace("&euml;", "ë")
+                          .Replace("&igrave;", "ì")
+                          .Replace("&iacute;", "í")
+                          .Replace("&ograve;", "ò")
+                          .Replace("&oacute;", "ó")
+                          .Replace("&ugrave;", "ù")
+                          .Replace("&uacute;", "ú")
+                          .Replace("&Egrave;", "È")
+                          .Replace("&Eacute;", "É")
+                          .Replace("&Ecirc;", "Ê")
+                          .Replace("&Euml;", "Ë")
+                          .Replace("&Igrave;", "Ì")
+                          .Replace("&Iacute;", "Í")
+                          .Replace("&Ograve;", "Ò")
+                          .Replace("&Oacute;", "Ó")
+                          .Replace("&Ugrave;", "Ù")
+                          .Replace("&Uacute;", "Ú")
+                          .Replace("&ntilde;", "ñ")
+                          .Replace("&Ntilde;", "Ñ")
+                          ;
                         ProcessJSON();
                     }
                 }
@@ -57,14 +116,15 @@ public class QuestionManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Processes the data from the JSON file retrieved from the API.
+    /// Stores each question in the JSON file, into a question object.
+    /// Depending on the type of question (multiple choice/boolean) it will call different constructors for the questions.
+    /// </summary>
     private void ProcessJSON()
     {
         var D = JSON.Parse(jsonString);
         int length = D["results"].Count;
-        // List of multiple choice questions
-        MCquestions = new List<Question>();
-        // List of boolean true/false questions
-        Bquestions = new List<Question>();
 
         for (int i = 0; i < length; i++)
         {
@@ -80,27 +140,37 @@ public class QuestionManager : MonoBehaviour
                 string thirdIA = D["results"][i]["incorrect_answers"][2];
                 Question newQuestion = new Question(category, type, difficulty, question, correctAnswer, firstIA, secondIA, thirdIA);
                 MCquestions.Add(newQuestion);
-                MCamount++;
+                QuantityMultiple++;
             }
             else if (type == "boolean")
             {
                 string firstIA = D["results"][i]["incorrect_answers"][0];
                 Question newQuestion = new Question(category, type, difficulty, question, correctAnswer, firstIA);
                 Bquestions.Add(newQuestion);
-                Bamount++;
+                QuantityBoolean++;
             }
         }
     }
 
-
-    public static Question GetQuestion()
+    /// <summary>
+    /// Gets a question from the questions arrays.
+    /// </summary>
+    /// <param name="ID">Question ID in the array</param>
+    /// <param name="multiple">Whether the question is true/false or multiple choice</param>
+    /// <returns>Returns the question selected from the array of questions</returns>
+    public static Question GetQuestion(int ID, bool multiple)
     {
-        return MCquestions[Random.Range(0, MCamount)];
+        return multiple ? MCquestions[ID] : Bquestions[ID];
     }
 
-    public static Question GetQuestion(int ID)
-    {
-        return MCquestions[ID];
-    }
+    /// <summary>
+    /// Used to get the quantity of multiple choice questions in the JSON file.
+    /// </summary>
+	public static int QuantityMultiple { get; private set; } = 0;
+
+    /// <summary>
+    /// Used to get the quantity of boolean questions in the JSON file.
+    /// </summary>
+	public static int QuantityBoolean { get; private set; } = 0;
 
 }

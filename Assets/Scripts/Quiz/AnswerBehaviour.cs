@@ -4,11 +4,42 @@ using UnityEngine;
 
 public class AnswerBehaviour : MonoBehaviour
 {
-	void OnTriggerEnter2D(Collider2D col)
+	[SerializeField] private int optionID = -1;
+	public GameObject highlight;
+    /// <summary>
+    /// Checks if a player movement collides with the gameObject attached to.
+	/// If a player object is detected the player's selected option will be set.
+    /// </summary>
+    /// <param name="collider">Colider used to check if a player object is intersecting</param>
+    void OnTriggerStay2D(Collider2D collider)
 	{
-		if (col.gameObject.tag == "Player")
+		if (collider.gameObject.CompareTag("Player"))
 		{
-			Debug.Log("hit" + this.gameObject.name);
+			Player player = collider.gameObject.GetComponent<Player>();
+			player.selectedOption = optionID;
+			if(player.IsMe)
+            {
+				highlight.SetActive(true);
+			}
+			
+		}
+	}
+	/// <summary>
+	/// Checks if a player movement collides with the gameObject attached to.
+	/// If a player object is detected the player's selected option will be set.
+	/// When player is no longer detected, player's selected options is set to -1.
+	/// </summary>
+	/// <param name="collider">Colider used to check if a player object is intersecting</param>
+	void OnTriggerExit2D(Collider2D collider)
+	{
+		if (collider.gameObject.CompareTag("Player"))
+		{
+			Player player = collider.gameObject.GetComponent<Player>();
+			player.selectedOption = -1;
+			if (player.IsMe)
+			{
+				highlight.SetActive(false);
+			}
 		}
 	}
 }
