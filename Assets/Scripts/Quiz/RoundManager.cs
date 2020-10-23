@@ -42,7 +42,7 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         gameRunning = true;
         Sound.PlayNewRoundSound(Sound.newRoundSound);
-        yield return null;
+        yield break;
     }
 
     /// <summary>
@@ -73,7 +73,7 @@ public class RoundManager : MonoBehaviour
                 }
                 else
                 {
-                    syncTimer = 1f;
+                    syncTimer = 0.5f;
                     QuizManager.SyncTimer();
                 }
             }
@@ -120,7 +120,7 @@ public class RoundManager : MonoBehaviour
     {
         yield return new WaitForSeconds(4f);
         QuizManager.LoadLeaderboard();
-        yield return null;
+        yield break;
     }
 
     /// <summary>
@@ -134,7 +134,7 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         FindObjectOfType<UIManager>().CloseTrapdoors();
         NextRound();
-        yield return null;
+        yield break;
     }
 
 }
