@@ -220,7 +220,8 @@ public class Player : MonoBehaviour
     private bool CheckIfWinner()
     {
         int winnerCounter = 0;
-        if (PhotonNetwork.CurrentRoom.PlayerCount - QuizManager.eliminationList.ToArray().Length <= 1 && PhotonNetwork.CurrentRoom.PlayerCount > 1)
+        Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
+        if (PhotonNetwork.CurrentRoom.PlayerCount - QuizManager.eliminationList.Count <= 1 && PhotonNetwork.CurrentRoom.PlayerCount > 1)
         {
             foreach (string name in QuizManager.eliminationList)
             {

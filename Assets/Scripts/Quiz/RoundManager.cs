@@ -104,6 +104,7 @@ public class RoundManager : MonoBehaviour
             // Show that the player won
             FindObjectOfType<UIManager>().ShowWinPopup();
             StartCoroutine(LoadLeaderboard());
+            Debug.Log("ROUNDMANAGER OEN PLAYER LEFT");
             gameDone = true;
         }
         //If player has lost all lives in single players
