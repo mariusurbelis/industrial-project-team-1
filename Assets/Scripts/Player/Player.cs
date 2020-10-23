@@ -226,6 +226,7 @@ public class Player : MonoBehaviour
 
             if (!QuizManager.eliminationList.Contains(Username))
             {
+                Debug.Log("Player wins");
                 Win();
                 return true;
             }
