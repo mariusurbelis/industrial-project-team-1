@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         gameObject.transform.position = Vector2.zero;
         StartCoroutine(EnableMovementAfterTime());
-        yield return null;
+        yield break;
     }
 
     private void ToggleMovement(bool active)
@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         ToggleMovement(true);
-        yield return null;
+        yield break;
     }
 
     public void UsePowerup()
