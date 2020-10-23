@@ -57,8 +57,8 @@ public class PlayerList : MonoBehaviour
 
     private IEnumerator SpawnPlayerPanels()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         DrawPlayerPanels();
-        yield return null;
+        yield break;
     }
 }
