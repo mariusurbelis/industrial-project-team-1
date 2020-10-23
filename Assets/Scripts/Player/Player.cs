@@ -84,7 +84,7 @@ public class Player : MonoBehaviour
 
     [PunRPC]
     void RPC_BeAffectedByPowerup(Powerup.PowerupType powerupType, Vector2 powerupPosition)
-    { 
+    {
         switch (powerupType)
         {
             case Powerup.PowerupType.Bomb:
@@ -220,18 +220,11 @@ public class Player : MonoBehaviour
     private bool CheckIfWinner()
     {
         int winnerCounter = 0;
-        Debug.Log(PhotonNetwork.CurrentRoom.PlayerCount);
-        if (PhotonNetwork.CurrentRoom.PlayerCount - QuizManager.eliminationList.Count <= 1 && PhotonNetwork.CurrentRoom.PlayerCount > 1)
+        Debug.Log("byte = " + PhotonNetwork.CurrentRoom.PlayerCount);
+        if ((int)PhotonNetwork.CurrentRoom.PlayerCount - QuizManager.eliminationList.Count <= 1 && PhotonNetwork.CurrentRoom.PlayerCount > 1)
         {
-            foreach (string name in QuizManager.eliminationList)
-            {
-                winnerCounter++;
-                if (username == name)
-                {
-                    winnerCounter--;
-                }
-            }
-            if (winnerCounter == 1)
+
+            if (!QuizManager.eliminationList.Contains(Username))
             {
                 Win();
                 return true;
