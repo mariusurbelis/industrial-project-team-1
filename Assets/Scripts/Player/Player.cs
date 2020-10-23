@@ -51,8 +51,6 @@ public class Player : MonoBehaviour
     /// </summary>
     public void RegisterRoundDone()
     {
-        if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
-            CheckIfWinner();
         // return if dead ---------------
         if (isDead) return;
         //if(!IsMe) return;
@@ -66,12 +64,14 @@ public class Player : MonoBehaviour
             ToggleMovement(false);
             animator.SetTrigger((selectedOption != -1) ? "Die" : "Melt");
 
-            if (health <= 0 || RoundManager.gameDone)
+            if (health <= 0)
             {
                 Die();
             }
             else
             {
+                if (PhotonNetwork.CurrentRoom.PlayerCount > 1)
+                    CheckIfWinner();
                 StartCoroutine(BackToMiddle());
             }
 

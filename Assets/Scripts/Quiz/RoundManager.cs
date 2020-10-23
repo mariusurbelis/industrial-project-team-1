@@ -99,7 +99,7 @@ public class RoundManager : MonoBehaviour
             }
         }
         //If one player is left in multiplayer
-        if (PhotonNetwork.CurrentRoom.PlayerCount > 1 && PhotonNetwork.CurrentRoom.PlayerCount == QuizManager.eliminationList.ToArray().Length && !gameDone)
+        if (PhotonNetwork.CurrentRoom.PlayerCount > 1 && PhotonNetwork.CurrentRoom.PlayerCount == QuizManager.eliminationList.ToArray().Length-1 && !gameDone)
         {
             // Show that the player won
             FindObjectOfType<UIManager>().ShowWinPopup();
